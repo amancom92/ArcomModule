@@ -1,0 +1,4 @@
+E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
+E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
+E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
+E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb

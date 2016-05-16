@@ -1,0 +1,134 @@
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.body {
+    width: 1300px;
+}
+
+.pageInnerWidth {
+    width: 1300px;
+}
+
+.formWidth {
+    width: 75%;
+    float: left;
+    padding-left: 50px;
+}
+
+.formHeading {
+    width: 100%;
+}
+
+.formHeadingProject {
+    width: 97%;
+}
+
+.formRow {
+    width: 100%;
+}
+
+.formRow1 {
+    width: 100%;
+    display: inline-block;
+}
+
+.textFieldWidth {
+    width: 31%;
+    float: left;
+    padding-right: 20px;
+}
+
+.bodytop {
+    padding-top: 40px;
+}
+
+#line {
+    border-left: 1px solid #ADB0B2;
+    height: 300px;
+    margin-left: 28%;
+}
+
+#headingMargin {
+    margin: 0px !important;
+    font-weight: 200;
+}
+
+.rowMargin {
+    margin-top: 10px;
+}
+
+.rowMargin1 {
+    margin-top: 18px;
+}
+
+#projectName {
+    margin-top: 20px;
+}
+
+#btnalignment {
+    margin-left: 6%;
+}
+
+.btn-sm {
+    line-height: 2.0;
+}
+
+.dropstyle {
+    line-height: 1.42857143;
+    padding: 6px 12px;
+    width: 100%;
+    border-radius: 4px;
+    color: #999999;
+}
+
+.buttonWidth {
+    width: 15%;
+    float: left;
+}
+
+.buttonSize {
+    line-height: 2.0;
+    display: block;
+    width: 100%;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #6E6A66;
+    background-color: #fff;
+    border-color: #ccc;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    vertical-align: middle;
+    box-sizing: border-box;
+    text-shadow: none;
+    border: 1px solid #ccc;
+}
+
+    .buttonSize:hover {
+        color: #019CDE;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+
+.form-field-css {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.topMargin {
+    margin-top: 11px;
+}

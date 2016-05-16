@@ -1,0 +1,131 @@
+﻿@model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="body bodytop" id="refresh">
+    <div class="pageInnerWidth">
+        <div class="buttonWidth" id="btnalignment">
+            <button type="button" class="buttonSize showw" autofocus>General Information</button>
+            <button type="button" class="buttonSize hidee">Project Participants</button>
+            <button type="button" class="buttonSize hidee">Code Information</button>
+            <button type="button" class="buttonSize hidee">Design Information</button>
+            <button type="button" class="buttonSize hidee">Project Defaults</button>
+            <button type="button" class="buttonSize hidee">Project Tracking</button>
+            <button type="button" class="buttonSize hidee">Completion Progress</button>
+        </div>
+
+        @*<div id="line"></div>*@
+        @using (Html.BeginForm("Index", "Project", FormMethod.Post))
+        {
+            <div class="formWidth" id="generalInfo">
+                <div class="formHeading">
+                    <h2 id="headingMargin">General Information</h2>
+                </div>
+                <div class="formHeadingProject">
+                    @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "MAQ Proj 2 May (******* Don't touch it *******).", id = "projectName" } })
+                    @Html.ValidationMessageFor(model => model.ProjectName)
+                </div>
+                <div class="formRow rowMargin1">
+                    <div class="textFieldWidth">
+                        @Html.EditorFor(model => model.ProjectId, new { htmlAttributes = new { @class = "form-field-css", placeholder = "3120" }, id = "projectId" })
+                        @Html.ValidationMessageFor(model => model.ProjectId)
+                    </div>
+                    <div class="textFieldWidth">
+                        @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner" }, id = "owner" })
+                        @Html.ValidationMessageFor(model => model.OwnerName)
+                    </div>
+                    <div class="textFieldWidth">
+                        @Html.EditorFor(model => model.OwnerRepresentative, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Representative" }, id = "ownerRep" })
+                        @Html.ValidationMessageFor(model => model.OwnerRepresentative)
+                    </div>
+                </div>
+                <div class="formRow rowMargin1">
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.ProjectAddress1, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project Address 1" } })
+                        @Html.ValidationMessageFor(model => model.ProjectAddress1)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.OwnerAddress1, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Address 1" } })
+                        @Html.ValidationMessageFor(model => model.OwnerAddress1)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.OwnerEmailAddress, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Email Address" } })
+                        @Html.ValidationMessageFor(model => model.OwnerEmailAddress)
+                    </div>
+                </div>
+                <div class="formRow rowMargin1">
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.ProjectAddress2, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project Address 2" } })
+                        @Html.ValidationMessageFor(model => model.ProjectAddress2)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.OwnerAddress2, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Address 2" } })
+                        @Html.ValidationMessageFor(model => model.OwnerAddress2)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Phone Number" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)
+                    </div>
+                </div>
+                <div class="formRow rowMargin">
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.ProjectCity, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project City" } })
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.OwnerCity, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner City" } })
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Mobile Number" } })
+                        @Html.ValidationMessageFor(model => model.MobileNumber)
+                    </div>
+                </div>
+                <div class="formRow rowMargin">
+                    <div class="textFieldWidth topMargin">
+                        @Html.DropDownListFor(m => m.ProjectStateId, Model.ProjectStateList, "Project State", new { @class = "dropstyle", id = "State" })
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.DropDownListFor(m => m.OwnerStateId, Model.OwnerStateList, "Owner State", new { @class = "dropstyle", id = "ownerState" })
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.DropDownListFor(m => m.ContractOriginId, Model.ContractOriginList, "Origin of Contract", new { @class = "dropstyle" })
+                    </div>
+                </div>
+                <div class="formRow rowMargin">
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.ProjectPostalCode, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project Postal Code" } })
+                        @Html.ValidationMessageFor(model => model.ProjectPostalCode)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.EditorFor(model => model.OwnerPostalCode, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Postal Code" } })
+                        @Html.ValidationMessageFor(model => model.OwnerPostalCode)
+                    </div>
+                    <div class="textFieldWidth topMargin">
+                        @Html.DropDownListFor(m => m.ContractTypeId, Model.ContractTypeList, "Type of Contract", new { @class = "dropstyle" })
+                    </div>
+                </div>
+                <div class="formRow1 rowMargin">
+                    <div class="textFieldWidth">
+                        @Html.DropDownListFor(m => m.ProjectCountryId, Model.ProjectCountryList, "Project Country", new { @class = "dropstyle", id = "Country" })
+                    </div>
+                    <div class="textFieldWidth">
+                        @Html.DropDownListFor(m => m.OwnerCountryId, Model.OwnerCountryList, "Owner Country", new { @class = "dropstyle", id = "ownerCountry" })
+                    </div>
+                    <div class="textFieldWidth">
+                        @Html.DropDownListFor(m => m.ProcurementTypeId, Model.ProcurementTypeList, "Type of Procurement", new { @class = "dropstyle" })
+                    </div>
+                </div>
+                <div class="formRow rowMargin">
+                    <input type="submit" value="Insert" id="insert" />
+                </div>
+            </div><!-- col-sm-9 -->
+        }
+        <div id="temprory"></div>
+    </div><!-- row-->
+</div><!-- body -->
+
+
+<script src="~/Scripts/CustomScripts/ProjectDropDown.js"></script>
+<script src="~/Scripts/CustomScripts/OwnerDropDown.js"></script>
+<script src="~/Scripts/CustomScripts/Custom.js"></script>
