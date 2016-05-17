@@ -22,7 +22,6 @@ namespace ProjectConsultants.Controllers
             //Initializing property to fill object value
             HttpResponseMessage response = FillPropertyValue(projectInformation);
 
-
             projectInformation.ProjectStateId = 0;
             projectInformation.OwnerStateId = 0;
             projectInformation.ContractTypeId = 0;
@@ -32,6 +31,7 @@ namespace ProjectConsultants.Controllers
             projectInformation.ContractOriginId = 0;
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
+            projectInformation.OwnerStateList = new List<SelectListItem>();
 
             return View(projectInformation);
 
@@ -60,25 +60,6 @@ namespace ProjectConsultants.Controllers
             }
             else
                 projectInformation.OwnerCountryList = new List<SelectListItem>();
-
-
-            response = client.GetAsync("api/Common/GetStatesByCountryId").Result;
-            if (response.IsSuccessStatusCode)
-            {
-                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
-                projectInformation.OwnerStateList = responseList;
-            }
-            else
-                projectInformation.OwnerStateList = new List<SelectListItem>();
-
-            //response = client.GetAsync("api/Common/GetStatesByCountryId").Result;
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
-            //    projectInformation.ProjectStateList = responseList;
-            //}
-            //else
-            //    projectInformation.ProjectStateList = new List<SelectListItem>();
 
             response = client.GetAsync("api/Common/GetOriginContractList").Result;
             if (response.IsSuccessStatusCode)
@@ -119,29 +100,29 @@ namespace ProjectConsultants.Controllers
         {
             if (ModelState.IsValid)
             {
-                ProjectInformationEntity projectEntity = new ProjectInformationEntity();
-                projectEntity.ProjectName = projectInformationViewModel.ProjectName;
-                projectEntity.ContractOrigin = Convert.ToString(projectInformationViewModel.ContractOriginId);
-                projectEntity.ContractType = Convert.ToString(projectInformationViewModel.ContractTypeId);
-                projectEntity.MobileNumber = projectInformationViewModel.MobileNumber;
-                projectEntity.OwnerAddress1 = projectInformationViewModel.OwnerAddress1;
-                projectEntity.OwnerAddress2 = projectInformationViewModel.OwnerAddress2;
-                projectEntity.OwnerCity = projectInformationViewModel.OwnerCity;
-                projectEntity.OwnerCountry = Convert.ToString(projectInformationViewModel.OwnerCountryId);
-                projectEntity.OwnerEmailAddress = projectInformationViewModel.OwnerEmailAddress;
-                projectEntity.OwnerName = projectInformationViewModel.OwnerName;
-                projectEntity.OwnerPostalCode = projectInformationViewModel.OwnerPostalCode;
-                projectEntity.OwnerRepresentative = projectInformationViewModel.OwnerRepresentative;
-                projectEntity.OwnerState = Convert.ToString(projectInformationViewModel.OwnerStateId);
-                projectEntity.PhoneNumber = projectInformationViewModel.PhoneNumber;
-                projectEntity.ProcurementType = Convert.ToString(projectInformationViewModel.ProcurementTypeId);
-                projectEntity.ProjectAddress1 = projectInformationViewModel.ProjectAddress1;
-                projectEntity.ProjectCity = projectInformationViewModel.ProjectCity;
-                projectEntity.ProjectCountry = Convert.ToString(projectInformationViewModel.ProjectCountryId);
-                projectEntity.ProjectId = projectInformationViewModel.ProjectId;
-                projectEntity.ProjectPostalCode = projectInformationViewModel.ProjectPostalCode;
-                projectEntity.ProjectState = Convert.ToString(projectInformationViewModel.ProjectStateId);
-                projectEntity.ProjectAddress2 = projectInformationViewModel.ProjectAddress2;
+                //ProjectInformationEntity projectEntity = new ProjectInformationEntity();
+                //projectEntity.ProjectName = projectInformationViewModel.ProjectName;
+                //projectEntity.ContractOrigin = Convert.ToString(projectInformationViewModel.ContractOriginId);
+                //projectEntity.ContractType = Convert.ToString(projectInformationViewModel.ContractTypeId);
+                //projectEntity.MobileNumber = projectInformationViewModel.MobileNumber;
+                //projectEntity.OwnerAddress1 = projectInformationViewModel.OwnerAddress1;
+                //projectEntity.OwnerAddress2 = projectInformationViewModel.OwnerAddress2;
+                //projectEntity.OwnerCity = projectInformationViewModel.OwnerCity;
+                //projectEntity.OwnerCountry = Convert.ToString(projectInformationViewModel.OwnerCountryId);
+                //projectEntity.OwnerEmailAddress = projectInformationViewModel.OwnerEmailAddress;
+                //projectEntity.OwnerName = projectInformationViewModel.OwnerName;
+                //projectEntity.OwnerPostalCode = projectInformationViewModel.OwnerPostalCode;
+                //projectEntity.OwnerRepresentative = projectInformationViewModel.OwnerRepresentative;
+                //projectEntity.OwnerState = Convert.ToString(projectInformationViewModel.OwnerStateId);
+                //projectEntity.PhoneNumber = projectInformationViewModel.PhoneNumber;
+                //projectEntity.ProcurementType = Convert.ToString(projectInformationViewModel.ProcurementTypeId);
+                //projectEntity.ProjectAddress1 = projectInformationViewModel.ProjectAddress1;
+                //projectEntity.ProjectCity = projectInformationViewModel.ProjectCity;
+                //projectEntity.ProjectCountry = Convert.ToString(projectInformationViewModel.ProjectCountryId);
+                //projectEntity.ProjectId = projectInformationViewModel.ProjectId;
+                //projectEntity.ProjectPostalCode = projectInformationViewModel.ProjectPostalCode;
+                //projectEntity.ProjectState = Convert.ToString(projectInformationViewModel.ProjectStateId);
+                //projectEntity.ProjectAddress2 = projectInformationViewModel.ProjectAddress2;
 
                 //var entity = new CommonManager().Add(projectEntity);
                 projectInformationViewModel = new ProjectInformationViewModel();
@@ -151,18 +132,22 @@ namespace ProjectConsultants.Controllers
                 var errorMessage = GetModelStateErrors(ModelState);
             }
 
-            var newModel = new ProjectInformationViewModel();
-            HttpResponseMessage response = FillPropertyValue(newModel);
+            var projectInformation = new ProjectInformationViewModel();
+            HttpResponseMessage response = FillPropertyValue(projectInformation);
 
-            newModel.ProjectStateId = 0;
-            newModel.OwnerStateId = 0;
-            newModel.ContractTypeId = 0;
-            newModel.ProjectCountryId = 0;
-            newModel.OwnerCountryId = 0;
-            newModel.ProcurementTypeId = 0;
-            newModel.ContractOriginId = 0;
+            projectInformation.ProjectStateId = 0;
+            projectInformation.OwnerStateId = 0;
+            projectInformation.ContractTypeId = 0;
+            projectInformation.ProjectCountryId = 0;
+            projectInformation.OwnerCountryId = 0;
+            projectInformation.ProcurementTypeId = 0;
+            projectInformation.ContractOriginId = 0;
 
-           // Redirect to the same page
+            projectInformation.ProjectStateList = new List<SelectListItem>();
+            projectInformation.OwnerStateList = new List<SelectListItem>();
+
+
+            // Redirect to the same page
             Response.Redirect(Request.Url.PathAndQuery, true);
             return View(projectInformationViewModel);
         }
@@ -181,9 +166,8 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="Country">The country.</param>
         /// <returns></returns>
-        public JsonResult GetStates(string Country)
-        {
-            var projectInformation = new ProjectInformationViewModel();
+        public JsonResult GetStates(int countryId)
+        {            
             List<SelectListItem> states = new List<SelectListItem>();
 
             HttpClient client = new HttpClient();
@@ -191,14 +175,12 @@ namespace ProjectConsultants.Controllers
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
            
-            HttpResponseMessage response = client.GetAsync("api/Common/GetStatesByCountryId?countryId=" + Country).Result;
+            HttpResponseMessage response = client.GetAsync("api/Common/GetStatesByCountryId?countryId=" + countryId).Result;
             if (response.IsSuccessStatusCode)
             {
-                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
-                projectInformation.ProjectStateList = responseList;
+                var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
+                states = responseList;
             }
-            else
-                projectInformation.ProjectStateList = new List<SelectListItem>();
 
             return Json(new SelectList(states, "Value", "Text"));
         }
@@ -208,10 +190,24 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="ownerCountry">The owner country.</param>
         /// <returns></returns>
-        public JsonResult GetOwnerStates(string ownerCountry)
+        public JsonResult GetOwnerStates(int countryId)
         {
-            // var ownerStates = new CommonManager().GetStatesByCountryId(Convert.ToInt32(ownerCountry));
-            return Json(new SelectList(null, "Value", "Text"));
+            List<SelectListItem> ownerStates = new List<SelectListItem>();
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:63465/");
+            //set the Content-Type to application/json
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = client.GetAsync("api/Common/GetStatesByCountryId?countryId=" + countryId).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
+                ownerStates = responseList;
+            }
+
+
+            return Json(new SelectList(ownerStates, "Value", "Text"));
 
 
         }
