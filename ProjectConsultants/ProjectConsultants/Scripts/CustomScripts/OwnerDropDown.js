@@ -10,7 +10,7 @@ $(document).ready(function () {
 
             // here we get value of selected country and passing same value
             //as input to json method GetStates.
-            data: { ownerCountry: $("#ownerCountry").val() },
+            data: { countryId: $("#ownerCountry").val() },
             dataType: 'json',
             success: function (ownerStates) {
                 // states contains the JSON formatted list
