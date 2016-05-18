@@ -131,7 +131,7 @@ namespace ProjectConsultants.Controllers
             {
                 var errorMessage = GetModelStateErrors(ModelState);
             }
-
+             
             var projectInformation = new ProjectInformationViewModel();
             HttpResponseMessage response = FillPropertyValue(projectInformation);
 
@@ -148,7 +148,7 @@ namespace ProjectConsultants.Controllers
 
 
             // Redirect to the same page
-            Response.Redirect(Request.Url.PathAndQuery, true);
+            //Response.Redirect(Request.Url.PathAndQuery, true);
             return View(projectInformationViewModel);
         }
 

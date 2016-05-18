@@ -20,6 +20,7 @@ namespace ProjectConsultants.DataAccess
         /// The project information.
         /// </value>
         public DbSet<ProjectInformationEntity> projectInformation { get; set; }
+        public DbSet<UserEntity> userInformation { get; set; }
 
     }
 }

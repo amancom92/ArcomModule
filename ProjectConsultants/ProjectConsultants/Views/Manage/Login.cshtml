@@ -1,0 +1,52 @@
+﻿@model ProjectConsultants.UI.ViewModel.LoginViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/CSS/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <img src="~/Images/logo.png" id="imageAlignment" />
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="loginHeaderBlock">
+        <div class="row">
+            <div class="col-sm-12">
+                 <div id="loginpageTitle"><b>User Log In</b></div>
+            </div>
+        </div>
+    </div>
+    <div class="container center-form">
+        <div class="row">
+            <div class="col-sm-12">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control fieldPadding", placeholder = "User Name*" } })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 textFieldSpace">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control fieldPadding", placeholder = "Password*" } })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 buttonSpace center-block">
+                <button type="button" class="btn btn-default buttonStyle center-block">Sign In</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
