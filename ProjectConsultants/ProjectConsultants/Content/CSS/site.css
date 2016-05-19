@@ -163,8 +163,9 @@
 .textFieldSpace {
     padding-top: 20px;
 }
-.buttonSpace{
- padding-top: 40px;
+
+.buttonSpace {
+    padding-top: 40px;
 }
 
 .fieldPadding {
@@ -174,8 +175,8 @@
 
 .center-form {
     margin: 0 auto !important;
-    width: 33%;
-    margin-top: 10% !important;
+    width: 40%;
+    margin-top: 8% !important;
 }
 
 .buttonStyle {
@@ -183,4 +184,48 @@
     background-color: #fff;
     border-color: #30A7E0;
     border-radius: 10px;
+}
+
+#loginHeading {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#loginTitle {
+    text-align: center;
+}
+
+.loginHeadingSpace {
+    padding-top: 40px;
+}
+
+#loginFormBorder {
+    border: 1px solid #DFDFDF;
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.accountText {
+    color: #555;
+}
+
+.infoText {
+    color: #30A7E0;
+}
+
+.textPosition {
+    text-align: center;
+}
+
+.infoText a {
+    text-decoration: none !important;
+    color: #30A7E0 !important;
+}
+
+.informationTextPadding {
+    padding-top: 30px;
+    padding-bottom: 120px;
 }
