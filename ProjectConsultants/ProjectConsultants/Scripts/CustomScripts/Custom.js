@@ -11,9 +11,16 @@ $(document).ready(function () {
     });
 });
 
+//$(document).ready(function () {
+//    $('li.navlist').click(function () {
+//        $('li.navlist a').removeClass("active");
+//        $(this).addClass("active");
+//    });
+//});
+
 $(document).ready(function () {
-    $('ul li a').click(function () {
-        $('li a').removeClass("active");
-        $(this).addClass("active");
+    $('a.submitForm').click(function () {
+        $('form#submitInformationForm').submit();
+        //alert("Hello");
     });
 });

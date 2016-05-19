@@ -8,6 +8,7 @@
     <script src="~/Scripts/jquery-1.9.1.js"></script>
     <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
     <link href="~/Content/CSS/site.css" rel="stylesheet" />
+    <script src="~/Scripts/CustomScripts/Custom.js"></script>
 </head>
 <body>
     <div class="headerColor">
@@ -16,8 +17,9 @@
     <div>
         <ul class="navigation">
             <li class="navlist"><a href="#">@Html.ActionLink("Summary", "Temp", "Project")</a></li>
-            <li class="navlist"><a class="active" href="#">@Html.ActionLink("Setup", "Index", "Project")</a></li>
-            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Temp", "Project")</a></li>
+            <li class="navlist"><a href="#">@Html.ActionLink("Setup", "Index", "Project",null,new { @class = "active"})</a></li>
+            @*<li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new { onclick = "$('form').submit();" })</a></li>*@
+            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new {@class="submitForm" })</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Work Area", "Temp", "Project")</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Output", "Temp", "Project")</a></li>
         </ul>
