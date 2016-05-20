@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using ProjectConsultants.App_Start;
+using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace ProjectConsultants
@@ -9,6 +11,7 @@ namespace ProjectConsultants
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

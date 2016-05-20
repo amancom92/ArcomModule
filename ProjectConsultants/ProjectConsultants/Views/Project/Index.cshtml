@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using System.Web.Optimization
 
 <div class="body bodytop" id="refresh">
     <div class="pageInnerWidth">
@@ -127,7 +128,4 @@
     </div><!-- row-->
 </div><!-- body -->
 
-
-<script src="~/Scripts/CustomScripts/ProjectDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/OwnerDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/Custom.js"></script>
+@Scripts.Render("~/bundles/CustomScripts")

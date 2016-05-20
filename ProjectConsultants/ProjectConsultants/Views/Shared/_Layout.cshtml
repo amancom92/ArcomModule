@@ -1,25 +1,33 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - Project Consultants</title>
 
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
-    <link href="~/Content/CSS/site.css" rel="stylesheet" />
-    <script src="~/Scripts/CustomScripts/Custom.js"></script>
+    @Styles.Render("~/bundles/UserDefinedCss")
+    @Scripts.Render("~/bundles/CustomScripts")
+    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <div class="headerColor">
-        <div id="headerText">MAQ Proj 2 May (******* Don't touch it *******).</div>
+        <div>
+            <span id="headerText">
+               MAQ Proj 2 May (******* Don't touch it *******).
+            </span>
+            <span id="menu-icon">
+                <a href="#"> <img src="/Images/menu-icon.PNG"></a>
+            </span>
+        </div>
+
     </div>
     <div>
         <ul class="navigation">
             <li class="navlist"><a href="#">@Html.ActionLink("Summary", "Temp", "Project")</a></li>
-            <li class="navlist"><a href="#">@Html.ActionLink("Setup", "Index", "Project",null,new { @class = "active"})</a></li>
+            <li class="navlist"><a href="#">@Html.ActionLink("Setup", "Index", "Project", null, new { @class = "active" })</a></li>
             @*<li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new { onclick = "$('form').submit();" })</a></li>*@
-            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new {@class="submitForm" })</a></li>
+            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new { @class = "submitForm" })</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Work Area", "Temp", "Project")</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Output", "Temp", "Project")</a></li>
         </ul>
@@ -31,5 +39,3 @@
     </div>
 </body>
 </html>
-
-

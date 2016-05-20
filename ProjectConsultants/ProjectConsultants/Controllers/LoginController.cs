@@ -22,24 +22,46 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
-        //[HttpPost]
+        [HttpPost]
         public ActionResult Login(LoginViewModel loginViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:63465/");
-
-                HttpResponseMessage response = client.GetAsync("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password).Result;
-
-                if (response.IsSuccessStatusCode)
+                if (ModelState.IsValid)
                 {
-                    return RedirectToActionPermanent("Index", "Project");
+                    HttpClient client = new HttpClient();
+                    client.BaseAddress = new Uri("http://rcom.compunnel.com/service/");
+
+                    HttpResponseMessage response = client.GetAsync("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToActionPermanent("Index", "Project");
+                    }
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
+                    }
+                    //else
+                    //{
+                    //    // problems handling here
+                    //    Console.WriteLine("Error occurred, the status code is: {0}",response.StatusCode);
+                    //}
                 }
+                else
+                {
+                    var errorMessage = GetModelStateErrors(ModelState);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return View(loginViewModel);
         }
 
     }
 }
+
+
+
