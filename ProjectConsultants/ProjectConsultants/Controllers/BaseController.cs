@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
 {
-    public class BaseController : Controller
+    public class BaseController : System.Web.Mvc.Controller
     {
         protected string GetModelStateErrors(ModelStateDictionary modelState)
         {

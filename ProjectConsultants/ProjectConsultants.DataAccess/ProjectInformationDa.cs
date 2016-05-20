@@ -18,6 +18,5 @@ namespace ProjectConsultants.DataAccess
                 return projectDetail;
             }
         }
-
     }
 }

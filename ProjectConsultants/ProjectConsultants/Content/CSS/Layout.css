@@ -40,3 +40,14 @@ li.navlist a.active{
     width: 100%;
     height: 20px;
 }
+/*Changes for ChangePassword*/
+.headerColor2 {
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 70px;
+}
+#headerText2 {
+    color: black;
+    margin-left: 130px;
+    padding-top:25px;
+}
