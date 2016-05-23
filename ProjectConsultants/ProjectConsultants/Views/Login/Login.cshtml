@@ -3,6 +3,7 @@
 @{
     Layout = null;
 }
+@using System.Web.Optimization
 <!DOCTYPE html>
 
 <html>
@@ -11,10 +12,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
 
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/CSS/site.css" rel="stylesheet" />
+    @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/UserDefinedCss")
+
 </head>
 <body>
     <div class="container-fluid">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 loginHeadingSpace">
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control fieldPadding", placeholder = "User Name*" ,autocomplete = "off"} })
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control fieldPadding", placeholder = "User Name*", autocomplete = "off" } })
                         @Html.ValidationMessageFor(model => model.UserName)
                     </div>
                 </div>
@@ -74,3 +74,5 @@
     </div>
 </body>
 </html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
