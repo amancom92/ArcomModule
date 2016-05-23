@@ -7,7 +7,7 @@
     padding-right: 10px;
 }
 
-.navlist a {
+    .navlist a {
         color: #826666;
         font-size: 15px;
         text-decoration: none;
@@ -18,16 +18,12 @@
     margin-left: 18px;
 }
 
-/*.navlist :hover {
-    color: #019CDE !important;
-    border-bottom: 2px solid #019CDE;
-    padding-bottom: 3px;
-}*/
-li.navlist.active {
+li.navlist a.active{
     color: #019CDE !important;
     border-bottom: 2px solid #019CDE !important;
     padding-bottom: 3px !important;
 }
+
 #headerBlock {
     background-color: #ADB0B2;
     height: 80px;

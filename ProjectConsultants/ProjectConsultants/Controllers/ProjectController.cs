@@ -1,5 +1,4 @@
-﻿using ProjectConsultants.Entity;
-using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -41,7 +40,7 @@ namespace ProjectConsultants.Controllers
         {
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:63465/");
+            client.BaseAddress = new Uri("http://localhost:52338/");
 
             HttpResponseMessage response = client.GetAsync("api/Common/GetCountryList").Result;
             if (response.IsSuccessStatusCode)
@@ -131,7 +130,7 @@ namespace ProjectConsultants.Controllers
             {
                 var errorMessage = GetModelStateErrors(ModelState);
             }
-
+             
             var projectInformation = new ProjectInformationViewModel();
             HttpResponseMessage response = FillPropertyValue(projectInformation);
 
@@ -148,7 +147,7 @@ namespace ProjectConsultants.Controllers
 
 
             // Redirect to the same page
-            Response.Redirect(Request.Url.PathAndQuery, true);
+            //Response.Redirect(Request.Url.PathAndQuery, true);
             return View(projectInformationViewModel);
         }
 
@@ -171,7 +170,7 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> states = new List<SelectListItem>();
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:63465/");
+            client.BaseAddress = new Uri("http://localhost:52338/");
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
            
@@ -195,7 +194,7 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> ownerStates = new List<SelectListItem>();
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:63465/");
+            client.BaseAddress = new Uri("http://localhost:52338/");
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

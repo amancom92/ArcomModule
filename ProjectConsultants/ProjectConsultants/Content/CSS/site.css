@@ -135,44 +135,97 @@
     margin-top: 11px;
 }
 
-/*Registration page css*/
+/* Login Page CSS*/
 
-.header{
-    height:70px;
-    background-color:white;
-   padding-left:25px;
-}
-hr{
-    color:dodgerblue;
+#imageAlignment {
+    position: relative;
+    top: 30px;
+    left: 60px;
 }
 
-h3{
-    color:darkgrey;
-    padding-left:40px;
-    padding-top:20px;
-}
-img{
-   padding-top:10px;
-   padding-left:20px;  
-}
-.textField{
-    width: 24%;
-    float: left;
-    padding-left: 450px;
-    padding-top:8px;   
-}
-.mainreg{
-    margin-top:70px;
+#loginHeaderBlock {
+    background-color: #F7F7F7;
+    height: 80px;
+    width: 100%;
+    position: relative;
+    top: 45px;
+    border-top: 1px solid #E8E8E8;
 }
 
-.signup{
-    display: inline-block;
+#loginpageTitle {
+    color: #9F9F9F;
+    font-size: 15px;
+    position: relative;
+    top: 25px;
+    margin-left: 4.5%;
+}
+
+.textFieldSpace {
+    padding-top: 20px;
+}
+
+.buttonSpace {
+    padding-top: 40px;
+}
+
+.fieldPadding {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.center-form {
+    margin: 0 auto !important;
+    width: 40%;
+    margin-top: 8% !important;
+}
+
+.buttonStyle {
+    color: #30A7E0;
+    background-color: #fff;
+    border-color: #30A7E0;
     border-radius: 10px;
-    text-align: center;
-    padding: 6px 15px;
-    margin-left:90px;
-    border-color: dodgerblue;
-    color: dodgerblue;
-    margin-top:5px;
+}
 
+#loginHeading {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#loginTitle {
+    text-align: center;
+}
+
+.loginHeadingSpace {
+    padding-top: 40px;
+}
+
+#loginFormBorder {
+    border: 1px solid #DFDFDF;
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.accountText {
+    color: #555;
+}
+
+.infoText {
+    color: #30A7E0;
+}
+
+.textPosition {
+    text-align: center;
+}
+
+.infoText a {
+    text-decoration: none !important;
+    color: #30A7E0 !important;
+}
+
+.informationTextPadding {
+    padding-top: 30px;
+    padding-bottom: 120px;
 }
