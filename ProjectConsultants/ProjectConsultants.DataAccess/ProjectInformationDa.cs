@@ -19,5 +19,15 @@ namespace ProjectConsultants.DataAccess
             }
         }
 
+        public UserEntity Register(UserEntity user)
+        {
+            using (var context = new ArcomDbContext())
+            {
+                var userdetails = context.userInformation.Add(user);
+                context.SaveChanges();
+                return userdetails;
+            }
+        }
+
     }
 }

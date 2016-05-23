@@ -81,7 +81,7 @@
                         @Html.ValidationMessageFor(model => model.MobileNumber)
                     </div>
                 </div>
-                <div class="formRow rowMargin">
+                @*<div class="formRow rowMargin">
                     <div class="textFieldWidth topMargin">
                         @Html.DropDownListFor(m => m.ProjectStateId, Model.ProjectStateList, "Project State", new { @class = "dropstyle", id = "State" })
                     </div>
@@ -91,7 +91,7 @@
                     <div class="textFieldWidth topMargin">
                         @Html.DropDownListFor(m => m.ContractOriginId, Model.ContractOriginList, "Origin of Contract", new { @class = "dropstyle" })
                     </div>
-                </div>
+                </div>*@
                 <div class="formRow rowMargin">
                     <div class="textFieldWidth topMargin">
                         @Html.EditorFor(model => model.ProjectPostalCode, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project Postal Code" } })
@@ -101,11 +101,11 @@
                         @Html.EditorFor(model => model.OwnerPostalCode, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Postal Code" } })
                         @Html.ValidationMessageFor(model => model.OwnerPostalCode)
                     </div>
-                    <div class="textFieldWidth topMargin">
+                    @*<div class="textFieldWidth topMargin">
                         @Html.DropDownListFor(m => m.ContractTypeId, Model.ContractTypeList, "Type of Contract", new { @class = "dropstyle" })
-                    </div>
+                    </div>*@
                 </div>
-                <div class="formRow1 rowMargin">
+                @*<div class="formRow1 rowMargin">
                     <div class="textFieldWidth">
                         @Html.DropDownListFor(m => m.ProjectCountryId, Model.ProjectCountryList, "Project Country", new { @class = "dropstyle", id = "Country" })
                     </div>
@@ -115,7 +115,7 @@
                     <div class="textFieldWidth">
                         @Html.DropDownListFor(m => m.ProcurementTypeId, Model.ProcurementTypeList, "Type of Procurement", new { @class = "dropstyle" })
                     </div>
-                </div>
+                </div>*@
                 <div class="formRow rowMargin">
                     <input type="submit" value="Insert" id="insert" />
                 </div>

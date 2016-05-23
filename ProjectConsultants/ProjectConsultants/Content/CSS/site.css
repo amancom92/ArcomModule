@@ -134,3 +134,45 @@
 .topMargin {
     margin-top: 11px;
 }
+
+/*Registration page css*/
+
+.header{
+    height:70px;
+    background-color:white;
+   padding-left:25px;
+}
+hr{
+    color:dodgerblue;
+}
+
+h3{
+    color:darkgrey;
+    padding-left:40px;
+    padding-top:20px;
+}
+img{
+   padding-top:10px;
+   padding-left:20px;  
+}
+.textField{
+    width: 24%;
+    float: left;
+    padding-left: 450px;
+    padding-top:8px;   
+}
+.mainreg{
+    margin-top:70px;
+}
+
+.signup{
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+    padding: 6px 15px;
+    margin-left:90px;
+    border-color: dodgerblue;
+    color: dodgerblue;
+    margin-top:5px;
+
+}
