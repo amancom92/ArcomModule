@@ -13,7 +13,7 @@ namespace ProjectConsultants.DataAccess
         {
             using (var context = new ArcomDbContext())
             {
-                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email == login.Email && p.Password == login.Password);
+                var loginDetail = context.userInformation.FirstOrDefault(log => log.Email == login.Email && log.Password == login.Password);               
 
                 if (loginDetail != null)
                 {
@@ -21,7 +21,6 @@ namespace ProjectConsultants.DataAccess
                     context.SaveChanges();
                     return true;
                 }
-
                 return false;
             }
         }
