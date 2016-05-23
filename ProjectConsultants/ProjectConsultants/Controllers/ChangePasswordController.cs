@@ -21,20 +21,20 @@ namespace ProjectConsultants.Controllers
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri("http://localhost:63465/");
 
-                HttpResponseMessage response = client.GetAsync("api/ChangePassword/ChangePassword?Email" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&Password=" + changePasswordViewModel.NewPassword).Result;
+                HttpResponseMessage response = client.GetAsync("api/ChangePassword/ChangePassword?UserName=" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&NewPassword=" + changePasswordViewModel.NewPassword).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
 
                     return RedirectToActionPermanent("Index", "Project");
                 }
-            }
+            //}
             return View(changePasswordViewModel);
         }
     }
