@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectConsultants.UI.ViewModel
 {
-    class BaseViewModel
+    public class BaseViewModel
     {
         public string IsSuccess { get; set; }
 
