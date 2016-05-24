@@ -162,6 +162,7 @@
     <Compile Include="Common\UserProfile.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogOutController.cs" />
@@ -179,6 +180,7 @@
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ChangePassword\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
