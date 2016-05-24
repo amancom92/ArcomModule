@@ -1,6 +1,5 @@
 ﻿using ProjectConsultants.Common;
 using ProjectConsultants.UI.ViewModel;
-using ProjectConsultants.ViewModel;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;

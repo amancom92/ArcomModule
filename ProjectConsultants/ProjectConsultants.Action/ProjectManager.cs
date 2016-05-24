@@ -12,7 +12,15 @@ namespace ProjectConsultants.Action
         /// <returns></returns>
         public ProjectInformationEntity Add(ProjectInformationEntity projectData)
         {
-            var projectDetail = new ProjectInformationDa().Add(projectData);
+            var projectDetail = new ProjectInformationEntity();
+            try
+            {
+                projectDetail = new ProjectInformationDa().Add(projectData);
+            }
+            catch
+            {
+
+            }
             return projectDetail;
         }
     }

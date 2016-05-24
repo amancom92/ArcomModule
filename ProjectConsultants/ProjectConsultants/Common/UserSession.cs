@@ -1,4 +1,4 @@
-﻿namespace ProjectConsultants.ViewModel
+﻿namespace ProjectConsultants.Common
 {
     /// <summary>
     /// UserProfile ViewModel

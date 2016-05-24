@@ -1,5 +1,4 @@
 ﻿using ProjectConsultants.Common;
-using ProjectConsultants.ViewModel;
 using System;
 using System.Linq;
 using System.Net.Http;

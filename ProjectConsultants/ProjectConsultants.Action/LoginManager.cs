@@ -14,7 +14,15 @@ namespace ProjectConsultants.Action
         /// <returns></returns>
         public UserEntity AuthenticateLogin(UserEntity userDetails)
         {
-            var userDetail = new LoginDa().AuthenticateLogin(userDetails);
+            var userDetail = new UserEntity();
+            try
+            {
+                userDetail = new UserDa().AuthenticateLogin(userDetails);
+            }
+            catch
+            {
+
+            }
             return userDetail;
         }
     }
