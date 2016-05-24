@@ -2,7 +2,7 @@
 
 namespace ProjectConsultants.UI.ViewModel
 {
-    public  class LoginViewModel
+    public  class LoginViewModel: BaseViewModel
     {
         //[Key]
         //public int Id { get; set; }

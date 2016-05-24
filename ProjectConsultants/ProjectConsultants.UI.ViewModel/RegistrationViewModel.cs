@@ -16,7 +16,7 @@ namespace ProjectConsultants.UI.ViewModel
         /// <value>
         /// The identifier.
         /// </value>
-        public int Id { get; set; }
+        public int UserId { get; set; }
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -49,9 +49,11 @@ namespace ProjectConsultants.UI.ViewModel
         /// The password.
         /// </value>
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
-
+        [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "password and confirm password are not same")]
         public string ConfirmPassword { get; set; }
+      
     }
 }

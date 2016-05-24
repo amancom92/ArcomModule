@@ -23,11 +23,6 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="requestedUrl">The requested URL.</param>
         /// <returns></returns>
-        protected HttpResponseMessage GetServiceResponse(string requestedUrl)
-        {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(Helper.ServiceUrl);
-            return client.GetAsync(requestedUrl).Result;
-        }
+  
     }
 }

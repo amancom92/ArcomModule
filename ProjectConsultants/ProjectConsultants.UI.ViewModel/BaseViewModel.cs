@@ -8,6 +8,8 @@ namespace ProjectConsultants.UI.ViewModel
 {
     public class BaseViewModel
     {
+        public string IsSuccess { get; set; }
+
         public string Message { get; set; }
     }
 }

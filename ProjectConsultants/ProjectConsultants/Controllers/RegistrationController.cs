@@ -1,9 +1,9 @@
-﻿using ProjectConsultants.Action;
-using ProjectConsultants.Entity;
-using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
@@ -16,14 +16,15 @@ namespace ProjectConsultants.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(RegistrationViewModel register)
+        public async Task<ActionResult> Register(RegistrationViewModel register)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                   
-                    HttpResponseMessage response = GetServiceResponse("api/Registration/Register");
+                    HttpClient client = new HttpClient();
+                    client.BaseAddress = new Uri("http://localhost:64468/");
+                    HttpResponseMessage response = await client.PostAsJsonAsync("api/Registration/Register", register); 
                     if (response.IsSuccessStatusCode)
                     {
                         return RedirectToAction("Index", "Project");
@@ -42,10 +43,16 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
+
+        [HttpPost]
         public JsonResult EmailExists(string email)
         {
-            return Json(!String.Equals(email, "priya.gupta@gmail.com", StringComparison.OrdinalIgnoreCase));
+            var user = Membership.GetUserNameByEmail(email);
+            return Json(user == null);
+
+
         }
+ 
     }
 }
 

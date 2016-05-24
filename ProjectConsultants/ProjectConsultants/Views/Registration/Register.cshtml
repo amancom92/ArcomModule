@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width" />
     <link href="~/Content/CSS/site.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <title>Registration</title>
 </head>
 <body>
@@ -20,6 +22,9 @@
     </div>
     @using (Html.BeginForm())
     {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+    
         <div>
             <div class="textField">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-field-css mainreg ", placeholder = "First Name*" } })

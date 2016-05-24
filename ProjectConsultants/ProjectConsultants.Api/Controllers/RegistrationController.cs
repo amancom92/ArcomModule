@@ -23,10 +23,14 @@ namespace ProjectConsultants.Api.Controllers
                 user.LastName = register.LastName;
                 user.Email = register.Email;
                 user.Password = register.Password;
+          
+                user.CreatedOn = DateTime.Now;
+                user.UpdatedOn = DateTime.Now;
                 var newuser = new Register().Add(user);
                 return Request.CreateResponse(newuser);
 
             }
+
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
     }
