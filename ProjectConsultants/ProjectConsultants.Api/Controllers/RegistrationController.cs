@@ -12,7 +12,22 @@ namespace ProjectConsultants.Api.Controllers
 {
     public class RegistrationController : ApiController
     {
-       
 
+       [HttpPost]
+        public HttpResponseMessage Register(RegistrationViewModel register)
+        {
+            if (ModelState.IsValid)
+            {
+                UserEntity user = new UserEntity();
+                user.FirstName = register.FirstName;
+                user.LastName = register.LastName;
+                user.Email = register.Email;
+                user.Password = register.Password;
+                var newuser = new Register().Add(user);
+                return Request.CreateResponse(newuser);
+
+            }
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
     }
 }

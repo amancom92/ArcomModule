@@ -2,6 +2,7 @@
 using ProjectConsultants.Entity;
 using ProjectConsultants.UI.ViewModel;
 using System;
+using System.Net.Http;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -17,18 +18,28 @@ namespace ProjectConsultants.Controllers
         [HttpPost]
         public ActionResult Register(RegistrationViewModel register)
         {
-            if (ModelState.IsValid)
+            try
             {
-                UserEntity user = new UserEntity();
-                user.FirstName = register.FirstName;
-                user.LastName = register.LastName;
-                user.Email = register.Email;
-                user.Password = register.Password;
-                var newuser = new Register().Add(user);
-                return RedirectToAction("Index", "Project");
-
+                if (ModelState.IsValid)
+                {
+                   
+                    HttpResponseMessage response = GetServiceResponse("api/Registration/Register");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction("Index", "Project");
+                    }                                 
+                }
+                else
+                {
+                    var errorMessage = GetModelStateErrors(ModelState);
+                }
             }
-            return View(register) ;
+            catch (Exception ex)
+            {
+                register.Message = "Internal Server Error.";
+            }
+
+            return View(register);
         }
 
         public JsonResult EmailExists(string email)

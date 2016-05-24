@@ -40,7 +40,7 @@ namespace ProjectConsultants.Controllers
         {
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:52338/");
+            client.BaseAddress = new Uri("http://localhost:64468/");
 
             HttpResponseMessage response = client.GetAsync("api/Common/GetCountryList").Result;
             if (response.IsSuccessStatusCode)
@@ -170,7 +170,7 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> states = new List<SelectListItem>();
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:52338/");
+            client.BaseAddress = new Uri("http://localhost:64468/");
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
            
@@ -194,7 +194,7 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> ownerStates = new List<SelectListItem>();
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:52338/");
+            client.BaseAddress = new Uri("http://localhost:64468/");
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
