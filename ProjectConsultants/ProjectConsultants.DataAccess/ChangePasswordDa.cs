@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace ProjectConsultants.DataAccess
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ChangePasswordDa
     {
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="login">The login.</param>
+        /// <returns></returns>
         public bool ChangePassword(UserEntity login)
         {
             using (var context = new ArcomDbContext())

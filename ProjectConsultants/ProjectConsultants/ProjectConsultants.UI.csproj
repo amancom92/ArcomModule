@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\MapperConfig.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -209,6 +210,8 @@
           <DevelopmentServerPort>52338</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:52338/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:52338/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

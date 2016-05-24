@@ -26,12 +26,8 @@ namespace ProjectConsultants.Controllers
         public ActionResult Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
-            {
-
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:63465/");
-
-                HttpResponseMessage response = client.GetAsync("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password).Result;
+            {               
+                HttpResponseMessage response = GetServiceResponse("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password);
 
                 if (response.IsSuccessStatusCode)
                 {

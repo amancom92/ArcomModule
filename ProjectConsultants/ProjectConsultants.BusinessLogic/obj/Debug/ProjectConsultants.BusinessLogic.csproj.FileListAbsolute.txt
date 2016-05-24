@@ -1,11 +1,3 @@
-E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
-E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
-E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
-E:\Projects\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb
 C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
 C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
 C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache

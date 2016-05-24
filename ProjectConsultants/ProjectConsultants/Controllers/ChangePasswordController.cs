@@ -10,55 +10,44 @@ using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <seealso cref="ProjectConsultants.Controllers.BaseController" />
     public class ChangePasswordController : BaseController
     {
-        // GET: Change Password
+
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult ChangePassword()
         {
             return View();
         }
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="changePasswordViewModel">The change password view model.</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {                      
+            HttpResponseMessage response = GetServiceResponse("api/ChangePassword/ChangePassword?UserName=" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&NewPassword=" + changePasswordViewModel.NewPassword);
+            if (response.IsSuccessStatusCode)
+            {
 
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:63465/");
-
-                HttpResponseMessage response = client.GetAsync("api/ChangePassword/ChangePassword?UserName=" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&NewPassword=" + changePasswordViewModel.NewPassword).Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-
-                    return RedirectToActionPermanent("Index", "Project");
-                }
-            //}
+                return RedirectToActionPermanent("Index", "Project");
+            }
+            }
             return View(changePasswordViewModel);
         }
     }
 }
 
-            //    //var userDetails = new UserEntity();
-            //    //userDetails.FirstName = changePasswordViewModel.Email;
-            //    //userDetails.Password = changePasswordViewModel.Password;
-            //    //userDetails.NewPassword = changePasswordViewModel.NewPassword;
 
-            //        //var isSuccess = new ChangePasswordManager().ChangePassword(userDetails);
-            //        //ViewBag.result = isSuccess ? "Password changed successfully." : "Password not changed.";
 
-            //        catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            //{
-            //    Exception raise = dbEx;
-            //    foreach (var validationErrors in dbEx.EntityValidationErrors)
-            //    {
-            //        foreach (var validationError in validationErrors.ValidationErrors)
-            //        {
-            //            string message = string.Format("{0}:{1}",
-            //                validationErrors.Entry.Entity.ToString(),
-            //                validationError.ErrorMessage);
-            //            // raise a new exception nesting  the current instance as InnerException  
-            //            raise = new InvalidOperationException(message, raise);
-                    
-  
+
