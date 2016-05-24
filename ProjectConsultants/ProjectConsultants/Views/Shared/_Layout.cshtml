@@ -1,24 +1,60 @@
 ﻿@using System.Web.Optimization
+@using ProjectConsultants.ViewModel
+
 <!DOCTYPE html>
+
+@{
+    var loggedInUser = Session["UserProfile"] as UserProfileViewModel ?? new UserProfileViewModel();
+}
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - Project Consultants</title>
+    <title>@ViewBag.Title - Project Setup</title>
 
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/bundles/UserDefinedCss")
     @Scripts.Render("~/bundles/CustomScripts")
-    @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
     <div class="headerColor">
         <div>
             <span id="headerText">
-               MAQ Proj 2 May (******* Don't touch it *******).
+                MAQ Proj 2 May (******* Don't touch it *******).
             </span>
-            <span id="menu-icon">
-                <a href="#"> <img src="/Images/menu-icon.PNG"></a>
-            </span>
+            <div id="menu-icon">
+               <img src="/Images/menu-icon.PNG" class="menuDropdown">
+                <!-- -->
+                <ul class="dropdown-menu hidden">
+                    <li class="menuHeadingPadding">
+                       <a>Dashboard</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                        <a>Projects</a>
+                    </li>
+                    <li class="dropdown-subitem">New Project</li>
+                    <li class="dropdown-subitem">Active projects</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                        <a>Tools</a>
+                    </li>
+                    <li class="dropdown-subitem">Product Library</li>
+                    <li class="dropdown-subitem">MPI</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                       <a>Settings</a>
+                    </li>
+                    <li class="dropdown-subitem">Task Notifications Frequency</li>
+                    <li class="dropdown-subitem">Manage Profile</li>
+                    <li class="dropdown-subitem">Manage Services</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                       @Html.ActionLink("Logout", "LogOut", "LogOut")
+                    </li>
+                </ul>
+                <!-- -->
+            </div>
         </div>
 
     </div>
@@ -33,6 +69,12 @@
         </ul>
     </div>
     <div id="headerBlock">
+        @if (loggedInUser != null)
+        {
+            <text>
+                Welcome @loggedInUser.FirstName
+            </text>
+        }
     </div>
     <div>
         @RenderBody()

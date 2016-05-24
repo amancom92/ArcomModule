@@ -47,3 +47,55 @@ li.navlist a.active {
     float: right;
     margin-right: 5%;
 }
+
+/* Log Out CSS*/
+.dropdown-menu {
+    position: absolute;
+    top: 26px;
+    right: 70px;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    list-style: none;
+    color: #777777;
+    z-index: 100;
+}
+
+.dropdown-subitem {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #777;
+    white-space: nowrap;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+}
+
+.menuHeadingPadding {
+    padding-left: 10px;
+}
+
+    .menuHeadingPadding a {
+        text-decoration: none;
+        color: #777777;
+    }
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

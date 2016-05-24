@@ -157,11 +157,14 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\MapperConfig.cs" />
+    <Compile Include="Common\UserProfile.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogOutController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -187,16 +190,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Assembly\" />
+    <Folder Include="Views\LogOut\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjectConsultants.DataAccess\ProjectConsultants.DataAccess.csproj">
-      <Project>{FE33EB0C-2C6B-4D88-BDEF-DAFC5B14F302}</Project>
-      <Name>ProjectConsultants.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectConsultants.Entity\ProjectConsultants.Entity.csproj">
-      <Project>{6B2B3A9D-D107-44AC-916D-26FE0BF6F88D}</Project>
-      <Name>ProjectConsultants.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>
