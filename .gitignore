@@ -49,3 +49,5 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
 ProjectConsultants/ProjectConsultants/Web.config
 ProjectConsultants/.vs/
+ProjectConsultants/ProjectConsultants/App_Data/ASPNETDB.MDF
+ProjectConsultants/ProjectConsultants/App_Data/aspnetdb_log.ldf
