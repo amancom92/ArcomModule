@@ -159,10 +159,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\MapperConfig.cs" />
+    <Compile Include="Common\UserProfile.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogOutController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,12 +192,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Assembly\" />
+    <Folder Include="Views\LogOut\" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ProjectReference Include="..\ProjectConsultants.Action\ProjectConsultants.Action.csproj">
       <Project>{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}</Project>
       <Name>ProjectConsultants.Action</Name>
     </ProjectReference>
+=======
+>>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>

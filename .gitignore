@@ -29,3 +29,5 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/TemporaryGenerated
 *.suo
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.pdb
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
+ProjectConsultants/ProjectConsultants/Web.config
+ProjectConsultants/.vs/

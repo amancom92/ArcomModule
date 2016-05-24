@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.Action", "ProjectConsultants.Action\ProjectConsultants.Action.csproj", "{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.BusinessLogic", "ProjectConsultants.BusinessLogic\ProjectConsultants.BusinessLogic.csproj", "{1BEC87F4-8106-4F32-8555-6491C45DFC47}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6B2B3A9D-D107-44AC-916D-26FE0BF6F88D} = {6B2B3A9D-D107-44AC-916D-26FE0BF6F88D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.UI.ViewModel", "ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj", "{6CFB4C75-E8B8-4E33-98F7-A8F4B5A687B2}"
 EndProject

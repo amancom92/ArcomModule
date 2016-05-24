@@ -4,8 +4,8 @@ namespace ProjectConsultants.UI.ViewModel
 {
     public  class LoginViewModel: BaseViewModel
     {
-        //[Key]
-        //public int Id { get; set; }
+        [Key]
+        public int Id { get; set; }
         /// <summary>
         /// Gets or sets the email.
         /// </summary>

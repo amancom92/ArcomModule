@@ -17,6 +17,7 @@ namespace ProjectConsultants.Controllers
         public ActionResult Index()
         {
 
+
             var projectInformation = new ProjectInformationViewModel();
             //Initializing property to fill object value
             HttpResponseMessage response = FillPropertyValue(projectInformation);
@@ -31,18 +32,28 @@ namespace ProjectConsultants.Controllers
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
             projectInformation.OwnerStateList = new List<SelectListItem>();
-
-            return View(projectInformation);
+            if (Session["uname"] == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
+            else
+            {
+                return View(projectInformation);
+            }
 
         }
 
-        private static HttpResponseMessage FillPropertyValue(ProjectInformationViewModel projectInformation)
+        private HttpResponseMessage FillPropertyValue(ProjectInformationViewModel projectInformation)
         {
 
+<<<<<<< HEAD
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
 
             HttpResponseMessage response = client.GetAsync("api/Common/GetCountryList").Result;
+=======
+            HttpResponseMessage response = GetServiceResponse("api/Common/GetCountryList");
+>>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -51,7 +62,7 @@ namespace ProjectConsultants.Controllers
             else
                 projectInformation.ProjectCountryList = new List<SelectListItem>();
 
-            response = client.GetAsync("api/Common/GetCountryList").Result;
+            response = GetServiceResponse("api/Common/GetCountryList");
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -60,7 +71,7 @@ namespace ProjectConsultants.Controllers
             else
                 projectInformation.OwnerCountryList = new List<SelectListItem>();
 
-            response = client.GetAsync("api/Common/GetOriginContractList").Result;
+            response = GetServiceResponse("api/Common/GetOriginContractList");
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -69,7 +80,7 @@ namespace ProjectConsultants.Controllers
             else
                 projectInformation.ContractOriginList = new List<SelectListItem>();
 
-            response = client.GetAsync("api/Common/GetProcurementList").Result;
+            response = GetServiceResponse("api/Common/GetProcurementList");
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -78,7 +89,7 @@ namespace ProjectConsultants.Controllers
             else
                 projectInformation.ProcurementTypeList = new List<SelectListItem>();
 
-            response = client.GetAsync("api/Common/GetContractList").Result;
+            response = GetServiceResponse("api/Common/GetContractList");
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -130,7 +141,7 @@ namespace ProjectConsultants.Controllers
             {
                 var errorMessage = GetModelStateErrors(ModelState);
             }
-             
+
             var projectInformation = new ProjectInformationViewModel();
             HttpResponseMessage response = FillPropertyValue(projectInformation);
 
@@ -166,15 +177,19 @@ namespace ProjectConsultants.Controllers
         /// <param name="Country">The country.</param>
         /// <returns></returns>
         public JsonResult GetStates(int countryId)
-        {            
+        {
             List<SelectListItem> states = new List<SelectListItem>();
+            var client = new HttpClient();
 
+<<<<<<< HEAD
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
+=======
+>>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-           
-            HttpResponseMessage response = client.GetAsync("api/Common/GetStatesByCountryId?countryId=" + countryId).Result;
+
+            HttpResponseMessage response = GetServiceResponse("api/Common/GetStatesByCountryId?countryId=" + countryId);
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
@@ -193,12 +208,17 @@ namespace ProjectConsultants.Controllers
         {
             List<SelectListItem> ownerStates = new List<SelectListItem>();
 
+<<<<<<< HEAD
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
+=======
+            var client = new HttpClient();
+
+>>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = client.GetAsync("api/Common/GetStatesByCountryId?countryId=" + countryId).Result;
+            HttpResponseMessage response = GetServiceResponse("api/Common/GetStatesByCountryId?countryId=" + countryId);
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;

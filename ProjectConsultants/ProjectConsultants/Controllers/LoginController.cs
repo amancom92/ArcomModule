@@ -1,4 +1,5 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Common;
+using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
 using System.Web.Mvc;
@@ -29,24 +30,25 @@ namespace ProjectConsultants.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://rcom.compunnel.com/service/");
-
-                    HttpResponseMessage response = client.GetAsync("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password).Result;
-
+                    HttpResponseMessage response = GetServiceResponse("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password);
                     if (response.IsSuccessStatusCode)
                     {
+                        UserProfile userprofile = new UserProfile
+                        {
+                            Id = loginViewModel.Id,
+                            UserName = loginViewModel.UserName
+                        };
+
+                        //Storing user information in session
+                        //Session["uname"] = loginViewModel.UserName;
+                        LoggedInUser = userprofile;
+
                         return RedirectToActionPermanent("Index", "Project");
                     }
                     if (!response.IsSuccessStatusCode)
                     {
                         throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
                     }
-                    //else
-                    //{
-                    //    // problems handling here
-                    //    Console.WriteLine("Error occurred, the status code is: {0}",response.StatusCode);
-                    //}
                 }
                 else
                 {

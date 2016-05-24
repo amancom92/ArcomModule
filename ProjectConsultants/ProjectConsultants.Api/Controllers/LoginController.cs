@@ -19,7 +19,7 @@ namespace ProjectConsultants.Api.Controllers
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
         [HttpGet]
-        public HttpResponseMessage AuthenticateLogin(string UserName="", string Password="")
+        public HttpResponseMessage AuthenticateLogin(string UserName, string Password)
         {
             UserEntity userEntity = new UserEntity();
             userEntity.Email = UserName;
