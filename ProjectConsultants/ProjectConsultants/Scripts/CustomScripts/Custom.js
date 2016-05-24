@@ -11,9 +11,29 @@ $(document).ready(function () {
     });
 });
 
+//$(document).ready(function () {
+//    $('li.navlist').click(function () {
+//        $('li.navlist a').removeClass("active");
+//        $(this).addClass("active");
+//    });
+//});
+
 $(document).ready(function () {
-    $('ul li a').click(function () {
-        $('li a').removeClass("active");
-        $(this).addClass("active");
+    $('a.submitForm').click(function () {
+        $('form#submitInformationForm').submit();
+        //alert("Hello");
     });
 });
+
+$(document).ready(function () {
+
+    $('#menu-icon').off().on().click(function () {
+        var $this = $('.dropdown-menu');
+        if ($this.hasClass("hidden")) {
+            $this.removeClass("hidden").addClass("visible");
+        } else {
+            $this.removeClass("visible").addClass("hidden");
+        }
+    });
+});
+

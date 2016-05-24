@@ -3,8 +3,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using System.Web.Optimization
+
 
 <div class="body bodytop" id="refresh">
+ 
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
             <button type="button" class="buttonSize showw" autofocus>General Information</button>
@@ -17,11 +20,12 @@
         </div>
 
         @*<div id="line"></div>*@
-        @using (Html.BeginForm("Index", "Project", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Project", FormMethod.Post,new { id = "submitInformationForm" }))
         {
             <div class="formWidth" id="generalInfo">
                 <div class="formHeading">
                     <h2 id="headingMargin">General Information</h2>
+               
                 </div>
                 <div class="formHeadingProject">
                     @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "MAQ Proj 2 May (******* Don't touch it *******).", id = "projectName" } })
@@ -72,9 +76,11 @@
                 <div class="formRow rowMargin">
                     <div class="textFieldWidth topMargin">
                         @Html.EditorFor(model => model.ProjectCity, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Project City" } })
+                        @Html.ValidationMessageFor(model => model.ProjectCity)
                     </div>
                     <div class="textFieldWidth topMargin">
                         @Html.EditorFor(model => model.OwnerCity, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner City" } })
+                        @Html.ValidationMessageFor(model => model.OwnerCity)
                     </div>
                     <div class="textFieldWidth topMargin">
                         @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Owner Mobile Number" } })
@@ -83,13 +89,13 @@
                 </div>
                 <div class="formRow rowMargin">
                     <div class="textFieldWidth topMargin">
-                        @Html.DropDownListFor(m => m.ProjectStateId, Model.ProjectStateList, "Project State", new { @class = "dropstyle", id = "State" })
+                        @*@Html.DropDownListFor(m => m.ProjectStateId, Model.ProjectStateList, "Project State", new { @class = "dropstyle", id = "State" })*@
                     </div>
                     <div class="textFieldWidth topMargin">
-                        @Html.DropDownListFor(m => m.OwnerStateId, Model.OwnerStateList, "Owner State", new { @class = "dropstyle", id = "ownerState" })
+                        @*@Html.DropDownListFor(m => m.OwnerStateId, Model.OwnerStateList, "Owner State", new { @class = "dropstyle", id = "ownerState" })*@
                     </div>
                     <div class="textFieldWidth topMargin">
-                        @Html.DropDownListFor(m => m.ContractOriginId, Model.ContractOriginList, "Origin of Contract", new { @class = "dropstyle" })
+                        @*@Html.DropDownListFor(m => m.ContractOriginId, Model.ContractOriginList, "Origin of Contract", new { @class = "dropstyle" })*@
                     </div>
                 </div>
                 <div class="formRow rowMargin">
@@ -102,22 +108,22 @@
                         @Html.ValidationMessageFor(model => model.OwnerPostalCode)
                     </div>
                     <div class="textFieldWidth topMargin">
-                        @Html.DropDownListFor(m => m.ContractTypeId, Model.ContractTypeList, "Type of Contract", new { @class = "dropstyle" })
+                        @*@Html.DropDownListFor(m => m.ContractTypeId, Model.ContractTypeList, "Type of Contract", new { @class = "dropstyle" })*@
                     </div>
                 </div>
                 <div class="formRow1 rowMargin">
                     <div class="textFieldWidth">
-                        @Html.DropDownListFor(m => m.ProjectCountryId, Model.ProjectCountryList, "Project Country", new { @class = "dropstyle", id = "Country" })
+                        @*@Html.DropDownListFor(m => m.ProjectCountryId, Model.ProjectCountryList, "Project Country", new { @class = "dropstyle", id = "Country" })*@
                     </div>
                     <div class="textFieldWidth">
-                        @Html.DropDownListFor(m => m.OwnerCountryId, Model.OwnerCountryList, "Owner Country", new { @class = "dropstyle", id = "ownerCountry" })
+                        @*@Html.DropDownListFor(m => m.OwnerCountryId, Model.OwnerCountryList, "Owner Country", new { @class = "dropstyle", id = "ownerCountry" })*@
                     </div>
                     <div class="textFieldWidth">
-                        @Html.DropDownListFor(m => m.ProcurementTypeId, Model.ProcurementTypeList, "Type of Procurement", new { @class = "dropstyle" })
+                        @*@Html.DropDownListFor(m => m.ProcurementTypeId, Model.ProcurementTypeList, "Type of Procurement", new { @class = "dropstyle" })*@
                     </div>
                 </div>
                 <div class="formRow rowMargin">
-                    <input type="submit" value="Insert" id="insert" />
+                    @*<input type="submit" value="Insert" id="insert" />*@
                 </div>
             </div><!-- col-sm-9 -->
         }
@@ -125,7 +131,5 @@
     </div><!-- row-->
 </div><!-- body -->
 
+@Scripts.Render("~/bundles/CustomScripts")
 
-<script src="~/Scripts/CustomScripts/ProjectDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/OwnerDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/Custom.js"></script>

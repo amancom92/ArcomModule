@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseManager.cs" />
     <Compile Include="CommonManager.cs" />
+    <Compile Include="LoginManager.cs" />
     <Compile Include="ProjectManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
