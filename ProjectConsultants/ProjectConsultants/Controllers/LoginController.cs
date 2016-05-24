@@ -1,7 +1,9 @@
 ﻿using ProjectConsultants.Common;
 using ProjectConsultants.UI.ViewModel;
+using ProjectConsultants.ViewModel;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -24,7 +26,7 @@ namespace ProjectConsultants.Controllers
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Login(LoginViewModel loginViewModel)
+        public async Task<ActionResult> Login(LoginViewModel loginViewModel)
         {
             try
             {
@@ -33,16 +35,27 @@ namespace ProjectConsultants.Controllers
                     HttpResponseMessage response = GetServiceResponse("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password);
                     if (response.IsSuccessStatusCode)
                     {
-                        UserProfile userprofile = new UserProfile
-                        {
-                            Id = loginViewModel.Id,
-                            UserName = loginViewModel.UserName
-                        };
+                        var responseEntity =  await response.Content.ReadAsAsync<UserSession>();
+
+                        //UserSession userprofile = new UserSession
+                        //{
+                        //    UserId = loginViewModel.UserId,
+                        //    UserName = loginViewModel.UserName,
+                        //    FirstName= loginViewModel.FirstName,
+                        //    LastName= loginViewModel.LastName
+                        //};
+                        //UserViewModel userViewModel = new UserViewModel()
+                        //{
+                        //    UserId = ,
+                        //    UserName = ,
+                        //    FirstName = ,
+                        //    LastName =
+
+                        //};
 
                         //Storing user information in session
-                        //Session["uname"] = loginViewModel.UserName;
-                        LoggedInUser = userprofile;
 
+                        LoggedInUser = responseEntity;
                         return RedirectToActionPermanent("Index", "Project");
                     }
                     if (!response.IsSuccessStatusCode)

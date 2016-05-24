@@ -12,7 +12,7 @@ namespace ProjectConsultants.Action
         /// </summary>
         /// <param name="userDetails">The user details.</param>
         /// <returns></returns>
-        public bool AuthenticateLogin(UserEntity userDetails)
+        public UserEntity AuthenticateLogin(UserEntity userDetails)
         {
             var userDetail = new LoginDa().AuthenticateLogin(userDetails);
             return userDetail;

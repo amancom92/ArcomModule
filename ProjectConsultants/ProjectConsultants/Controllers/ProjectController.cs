@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -32,14 +33,18 @@ namespace ProjectConsultants.Controllers
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
             projectInformation.OwnerStateList = new List<SelectListItem>();
-            if (Session["uname"] == null)
-            {
-                return RedirectToActionPermanent("Login", "Login");
-            }
-            else
-            {
-                return View(projectInformation);
-            }
+            //if (Session["uname"] == null)
+            //{
+            //    return RedirectToActionPermanent("Login", "Login");
+            //}
+            //else
+            //{
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
+
+            return View(projectInformation);
+            //}
 
         }
 

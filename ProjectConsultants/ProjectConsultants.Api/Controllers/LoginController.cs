@@ -25,11 +25,13 @@ namespace ProjectConsultants.Api.Controllers
             userEntity.Email = UserName;
             userEntity.Password = Password;
 
-            var IsLoginExist = new LoginManager().AuthenticateLogin(userEntity);
-            if (IsLoginExist)
+
+            var login = new LoginManager().AuthenticateLogin(userEntity);
+            if (login != null)
             {
-                return Request.CreateResponse(IsLoginExist);
+                return Request.CreateResponse(login);
             }
+
             else
             {
                 return Request.CreateResponse(HttpStatusCode.NoContent);

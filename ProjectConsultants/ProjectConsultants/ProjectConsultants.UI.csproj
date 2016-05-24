@@ -159,7 +159,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\MapperConfig.cs" />
-    <Compile Include="Common\UserProfile.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
