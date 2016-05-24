@@ -1,35 +1,83 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+@using ProjectConsultants.ViewModel
+
+<!DOCTYPE html>
+
+@{
+    var loggedInUser = Session["UserProfile"] as UserProfileViewModel ?? new UserProfileViewModel();
+}
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title - Project Consultants</title>
+    <title>@ViewBag.Title - Project Setup</title>
 
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <link href="~/Content/CSS/Layout.css" rel="stylesheet" />
-    <link href="~/Content/CSS/site.css" rel="stylesheet" />
-    <script src="~/Scripts/CustomScripts/Custom.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/UserDefinedCss")
+    @Scripts.Render("~/bundles/CustomScripts")
 </head>
 <body>
     <div class="headerColor">
-        <div id="headerText">MAQ Proj 2 May (******* Don't touch it *******).</div>
+        <div>
+            <span id="headerText">
+                MAQ Proj 2 May (******* Don't touch it *******).
+            </span>
+            <div id="menu-icon">
+               <img src="/Images/menu-icon.PNG" class="menuDropdown">
+                <!-- -->
+                <ul class="dropdown-menu hidden">
+                    <li class="menuHeadingPadding">
+                       <a>Dashboard</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                        <a>Projects</a>
+                    </li>
+                    <li class="dropdown-subitem">New Project</li>
+                    <li class="dropdown-subitem">Active projects</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                        <a>Tools</a>
+                    </li>
+                    <li class="dropdown-subitem">Product Library</li>
+                    <li class="dropdown-subitem">MPI</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                       <a>Settings</a>
+                    </li>
+                    <li class="dropdown-subitem">Task Notifications Frequency</li>
+                    <li class="dropdown-subitem">Manage Profile</li>
+                    <li class="dropdown-subitem">Manage Services</li>
+                    <li class="divider"></li>
+                    <li class="menuHeadingPadding">
+                       @Html.ActionLink("Logout", "LogOut", "LogOut")
+                    </li>
+                </ul>
+                <!-- -->
+            </div>
+        </div>
+
     </div>
     <div>
         <ul class="navigation">
             <li class="navlist"><a href="#">@Html.ActionLink("Summary", "Temp", "Project")</a></li>
-            <li class="navlist"><a href="#">@Html.ActionLink("Setup", "Index", "Project",null,new { @class = "active"})</a></li>
+            <li class="navlist"><a href="#">@Html.ActionLink("Setup", "Index", "Project", null, new { @class = "active" })</a></li>
             @*<li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new { onclick = "$('form').submit();" })</a></li>*@
-            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new {@class="submitForm" })</a></li>
+            <li class="navlist"><a href="#">@Html.ActionLink("Assembly", "Index", "Project", null, new { @class = "submitForm" })</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Work Area", "Temp", "Project")</a></li>
             <li class="navlist"><a href="#">@Html.ActionLink("Output", "Temp", "Project")</a></li>
         </ul>
     </div>
     <div id="headerBlock">
+        @if (loggedInUser != null)
+        {
+            <text>
+                Welcome @loggedInUser.FirstName
+            </text>
+        }
     </div>
     <div>
         @RenderBody()
     </div>
 </body>
 </html>
-
-

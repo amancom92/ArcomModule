@@ -24,3 +24,16 @@ $(document).ready(function () {
         //alert("Hello");
     });
 });
+
+$(document).ready(function () {
+
+    $('#menu-icon').off().on().click(function () {
+        var $this = $('.dropdown-menu');
+        if ($this.hasClass("hidden")) {
+            $this.removeClass("hidden").addClass("visible");
+        } else {
+            $this.removeClass("visible").addClass("hidden");
+        }
+    });
+});
+

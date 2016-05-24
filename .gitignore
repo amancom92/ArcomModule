@@ -30,3 +30,5 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/TemporaryGenerated
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProjectConsultants/ProjectConsultants.Action/bin/
+ProjectConsultants/ProjectConsultants.BusinessLogic/obj/
+ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/
