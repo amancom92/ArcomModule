@@ -18,14 +18,13 @@ namespace ProjectConsultants.Controllers
             return string.Join("\n", modelState.Keys.SelectMany(k => modelState[k].Errors).Select(m => m.ErrorMessage).Distinct().ToArray());
         }
 
-<<<<<<< HEAD
+
         /// <summary>
         /// Gets the service response.
         /// </summary>
         /// <param name="requestedUrl">The requested URL.</param>
         /// <returns></returns>
   
-=======
         protected HttpResponseMessage GetServiceResponse(string requestedUrl)
         {
             HttpClient client = new HttpClient();
@@ -56,6 +55,5 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
->>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
     }
 }

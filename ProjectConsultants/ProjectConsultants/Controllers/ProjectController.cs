@@ -46,14 +46,11 @@ namespace ProjectConsultants.Controllers
         private HttpResponseMessage FillPropertyValue(ProjectInformationViewModel projectInformation)
         {
 
-<<<<<<< HEAD
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
 
             HttpResponseMessage response = client.GetAsync("api/Common/GetCountryList").Result;
-=======
-            HttpResponseMessage response = GetServiceResponse("api/Common/GetCountryList");
->>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -181,11 +178,9 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> states = new List<SelectListItem>();
             var client = new HttpClient();
 
-<<<<<<< HEAD
-            HttpClient client = new HttpClient();
+
+            //HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
-=======
->>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -208,13 +203,11 @@ namespace ProjectConsultants.Controllers
         {
             List<SelectListItem> ownerStates = new List<SelectListItem>();
 
-<<<<<<< HEAD
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
-=======
-            var client = new HttpClient();
+            //var client = new HttpClient();
 
->>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

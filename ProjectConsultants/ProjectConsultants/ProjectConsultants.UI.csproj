@@ -195,13 +195,11 @@
     <Folder Include="Views\LogOut\" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+
     <ProjectReference Include="..\ProjectConsultants.Action\ProjectConsultants.Action.csproj">
       <Project>{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}</Project>
       <Name>ProjectConsultants.Action</Name>
     </ProjectReference>
-=======
->>>>>>> 311271fb6da5a2d0ede46c5f4e80d90a9bda6701
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>
