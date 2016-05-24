@@ -13,8 +13,13 @@ namespace ProjectConsultants.Entity
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        [NotMapped]
+        public string NewPassword { get; set; }
+        [NotMapped]
         public DateTime CreatedOn { get; set; }
+        [NotMapped]
         public string CreatedBy { get; set; }
+        [NotMapped]
         public DateTime UpdatedOn { get; set; }
 
     }

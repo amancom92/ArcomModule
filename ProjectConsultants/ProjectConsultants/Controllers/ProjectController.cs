@@ -17,6 +17,10 @@ namespace ProjectConsultants.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (Session["UserProfile"] == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
 
 
             var projectInformation = new ProjectInformationViewModel();
@@ -33,18 +37,7 @@ namespace ProjectConsultants.Controllers
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
             projectInformation.OwnerStateList = new List<SelectListItem>();
-            //if (Session["uname"] == null)
-            //{
-            //    return RedirectToActionPermanent("Login", "Login");
-            //}
-            //else
-            //{
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-
             return View(projectInformation);
-            //}
 
         }
 
