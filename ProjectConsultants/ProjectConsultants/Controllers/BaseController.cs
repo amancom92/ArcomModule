@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Common;
+using ProjectConsultants.ViewModel;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -26,14 +27,14 @@ namespace ProjectConsultants.Controllers
         /// <value>
         /// The logged in user.
         /// </value>
-        protected UserProfile LoggedInUser
+        protected UserSession LoggedInUser
         {
             get
             {
-                var userProfile = new UserProfile();
+                var userProfile = new UserSession();
                 if (Session["UserProfile"] != null)
                 {
-                    userProfile = Session["UserProfile"] as UserProfile;
+                    userProfile = Session["UserProfile"] as UserSession;
                 }
 
                 return userProfile;

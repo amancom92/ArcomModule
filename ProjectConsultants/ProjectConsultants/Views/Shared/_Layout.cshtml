@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 @{
-    var loggedInUser = Session["UserProfile"] as UserProfileViewModel ?? new UserProfileViewModel();
+    var loggedInUser = Session["UserProfile"] as UserSession ?? new UserSession();
 }
 
 <html>
