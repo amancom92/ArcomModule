@@ -24,11 +24,12 @@ namespace ProjectConsultants.Controllers
                 {
                     HttpClient client = new HttpClient();
                     client.BaseAddress = new Uri("http://localhost:64468/");
-                    HttpResponseMessage response = await client.PostAsJsonAsync("api/Registration/Register", register); 
+                    HttpResponseMessage response = await client.PostAsJsonAsync("api/Registration/Register", register);
+
                     if (response.IsSuccessStatusCode)
                     {
                         return RedirectToAction("Index", "Project");
-                    }                                 
+                    }
                 }
                 else
                 {
@@ -52,7 +53,7 @@ namespace ProjectConsultants.Controllers
 
 
         }
- 
+
     }
 }
 
