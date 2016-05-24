@@ -3,8 +3,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using System.Web.Optimization
+
 
 <div class="body bodytop" id="refresh">
+ 
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
             <button type="button" class="buttonSize showw" autofocus>General Information</button>
@@ -22,6 +25,7 @@
             <div class="formWidth" id="generalInfo">
                 <div class="formHeading">
                     <h2 id="headingMargin">General Information</h2>
+               
                 </div>
                 <div class="formHeadingProject">
                     @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "MAQ Proj 2 May (******* Don't touch it *******).", id = "projectName" } })
@@ -127,7 +131,5 @@
     </div><!-- row-->
 </div><!-- body -->
 
+@Scripts.Render("~/bundles/CustomScripts")
 
-<script src="~/Scripts/CustomScripts/ProjectDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/OwnerDropDown.js"></script>
-<script src="~/Scripts/CustomScripts/Custom.js"></script>

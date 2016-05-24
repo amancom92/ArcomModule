@@ -4,8 +4,8 @@ namespace ProjectConsultants.UI.ViewModel
 {
     public  class LoginViewModel
     {
-        //[Key]
-        //public int Id { get; set; }
+        [Key]
+        public int Id { get; set; }
         /// <summary>
         /// Gets or sets the email.
         /// </summary>
@@ -23,6 +23,7 @@ namespace ProjectConsultants.UI.ViewModel
         /// </value>
         [Required]
         [DataType(DataType.Password)]
+        [StringLength(20,ErrorMessage ="Password length must be between 4 to 20",MinimumLength =4)]
         public string Password { get; set; }
 
     }
