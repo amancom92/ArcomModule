@@ -10,3 +10,8 @@ D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLo
 D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
 D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
 D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb
