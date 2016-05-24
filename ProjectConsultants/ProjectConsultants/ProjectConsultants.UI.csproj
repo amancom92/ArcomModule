@@ -180,14 +180,6 @@
       <Project>{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}</Project>
       <Name>ProjectConsultants.Action</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjectConsultants.DataAccess\ProjectConsultants.DataAccess.csproj">
-      <Project>{FE33EB0C-2C6B-4D88-BDEF-DAFC5B14F302}</Project>
-      <Name>ProjectConsultants.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectConsultants.Entity\ProjectConsultants.Entity.csproj">
-      <Project>{6B2B3A9D-D107-44AC-916D-26FE0BF6F88D}</Project>
-      <Name>ProjectConsultants.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>

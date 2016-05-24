@@ -51,3 +51,4 @@ li.navlist a.active{
     margin-left: 130px;
     padding-top:25px;
 }
+.field-validation-error{ color: red }
