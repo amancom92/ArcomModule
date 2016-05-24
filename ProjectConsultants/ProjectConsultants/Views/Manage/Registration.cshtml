@@ -1,0 +1,49 @@
+﻿@model ProjectConsultants.Entity.UserEntity
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/CSS/site.css" rel="stylesheet" />
+    <title>Registration</title>
+</head>
+<body>
+    <div class="header"> 
+<img  src="C:\Users\13084\Desktop\arcom-one.png" />
+    </div>
+    <hr>
+
+    <div>
+<h3> Register</h3>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <div class="textField">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-field-css mainreg ", placeholder = "First Name*" } })
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <div class="textField">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Last Name*" } })
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+            <div class="textField">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Email*" } })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="textField">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Password*" } })
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+           
+            <div class="textField">
+                <input  class="signup" type="submit" value="sign up"/>
+            </div>
+        </div>
+    }
+</body>
+</html>

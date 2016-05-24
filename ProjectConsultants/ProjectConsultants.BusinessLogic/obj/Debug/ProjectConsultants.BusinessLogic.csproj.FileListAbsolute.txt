@@ -6,3 +6,7 @@ E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb
+D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.dll
+D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\bin\Debug\ProjectConsultants.BusinessLogic.pdb
+D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.dll
+D:\ProjectConsultant_GITManager\ProjectConsultants\ProjectConsultants.BusinessLogic\obj\Debug\ProjectConsultants.BusinessLogic.pdb

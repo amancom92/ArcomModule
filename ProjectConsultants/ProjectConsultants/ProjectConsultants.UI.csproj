@@ -161,10 +161,12 @@
     <Compile Include="Common\MapperConfig.cs" />
     <Compile Include="Controllers\AssemblyController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogOutController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,7 +179,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Registration\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\ChangePassword\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,6 +196,11 @@
     <Folder Include="Views\LogOut\" />
   </ItemGroup>
   <ItemGroup>
+
+    <ProjectReference Include="..\ProjectConsultants.Action\ProjectConsultants.Action.csproj">
+      <Project>{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}</Project>
+      <Name>ProjectConsultants.Action</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>
