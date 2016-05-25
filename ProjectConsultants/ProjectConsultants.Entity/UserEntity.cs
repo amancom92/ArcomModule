@@ -7,16 +7,98 @@ namespace ProjectConsultants.Entity
     [Table("[User]")]
     public class UserEntity
     {
+        /// <summary>
+        /// Gets or sets the user identifier.
+        /// </summary>
+        /// <value>
+        /// The user identifier.
+        /// </value>
         [Key]
+<<<<<<< HEAD
         public int Id { get; set; }
+=======
+        public int UserId { get; set; }
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
+        [Required]
+>>>>>>> 78859d6a6f58302db61db1e9a931ccc06180aa43
         public string FirstName { get; set; }
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        [Required]
         public string LastName { get; set; }
+        /// <summary>
+        /// Gets or sets the email.
+        /// </summary>
+        /// <value>
+        /// The email.
+        /// </value>
+        [Required]
         public string Email { get; set; }
+        /// <summary>
+        /// Gets or sets the password.
+        /// </summary>
+        /// <value>
+        /// The password.
+        /// </value>
+        [Required]
         public string Password { get; set; }
+<<<<<<< HEAD
         public string NewPassword { get; set; }
+=======
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is active.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsActive { get; set; }
+        /// <summary>
+        /// Gets or sets the created on.
+        /// </summary>
+        /// <value>
+        /// The created on.
+        /// </value>
+        [Required]
+>>>>>>> 78859d6a6f58302db61db1e9a931ccc06180aa43
         public DateTime CreatedOn { get; set; }
-        public string CreatedBy { get; set; }
+        /// <summary>
+        /// Gets or sets the created by.
+        /// </summary>
+        /// <value>
+        /// The created by.
+        /// </value>
+        [Required]
+        public int CreatedBy { get; set; }
+        /// <summary>
+        /// Gets or sets the updated by.
+        /// </summary>
+        /// <value>
+        /// The updated by.
+        /// </value>
+        public int UpdatedBy { get; set; }
+        /// <summary>
+        /// Gets or sets the updated on.
+        /// </summary>
+        /// <value>
+        /// The updated on.
+        /// </value>
         public DateTime UpdatedOn { get; set; }
-
+        /// <summary>
+        /// Gets or sets the new password.
+        /// </summary>
+        /// <value>
+        /// The new password.
+        /// </value>
+        [NotMapped]
+        public string NewPassword { get; set; }
     }
 }

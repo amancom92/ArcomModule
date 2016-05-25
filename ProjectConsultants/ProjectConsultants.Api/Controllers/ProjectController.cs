@@ -10,8 +10,6 @@ namespace ProjectConsultants.Api.Controllers
 {
     public class ProjectController : ApiController
     {
-
-
         public HttpResponseMessage AddProject(ProjectInformationViewModel projectInformationViewModel)
         {
             if (ModelState.IsValid)
@@ -46,7 +44,7 @@ namespace ProjectConsultants.Api.Controllers
             {
                 var errorMessage = GetModelStateErrors(ModelState);
             }
-            return Request.CreateResponse(true);           
+            return Request.CreateResponse(true);
         }
 
         private object GetModelStateErrors(ModelStateDictionary modelState)

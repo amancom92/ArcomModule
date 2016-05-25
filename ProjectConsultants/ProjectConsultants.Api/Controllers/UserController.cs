@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
 {
-    public class RegistrationController : ApiController
+    public class UserController : ApiController
     {
 
        [HttpPost]
@@ -24,12 +24,33 @@ namespace ProjectConsultants.Api.Controllers
           
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
-                var newuser = new Register().Add(user);
+                var newuser = new UserManager().Add(user);
                 return Request.CreateResponse(newuser);
 
             }
 
             return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="UserName">Name of the user.</param>
+        /// <param name="Password">The password.</param>
+        /// <param name="NewPassword">The new password.</param>
+        /// <returns></returns>
+        [HttpGet]
+        public HttpResponseMessage ChangePassword(string UserName, string Password, string NewPassword)
+        {
+
+            UserEntity userEntity = new UserEntity();
+            userEntity.Email = UserName;
+            userEntity.Password = Password;
+            userEntity.NewPassword = NewPassword;
+
+            var passwordExist = new UserManager().ChangePassword(userEntity);
+
+            return Request.CreateResponse(passwordExist);
         }
     }
 }

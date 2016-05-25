@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -16,6 +17,10 @@ namespace ProjectConsultants.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (Session["UserProfile"] == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
 
 
             var projectInformation = new ProjectInformationViewModel();
@@ -32,14 +37,7 @@ namespace ProjectConsultants.Controllers
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
             projectInformation.OwnerStateList = new List<SelectListItem>();
-            if (Session["uname"] == null)
-            {
-                return RedirectToActionPermanent("Login", "Login");
-            }
-            else
-            {
-                return View(projectInformation);
-            }
+            return View(projectInformation);
 
         }
 

@@ -1,9 +1,5 @@
-﻿
-
-
-using ProjectConsultants.Action;
+﻿using ProjectConsultants.Action;
 using ProjectConsultants.Entity;
-using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -21,19 +17,28 @@ namespace ProjectConsultants.Api.Controllers
         [HttpGet]
         public HttpResponseMessage AuthenticateLogin(string UserName, string Password)
         {
-            UserEntity userEntity = new UserEntity();
-            userEntity.Email = UserName;
-            userEntity.Password = Password;
+            var response = new HttpResponseMessage();
+            try
+            {
+                UserEntity userEntity = new UserEntity();
+                userEntity.Email = UserName;
+                userEntity.Password = Password;
 
-            var IsLoginExist = new LoginManager().AuthenticateLogin(userEntity);
-            if (IsLoginExist)
-            {
-                return Request.CreateResponse(IsLoginExist);
+                var login = new LoginManager().AuthenticateLogin(userEntity);
+                if (login != null)
+                {
+                    response = Request.CreateResponse(login);
+                }
+                else
+                {
+                    response = Request.CreateResponse(HttpStatusCode.NoContent);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.NoContent);
             }
+
+            return response;
         }
 
     }

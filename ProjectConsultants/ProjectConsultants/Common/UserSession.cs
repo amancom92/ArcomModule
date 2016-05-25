@@ -1,9 +1,9 @@
-﻿namespace ProjectConsultants.ViewModel
+﻿namespace ProjectConsultants.Common
 {
     /// <summary>
     /// UserProfile ViewModel
     /// </summary>
-    public class UserProfileViewModel
+    public class UserSession
     {
         /// <summary>
         /// Gets or sets the user identifier.
