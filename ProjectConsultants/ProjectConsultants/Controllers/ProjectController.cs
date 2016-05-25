@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -16,6 +17,10 @@ namespace ProjectConsultants.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (Session["UserProfile"] == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
 
 
             var projectInformation = new ProjectInformationViewModel();
@@ -32,21 +37,18 @@ namespace ProjectConsultants.Controllers
 
             projectInformation.ProjectStateList = new List<SelectListItem>();
             projectInformation.OwnerStateList = new List<SelectListItem>();
-            if (Session["uname"] == null)
-            {
-                return RedirectToActionPermanent("Login", "Login");
-            }
-            else
-            {
-                return View(projectInformation);
-            }
+            return View(projectInformation);
 
         }
 
         private HttpResponseMessage FillPropertyValue(ProjectInformationViewModel projectInformation)
         {
 
-            HttpResponseMessage response = GetServiceResponse("api/Common/GetCountryList");
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
+
+            HttpResponseMessage response = client.GetAsync("api/Common/GetCountryList").Result;
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -174,6 +176,9 @@ namespace ProjectConsultants.Controllers
             List<SelectListItem> states = new List<SelectListItem>();
             var client = new HttpClient();
 
+
+            //HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -196,7 +201,10 @@ namespace ProjectConsultants.Controllers
         {
             List<SelectListItem> ownerStates = new List<SelectListItem>();
 
-            var client = new HttpClient();
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
+            //var client = new HttpClient();
 
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

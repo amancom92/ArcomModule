@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 @{
-    var loggedInUser = Session["UserProfile"] as UserProfileViewModel ?? new UserProfileViewModel();
+    var loggedInUser = Session["UserProfile"] as UserSession ?? new UserSession();
 }
 
 <html>
@@ -23,8 +23,9 @@
                 MAQ Proj 2 May (******* Don't touch it *******).
             </span>
             <div id="menu-icon">
-               <img src="/Images/menu-icon.PNG" class="menuDropdown">
+                <img src="~/Content/Images/menu-icon.PNG" class="menuDropdown"/>
                 <!-- -->
+              
                 <ul class="dropdown-menu hidden">
                     <li class="menuHeadingPadding">
                        <a>Dashboard</a>
@@ -48,9 +49,12 @@
                     <li class="dropdown-subitem">Task Notifications Frequency</li>
                     <li class="dropdown-subitem">Manage Profile</li>
                     <li class="dropdown-subitem">Manage Services</li>
-                    <li class="divider"></li>
+                    <li class="divider"></li>  
                     <li class="menuHeadingPadding">
-                       @Html.ActionLink("Logout", "LogOut", "LogOut")
+                        @Html.ActionLink("ChangePassword", "ChangePassword", "User")
+                    </li>                  
+                    <li class="menuHeadingPadding">
+                       @Html.ActionLink("Logout", "LogOut", "Login")
                     </li>
                 </ul>
                 <!-- -->

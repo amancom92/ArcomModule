@@ -136,8 +136,8 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\Publish_Client.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\menu-icon.PNG" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\menu-icon.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\CustomScripts\Custom.js" />
@@ -159,13 +159,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Helper.cs" />
     <Compile Include="Common\MapperConfig.cs" />
-    <Compile Include="Common\UserProfile.cs" />
-    <Compile Include="Controllers\AssemblyController.cs" />
+    <Compile Include="Common\UserSession.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\LogOutController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,7 +177,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,18 +189,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Assembly\" />
-    <Folder Include="Views\LogOut\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjectConsultants.Action\ProjectConsultants.Action.csproj">
+      <Project>{38E5E6E0-9808-43ED-AAA7-2368E4EB4B51}</Project>
+      <Name>ProjectConsultants.Action</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <MvcBuildViews>true</MvcBuildViews>
