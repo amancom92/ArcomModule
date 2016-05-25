@@ -1,10 +1,10 @@
 ﻿@using System.Web.Optimization
-@using ProjectConsultants.ViewModel
+@using ProjectConsultants.UI.ViewModel;
 
 <!DOCTYPE html>
 
 @{
-    var loggedInUser = Session["UserProfile"] as UserSession ?? new UserSession();
+    var loggedInUser = Session["UserProfile"] as UserViewModel ?? new UserViewModel();
 }
 
 <html>
