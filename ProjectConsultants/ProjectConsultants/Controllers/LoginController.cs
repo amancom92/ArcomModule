@@ -1,12 +1,12 @@
-﻿using ProjectConsultants.Common;
-using ProjectConsultants.UI.ViewModel;
-using System;
+﻿using ProjectConsultants.UI.ViewModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
+
     public class LoginController : BaseController
     {
         /// <summary>
@@ -33,10 +33,17 @@ namespace ProjectConsultants.Controllers
                 HttpResponseMessage response = GetServiceResponse(serviceUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseEntity = await response.Content.ReadAsAsync<UserSession>();
+                    var responseEntity = await response.Content.ReadAsAsync<UserViewModel>();
 
+                    UserViewModel userViewModel = new UserViewModel
+                    {
+                        FirstName = responseEntity.FirstName,
+                        LastName = responseEntity.LastName,
+                        UserId = responseEntity.UserId,
+                        Email = responseEntity.Email
+                    };
                     //Storing user information in session
-                    LoggedInUser = responseEntity;
+                    LoggedInUser = userViewModel;
                     return RedirectToActionPermanent("Index", "Project");
                 }
 
@@ -53,19 +60,16 @@ namespace ProjectConsultants.Controllers
             return View(loginViewModel);
         }
 
-        /// <summary>
-        /// Logs the out.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult LogOut()
+        public ActionResult SignOut()
         {
-            LoggedInUser = null;
             Session["UserProfile"] = null;
             Session.RemoveAll();
             Session.Abandon();
-
-            return RedirectToActionPermanent("Login", "Login");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Login");
+            //return View();
         }
+
     }
 }
 

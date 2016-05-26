@@ -15,7 +15,7 @@
         /// <value>
         /// The name of the user.
         /// </value>
-        public string UserName { get; set; }
+        public string Email { get; set; }
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
