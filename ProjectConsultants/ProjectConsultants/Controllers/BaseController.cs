@@ -3,6 +3,7 @@ using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Linq;
 using System.Net.Http;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -39,25 +40,7 @@ namespace ProjectConsultants.Controllers
         /// <value>
         /// The logged in user.
         /// </value>
-        //protected UserSession LoggedInUser
-        //{
-        //    get
-        //    {
-        //        var userProfile = new UserSession();
-        //        if (Session["UserProfile"] != null)
-        //        {
-        //            userProfile = Session["UserProfile"] as UserSession;
-        //        }
-
-        //        return userProfile;
-        //    }
-        //    set
-        //    {
-        //        Session["UserProfile"] = value;
-        //    }
-        //}
-
-
+  
         protected UserViewModel LoggedInUser
         {
             get
@@ -76,5 +59,9 @@ namespace ProjectConsultants.Controllers
             }
         }
 
+
+
     }
+
+  
 }

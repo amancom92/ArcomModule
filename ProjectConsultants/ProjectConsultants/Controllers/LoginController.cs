@@ -1,11 +1,13 @@
-﻿using ProjectConsultants.Common;
+﻿using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
+
     public class LoginController : BaseController
     {
         /// <summary>
@@ -36,10 +38,10 @@ namespace ProjectConsultants.Controllers
 
                     UserViewModel userViewModel = new UserViewModel
                     {
-                        FirstName= responseEntity.FirstName,
-                        LastName= responseEntity.LastName,
-                        UserId= responseEntity.UserId,
-                        Email= responseEntity.Email
+                        FirstName = responseEntity.FirstName,
+                        LastName = responseEntity.LastName,
+                        UserId = responseEntity.UserId,
+                        Email = responseEntity.Email
                     };
                     //Storing user information in session
                     LoggedInUser = userViewModel;
@@ -59,19 +61,16 @@ namespace ProjectConsultants.Controllers
             return View(loginViewModel);
         }
 
-        /// <summary>
-        /// Logs the out.
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult LogOut()
+        public ActionResult SignOut()
         {
-            LoggedInUser = null;
             Session["UserProfile"] = null;
             Session.RemoveAll();
             Session.Abandon();
-
-            return RedirectToActionPermanent("Login", "Login");
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Login");
+            //return View();
         }
+
     }
 }
 

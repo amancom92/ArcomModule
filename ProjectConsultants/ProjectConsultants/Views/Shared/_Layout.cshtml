@@ -23,12 +23,12 @@
                 MAQ Proj 2 May (******* Don't touch it *******).
             </span>
             <div id="menu-icon">
-                <img src="~/Content/Images/menu-icon.PNG" class="menuDropdown"/>
+                <img src="~/Content/Images/menu-icon.PNG" class="menuDropdown" />
                 <!-- -->
-              
+
                 <ul class="dropdown-menu hidden">
                     <li class="menuHeadingPadding">
-                       <a>Dashboard</a>
+                        <a>Dashboard</a>
                     </li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
@@ -44,17 +44,17 @@
                     <li class="dropdown-subitem">MPI</li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
-                       <a>Settings</a>
+                        <a>Settings</a>
                     </li>
                     <li class="dropdown-subitem">Task Notifications Frequency</li>
                     <li class="dropdown-subitem">Manage Profile</li>
                     <li class="dropdown-subitem">Manage Services</li>
-                    <li class="divider"></li>  
+                    <li class="divider"></li>
+                    @*<li class="menuHeadingPadding">
+                            @Html.ActionLink("Change Password", "ChangePassword", "User")
+                        </li>*@
                     <li class="menuHeadingPadding">
-                        @Html.ActionLink("ChangePassword", "ChangePassword", "User")
-                    </li>                  
-                    <li class="menuHeadingPadding">
-                       @Html.ActionLink("Logout", "LogOut", "Login")
+                        @Html.ActionLink("Log Out", "SignOut", "Login")
                     </li>
                 </ul>
                 <!-- -->
