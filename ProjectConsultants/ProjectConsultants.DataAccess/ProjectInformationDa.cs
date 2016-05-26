@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Entity;
+using System.Linq;
 
 namespace ProjectConsultants.DataAccess
 {
@@ -26,6 +27,16 @@ namespace ProjectConsultants.DataAccess
                 var userdetails = context.userInformation.Add(user);
                 context.SaveChanges();
                 return userdetails;
+            }
+        }
+
+        public bool ValidateEmail(string email)
+        {
+            using (var context = new ArcomDbContext())
+            {
+                var emailValidate = context.userInformation.FirstOrDefault(p => p.Email.Equals(email));
+                
+                return emailValidate!=null?true:false ;
             }
         }
 

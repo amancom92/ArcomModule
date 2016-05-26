@@ -12,7 +12,7 @@ namespace ProjectConsultants.Api.Controllers
     {
 
        [HttpPost]
-        public HttpResponseMessage Register(RegistrationViewModel register)
+        public HttpResponseMessage Register(RegisterViewModel register)
         {
             if (ModelState.IsValid)
             {
@@ -21,17 +21,31 @@ namespace ProjectConsultants.Api.Controllers
                 user.LastName = register.LastName;
                 user.Email = register.Email;
                 user.Password = register.Password;
-          
+                user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
-                var newuser = new UserManager().Add(user);
-                return Request.CreateResponse(newuser);
+              
+                    var newuser = new UserManager().Add(user);
+                    return Request.CreateResponse(newuser);             
 
             }
 
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
+        [HttpGet]
+        public HttpResponseMessage IsEmailValidate(string email)
+        {
+            var response = new HttpResponseMessage();
+       
+            var isEmail = new UserManager().EmailValidate(email);
+            if (isEmail)
+            {
+         return       response = Request.CreateResponse(isEmail);
+                
+            }
+            return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -52,5 +66,8 @@ namespace ProjectConsultants.Api.Controllers
 
             return Request.CreateResponse(passwordExist);
         }
+
+
+
     }
 }
