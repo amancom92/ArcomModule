@@ -2,7 +2,7 @@
 
 using ProjectConsultants.DataAccess;
 using ProjectConsultants.Entity;
-using System.Web.UI.WebControls;
+using System;
 
 namespace ProjectConsultants.Action
 {
@@ -20,11 +20,10 @@ namespace ProjectConsultants.Action
             {
                 userDetail = new UserDa().AuthenticateLogin(userDetails);
             }
-            catch
+            catch(Exception ex)
             {
 
             }
-
             return userDetail;
         }
     }

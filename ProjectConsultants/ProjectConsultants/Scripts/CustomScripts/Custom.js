@@ -37,3 +37,12 @@ $(document).ready(function () {
     });
 });
 
+//accordion jquery 
+$(document).ready(function(){
+    $("#headerProject").mouseover(function () {
+        $(".projectSubItem").slideDown("slow");
+     });
+    $("#headerProject").mouseout(function () {
+        $(".projectSubItem").slideUp("slow");
+     });
+ });
