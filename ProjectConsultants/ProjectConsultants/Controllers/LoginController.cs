@@ -1,5 +1,4 @@
-﻿using ProjectConsultants.Filters;
-using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.UI.ViewModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
