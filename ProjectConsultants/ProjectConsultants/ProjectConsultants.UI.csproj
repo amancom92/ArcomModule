@@ -198,11 +198,8 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\SB3\SB3.cshtml" />
-=======
     <Content Include="Views\Login\Test.cshtml" />
->>>>>>> c3d5464b5bb0f1cebd702a0d795fd2e7e9baab6f
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
