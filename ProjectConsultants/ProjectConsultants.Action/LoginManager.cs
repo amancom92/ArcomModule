@@ -2,6 +2,7 @@
 
 using ProjectConsultants.DataAccess;
 using ProjectConsultants.Entity;
+using System.Web.UI.WebControls;
 
 namespace ProjectConsultants.Action
 {
@@ -12,11 +13,6 @@ namespace ProjectConsultants.Action
         /// </summary>
         /// <param name="userDetails">The user details.</param>
         /// <returns></returns>
-<<<<<<< .merge_file_a08060
-        public bool AuthenticateLogin(UserEntity userDetails)
-        {
-            var userDetail = new LoginDa().AuthenticateLogin(userDetails);
-=======
         public UserEntity AuthenticateLogin(UserEntity userDetails)
         {
             var userDetail = new UserEntity();
@@ -28,7 +24,7 @@ namespace ProjectConsultants.Action
             {
 
             }
->>>>>>> .merge_file_a05396
+
             return userDetail;
         }
     }

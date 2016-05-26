@@ -14,10 +14,8 @@ namespace ProjectConsultants.Entity
         /// The user identifier.
         /// </value>
         [Key]
-<<<<<<< HEAD
-        public int Id { get; set; }
-=======
-        public int UserId { get; set; }
+
+        public int UserId { get; set; }        
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -25,7 +23,7 @@ namespace ProjectConsultants.Entity
         /// The first name.
         /// </value>
         [Required]
->>>>>>> 78859d6a6f58302db61db1e9a931ccc06180aa43
+
         public string FirstName { get; set; }
         /// <summary>
         /// Gets or sets the last name.
@@ -51,9 +49,9 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
-<<<<<<< HEAD
+
         public string NewPassword { get; set; }
-=======
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is active.
         /// </summary>
@@ -68,7 +66,7 @@ namespace ProjectConsultants.Entity
         /// The created on.
         /// </value>
         [Required]
->>>>>>> 78859d6a6f58302db61db1e9a931ccc06180aa43
+
         public DateTime CreatedOn { get; set; }
         /// <summary>
         /// Gets or sets the created by.
@@ -84,21 +82,19 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The updated by.
         /// </value>
-        public int UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated on.
         /// </summary>
         /// <value>
         /// The updated on.
         /// </value>
-        public DateTime UpdatedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
         /// <summary>
         /// Gets or sets the new password.
         /// </summary>
         /// <value>
         /// The new password.
-        /// </value>
-        [NotMapped]
-        public string NewPassword { get; set; }
+        /// </value>              
     }
 }
