@@ -17,7 +17,6 @@ namespace ProjectConsultants.DataAccess
                 var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email) && p.Password == login.Password);
                 return loginDetail;
             }
-         
         }
 
         /// <summary>
