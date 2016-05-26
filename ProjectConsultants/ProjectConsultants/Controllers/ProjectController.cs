@@ -18,10 +18,10 @@ namespace ProjectConsultants.Controllers
         [CustomSessionFilter]
         public ActionResult Index()
         {
-            if (Session["UserProfile"] == null)
-            {
-                return RedirectToActionPermanent("Login", "Login");
-            }
+            //if (Session["UserProfile"] == null)
+            //{
+            //    return RedirectToActionPermanent("Login", "Login");
+            //}
 
             var projectInformation = new ProjectInformationViewModel();
             //Initializing property to fill object value

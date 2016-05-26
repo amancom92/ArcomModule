@@ -53,8 +53,10 @@ namespace ProjectConsultants.Entity
         /// <value>
         ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
         /// </value>
+
         [NotMapped]
         public bool IsActive { get; set; }
+
         /// <summary>
         /// Gets or sets the created on.
         /// </summary>
@@ -69,7 +71,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The created by.
         /// </value>
-        [NotMapped]
+        [Required]
         public int CreatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated by.

@@ -270,3 +270,39 @@
     margin-top:5px;
 
 }
+
+.ValidationMessage{
+    color:red !important;
+}
+
+/*SB3 page view css*/
+
+.SB3_menu{
+    height:30px;
+    background-color:dodgerblue;
+    color:white;
+    padding-left:30px;
+    padding-top:15px;
+}
+.content{
+    width:90%;
+    
+    float:left; 
+}
+.sidebar{
+    width:10%;
+    float:left;
+    background-color:lightgray;
+}
+.maincontent{
+    overflow: hidden;
+}
+.maincontent > div { min-height: 610px; }
+.rotate{
+    -webkit-transform:rotate(90.0deg);
+    margin-top:70px;
+    padding-right:05px;
+    padding-top:30px;
+   margin-right:30px;
+   
+}
