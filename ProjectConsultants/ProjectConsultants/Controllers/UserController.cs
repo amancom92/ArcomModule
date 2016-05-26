@@ -3,7 +3,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Security;
+
 
 namespace ProjectConsultants.Controllers
 {
@@ -16,7 +16,7 @@ namespace ProjectConsultants.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(RegistrationViewModel register)
+        public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
             {
@@ -44,14 +44,8 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
-        [HttpPost]
-        public JsonResult EmailExists(string email)
-        {
-            var user = Membership.GetUserNameByEmail(email);
-            return Json(user == null);
-
-
-        }
+        
+   
 
         /// <summary>
         /// Changes the password.
@@ -82,6 +76,25 @@ namespace ProjectConsultants.Controllers
             return View(changePasswordViewModel);
         }
 
+        [HttpGet]
+        public JsonResult EmailDbValidation(string email)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
+
+            HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
+                     
+       try
+            {
+                bool  ifEmailExist = response!=null? true : false;
+                return Json(ifEmailExist, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+
+        }
     }
 }
 
