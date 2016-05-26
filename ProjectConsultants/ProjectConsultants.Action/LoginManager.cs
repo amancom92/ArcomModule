@@ -2,6 +2,7 @@
 
 using ProjectConsultants.DataAccess;
 using ProjectConsultants.Entity;
+using System;
 
 namespace ProjectConsultants.Action
 {
@@ -12,9 +13,17 @@ namespace ProjectConsultants.Action
         /// </summary>
         /// <param name="userDetails">The user details.</param>
         /// <returns></returns>
-        public bool AuthenticateLogin(UserEntity userDetails)
+        public UserEntity AuthenticateLogin(UserEntity userDetails)
         {
-            var userDetail = new LoginDa().AuthenticateLogin(userDetails);
+            var userDetail = new UserEntity();
+            try
+            {
+                userDetail = new UserDa().AuthenticateLogin(userDetails);
+            }
+            catch(Exception ex)
+            {
+
+            }
             return userDetail;
         }
     }

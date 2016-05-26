@@ -1,11 +1,12 @@
-﻿using ProjectConsultants.Common;
-using ProjectConsultants.UI.ViewModel;
-using System;
+﻿using ProjectConsultants.UI.ViewModel;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
+
     public class LoginController : BaseController
     {
         /// <summary>
@@ -24,42 +25,49 @@ namespace ProjectConsultants.Controllers
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Login(LoginViewModel loginViewModel)
+        public async Task<ActionResult> Login(LoginViewModel loginViewModel)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                var serviceUrl = "api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password;
+                HttpResponseMessage response = GetServiceResponse(serviceUrl);
+                if (response.IsSuccessStatusCode)
                 {
-                    HttpResponseMessage response = GetServiceResponse("api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        UserProfile userprofile = new UserProfile
-                        {
-                            Id = loginViewModel.Id,
-                            UserName = loginViewModel.UserName
-                        };
+                    var responseEntity = await response.Content.ReadAsAsync<UserViewModel>();
 
-                        //Storing user information in session
-                        //Session["uname"] = loginViewModel.UserName;
-                        LoggedInUser = userprofile;
-
-                        return RedirectToActionPermanent("Index", "Project");
-                    }
-                    if (!response.IsSuccessStatusCode)
+                    UserViewModel userViewModel = new UserViewModel
                     {
-                        throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
-                    }
+                        FirstName = responseEntity.FirstName,
+                        LastName = responseEntity.LastName,
+                        UserId = responseEntity.UserId,
+                        Email = responseEntity.Email
+                    };
+                    //Storing user information in session
+                    LoggedInUser = userViewModel;
+                    return RedirectToActionPermanent("Index", "Project");
                 }
-                else
-                {
-                    var errorMessage = GetModelStateErrors(ModelState);
-                }
+
+                //if (!response.IsSuccessStatusCode)
+                //{
+                //    throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
+                //}
             }
-            catch (Exception ex)
+            else
             {
-                throw ex;
+                var errorMessage = GetModelStateErrors(ModelState);
             }
+
             return View(loginViewModel);
+        }
+
+        public ActionResult SignOut()
+        {
+            Session["UserProfile"] = null;
+            Session.RemoveAll();
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login", "Login");
+            //return View();
         }
 
     }

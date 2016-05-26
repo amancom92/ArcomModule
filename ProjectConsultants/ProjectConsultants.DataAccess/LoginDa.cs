@@ -10,14 +10,14 @@ namespace ProjectConsultants.DataAccess
         /// </summary>
         /// <param name="login">The login.</param>
         /// <returns></returns>
-        public bool AuthenticateLogin(UserEntity login)
+        public UserEntity AuthenticateLogin(UserEntity login)
         {
-            var exist = false;
             using (var context = new ArcomDbContext())
             {
-                exist = context.userInformation.Any(p => p.Email.Equals(login.Email) && p.Password == login.Password);
+                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email) && p.Password == login.Password);
+                return loginDetail;
             }
-            return exist;
+         
         }
     }
 }
