@@ -1,9 +1,9 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Filters;
+using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
@@ -15,13 +15,13 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [CustomSessionFilter]
         public ActionResult Index()
         {
             //if (Session["UserProfile"] == null)
             //{
             //    return RedirectToActionPermanent("Login", "Login");
             //}
-
 
             var projectInformation = new ProjectInformationViewModel();
             //Initializing property to fill object value
@@ -204,7 +204,6 @@ namespace ProjectConsultants.Controllers
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
-            //var client = new HttpClient();
 
             //set the Content-Type to application/json
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -215,11 +214,7 @@ namespace ProjectConsultants.Controllers
                 var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
                 ownerStates = responseList;
             }
-
-
             return Json(new SelectList(ownerStates, "Value", "Text"));
-
-
         }
 
     }

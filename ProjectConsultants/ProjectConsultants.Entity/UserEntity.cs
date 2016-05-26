@@ -53,7 +53,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
         /// </value>
-        /// 
+
         [NotMapped]
         public bool IsActive { get; set; }
 
@@ -63,7 +63,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The created on.
         /// </value>
-        [Required]
+        [NotMapped]
         public DateTime CreatedOn { get; set; }
         /// <summary>
         /// Gets or sets the created by.
@@ -72,7 +72,6 @@ namespace ProjectConsultants.Entity
         /// The created by.
         /// </value>
         [Required]
-        
         public int CreatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated by.
@@ -88,6 +87,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The updated on.
         /// </value>
+        [NotMapped]
         public DateTime UpdatedOn { get; set; }
         /// <summary>
         /// Gets or sets the new password.
