@@ -17,10 +17,10 @@ namespace ProjectConsultants.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if (Session["UserProfile"] == null)
-            {
-                return RedirectToActionPermanent("Login", "Login");
-            }
+            //if (Session["UserProfile"] == null)
+            //{
+            //    return RedirectToActionPermanent("Login", "Login");
+            //}
 
 
             var projectInformation = new ProjectInformationViewModel();
