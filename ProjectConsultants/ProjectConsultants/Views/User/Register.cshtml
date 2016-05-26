@@ -1,4 +1,4 @@
-﻿@model ProjectConsultants.UI.ViewModel.RegistrationViewModel
+﻿@model ProjectConsultants.UI.ViewModel.RegisterViewModel
 @{
     Layout = null;
 }
@@ -22,29 +22,30 @@
     </div>
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
+      
+       
     
         <div>
             <div class="textField">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-field-css mainreg ", placeholder = "First Name*" } })
-                @Html.ValidationMessageFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName ,null, new { @class = "ValidationMessage" })
             </div>
             <div class="textField">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Last Name*" } })
-                @Html.ValidationMessageFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "ValidationMessage" })
             </div>
             <div class="textField">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Email*" } })
-                @Html.ValidationMessageFor(model => model.Email)
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Email*",id="emailvalidate" } })
+                @Html.ValidationMessageFor(model => model.Email, null, new { @class = "ValidationMessage" })
+                <span id="email"/>
             </div>
             <div class="textField">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Password*" } })
-                @Html.ValidationMessageFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, null, new { @class = "ValidationMessage" })
             </div>
             <div class="textField">
                 @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Confirm Password*" } })
-                @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "ValidationMessage" })
             </div>
             <div class="textField">
                 <input class="signup" type="submit" value="sign up" />
@@ -53,5 +54,26 @@
     }
 </body>
 
+
 </html>
 
+@*<script type="text/javascript">
+    $('#emailvalidate').blur(function () {
+        debugger;
+        var url = "/User/EmailDbValidation";
+        var email = $('#emailvalidate').val();
+        url = url + '?email=' + email;
+        alert(email);
+   
+        $.get(url, function (data) {
+            if (data) {
+                $("#email").html("<span style='color:green'>Available</span>");
+               
+            }
+            else {
+                $("#email").html("<span style='color:red'>Not Available</span>");
+              
+            }
+        });
+    })
+</script>*@

@@ -14,7 +14,7 @@ namespace ProjectConsultants.DataAccess
         {
             using (var context = new ArcomDbContext())
             {
-                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email) && p.Password == login.Password);
+                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email, System.StringComparison.CurrentCultureIgnoreCase) && p.Password == login.Password);
                 return loginDetail;
             }
          

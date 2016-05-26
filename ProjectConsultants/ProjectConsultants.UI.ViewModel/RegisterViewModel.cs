@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace ProjectConsultants.UI.ViewModel
 {
-    public class RegistrationViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -35,7 +35,8 @@ namespace ProjectConsultants.UI.ViewModel
         /// The email.
         /// </value>
         [Required]
-        [Remote("EmailExists", "Registration", HttpMethod = "POST", ErrorMessage = "Email address already registered.")]
+        [Remote("EmailDbValidation", "User", ErrorMessage = "Email address already registered.")]
+        [EmailAddress]
         public string Email { get; set; }
         /// <summary>
         /// Gets or sets the password.
