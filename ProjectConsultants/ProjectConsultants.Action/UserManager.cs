@@ -46,8 +46,9 @@ namespace ProjectConsultants.Action
             {
                 isSuccess = new UserDa().ChangePassword(userDetails);
             }
-            catch
+            catch (Exception ex)
             {
+                throw;
             }
 
             return isSuccess;
