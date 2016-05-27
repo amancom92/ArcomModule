@@ -20,13 +20,11 @@ namespace ProjectConsultants.Controllers
             return string.Join("\n", modelState.Keys.SelectMany(k => modelState[k].Errors).Select(m => m.ErrorMessage).Distinct().ToArray());
         }
 
-
         /// <summary>
         /// Gets the service response.
         /// </summary>
         /// <param name="requestedUrl">The requested URL.</param>
         /// <returns></returns>
-  
         protected HttpResponseMessage GetServiceResponse(string requestedUrl)
         {
             HttpClient client = new HttpClient();
@@ -34,8 +32,16 @@ namespace ProjectConsultants.Controllers
             return client.GetAsync(requestedUrl).Result;
         }
 
-       
-
+        /// <summary>
+        /// Gets the client.
+        /// </summary>
+        /// <returns></returns>
+        protected HttpClient GetClient()
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(Helper.ServiceUrl);
+            return client;
+        }
 
         /// <summary>
         /// Gets or sets the logged in user.
@@ -43,7 +49,6 @@ namespace ProjectConsultants.Controllers
         /// <value>
         /// The logged in user.
         /// </value>
-  
         protected UserViewModel LoggedInUser
         {
             get
@@ -61,10 +66,5 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
-
-
-
     }
-
-  
 }

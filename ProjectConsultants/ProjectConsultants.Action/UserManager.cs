@@ -18,20 +18,20 @@ namespace ProjectConsultants.Action
             {
                 userEntity = new ProjectInformationDa().Register(user);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
-            } 
+            }
             return userEntity;
         }
 
 
         public bool EmailValidate(string email)
         {
-           
-              var  useremail = new ProjectInformationDa().ValidateEmail(email);
+
+            var useremail = new ProjectInformationDa().ValidateEmail(email);
             return useremail;
-          
+
         }
 
         /// <summary>
@@ -42,13 +42,14 @@ namespace ProjectConsultants.Action
         public bool ChangePassword(UserEntity userDetails)
         {
             var isSuccess = false;
+
             try
             {
                 isSuccess = new UserDa().ChangePassword(userDetails);
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
 
             return isSuccess;

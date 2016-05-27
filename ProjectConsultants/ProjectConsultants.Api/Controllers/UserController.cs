@@ -8,10 +8,9 @@ using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
 {
-    public class UserController : ApiController
+    public class UserController : BaseController
     {
-
-       [HttpPost]
+        [HttpPost]
         public HttpResponseMessage Register(RegisterViewModel register)
         {
             if (ModelState.IsValid)
@@ -24,9 +23,9 @@ namespace ProjectConsultants.Api.Controllers
                 user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
-              
-                    var newuser = new UserManager().Add(user);
-                    return Request.CreateResponse(newuser);             
+
+                var newuser = new UserManager().Add(user);
+                return Request.CreateResponse(newuser);
 
             }
 
@@ -37,37 +36,52 @@ namespace ProjectConsultants.Api.Controllers
         public HttpResponseMessage IsEmailValidate(string email)
         {
             var response = new HttpResponseMessage();
-       
+
             var isEmail = new UserManager().EmailValidate(email);
             if (isEmail)
             {
-         return       response = Request.CreateResponse(isEmail);
-                
+                return response = Request.CreateResponse(isEmail);
+
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
+
         /// <summary>
         /// Changes the password.
         /// </summary>
-        /// <param name="UserName">Name of the user.</param>
-        /// <param name="Password">The password.</param>
-        /// <param name="NewPassword">The new password.</param>
+        /// <param name="changePasswordModel">The change password model.</param>
         /// <returns></returns>
-        [HttpGet]
-        public HttpResponseMessage ChangePassword(string UserName, string Password, string NewPassword)
+        [HttpPost]
+        public HttpResponseMessage ChangePassword(ChangePasswordViewModel changePasswordModel)
         {
+            try
+            {
+                UserEntity userEntity = new UserEntity
+                {
+                    Email = changePasswordModel.Email,
+                    Password = changePasswordModel.Password,
+                    NewPassword = changePasswordModel.NewPassword
+                };
 
-            UserEntity userEntity = new UserEntity();
-            userEntity.Email = UserName;
-            userEntity.Password = Password;
-            userEntity.NewPassword = NewPassword;
+                var isSuccess = new UserManager().ChangePassword(userEntity);
+                changePasswordModel.IsSuccess = isSuccess;
 
-            var passwordExist = new UserManager().ChangePassword(userEntity);
+                if (isSuccess)
+                {
+                    ResponseStatusCode = HttpStatusCode.OK;
+                }
+                else
+                {
+                    ResponseStatusCode = HttpStatusCode.InternalServerError;
+                }
 
-            return Request.CreateResponse(passwordExist);
+                return Request.CreateResponse(ResponseStatusCode, changePasswordModel);
+            }
+            catch (Exception ex)
+            {
+                ResponseStatusCode = HttpStatusCode.InternalServerError;
+                return Request.CreateResponse(ResponseStatusCode);
+            }
         }
-
-
-
     }
 }

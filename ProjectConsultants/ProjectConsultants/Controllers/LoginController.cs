@@ -1,4 +1,5 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Common;
+using ProjectConsultants.UI.ViewModel;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -33,17 +34,18 @@ namespace ProjectConsultants.Controllers
                 HttpResponseMessage response = GetServiceResponse(serviceUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseEntity = await response.Content.ReadAsAsync<UserViewModel>();
+                    var responseResult = await response.Content.ReadAsAsync<UserViewModel>();
 
-                    UserViewModel userViewModel = new UserViewModel
+                    var  userViewModel = new UserSession
                     {
-                        FirstName = responseEntity.FirstName,
-                        LastName = responseEntity.LastName,
-                        UserId = responseEntity.UserId,
-                        Email = responseEntity.Email
+                        FirstName = responseResult.FirstName,
+                        LastName = responseResult.LastName,
+                        UserId = responseResult.UserId,
+                        Email = responseResult.Email
                     };
+
                     //Storing user information in session
-                    LoggedInUser = userViewModel;
+                    LoggedInUser = responseResult;
                     return RedirectToActionPermanent("Index", "Project");
                 }
 
