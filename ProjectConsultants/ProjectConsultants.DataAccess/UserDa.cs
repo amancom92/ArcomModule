@@ -17,7 +17,7 @@ namespace ProjectConsultants.DataAccess
                 var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email.Trim(), System.StringComparison.CurrentCultureIgnoreCase) && p.Password == login.Password.Trim());
                 //if (loginDetail == null)
                 //{
-
+                   
                 //}
                 return loginDetail;
             }

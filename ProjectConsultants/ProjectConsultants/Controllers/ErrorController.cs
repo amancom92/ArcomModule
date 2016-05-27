@@ -1,10 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using ProjectConsultants.Filters;
+using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
 {
     public class ErrorController : Controller
     {
-        // GET: Error
+        [SkipCustomSessionFilter]
         public ActionResult Error()
         {
             return View();

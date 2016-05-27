@@ -49,7 +49,7 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
-
+        [NotMapped]
         public string NewPassword { get; set; }
 
         /// <summary>
