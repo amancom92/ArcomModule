@@ -14,35 +14,54 @@ namespace ProjectConsultants.Api.Controllers
        [HttpPost]
         public HttpResponseMessage Register(RegisterViewModel register)
         {
-            if (ModelState.IsValid)
+            try
             {
-                UserEntity user = new UserEntity();
-                user.FirstName = register.FirstName;
-                user.LastName = register.LastName;
-                user.Email = register.Email;
-                user.Password = register.Password;
-                user.CreatedBy = Convert.ToInt32(register.UserId);
-                user.CreatedOn = DateTime.Now;
-                user.UpdatedOn = DateTime.Now;
-              
+                if (ModelState.IsValid)
+                {
+                    UserEntity user = new UserEntity();
+                    user.FirstName = register.FirstName;
+                    user.LastName = register.LastName;
+                    user.Email = register.Email;
+                    user.Password = register.Password;
+                    user.IsActive = true;
+                    user.CreatedBy = Convert.ToInt32(register.UserId);
+                    user.CreatedOn = DateTime.Now;
+                    user.UpdatedOn = DateTime.Now;
+
                     var newuser = new UserManager().Add(user);
-                    return Request.CreateResponse(newuser);             
+                    return Request.CreateResponse(newuser);
+
+                }
+                else
+                {
+                    ModelState.AddModelError("Error", "sorry!something went wrong");
+                }
+            }
+            catch (Exception ex)
+            {
+                register.Message = ex.ToString();
 
             }
-
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
         [HttpGet]
         public HttpResponseMessage IsEmailValidate(string email)
         {
-            var response = new HttpResponseMessage();
-       
-            var isEmail = new UserManager().EmailValidate(email);
-            if (isEmail)
+            try
             {
-         return       response = Request.CreateResponse(isEmail);
-                
+                var response = new HttpResponseMessage();
+
+                var isEmail = new UserManager().EmailValidate(email);
+                if (isEmail)
+                {
+                    return response = Request.CreateResponse(isEmail);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }

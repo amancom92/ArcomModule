@@ -30,15 +30,17 @@ namespace ProjectConsultants.Controllers
                     {
                         return RedirectToAction("Index", "Project");
                     }
+               
                 }
                 else
                 {
-                    var errorMessage = GetModelStateErrors(ModelState);
+                    return RedirectToAction("Register", "User");
                 }
             }
             catch (Exception ex)
             {
-                register.Message = "Internal Server Error.";
+                register.Message = ex.ToString();
+
             }
 
             return View(register);
@@ -76,6 +78,11 @@ namespace ProjectConsultants.Controllers
             return View(changePasswordViewModel);
         }
 
+        /// <summary>
+        /// Emails the database validation.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult EmailDbValidation(string email)
         {

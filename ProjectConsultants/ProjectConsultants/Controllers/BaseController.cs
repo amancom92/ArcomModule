@@ -33,8 +33,8 @@ namespace ProjectConsultants.Controllers
             client.BaseAddress = new Uri(Helper.ServiceUrl);
             return client.GetAsync(requestedUrl).Result;
         }
-
        
+
 
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace ProjectConsultants.Controllers
         /// <value>
         /// The logged in user.
         /// </value>
-  
+
         protected UserViewModel LoggedInUser
         {
             get

@@ -28,10 +28,15 @@ namespace ProjectConsultants.Action
 
         public bool EmailValidate(string email)
         {
+            try { 
            
               var  useremail = new ProjectInformationDa().ValidateEmail(email);
             return useremail;
-          
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
