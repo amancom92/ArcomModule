@@ -66,7 +66,6 @@ namespace ProjectConsultants.Entity
         /// The created on.
         /// </value>
         [Required]
-
         public DateTime CreatedOn { get; set; }
         /// <summary>
         /// Gets or sets the created by.

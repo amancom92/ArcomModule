@@ -1,6 +1,4 @@
-﻿
-
-using ProjectConsultants.DataAccess;
+﻿using ProjectConsultants.DataAccess;
 using ProjectConsultants.Entity;
 using System;
 
@@ -22,7 +20,7 @@ namespace ProjectConsultants.Action
             }
             catch(Exception ex)
             {
-
+                var message = ex.ToString();
             }
             return userDetail;
         }

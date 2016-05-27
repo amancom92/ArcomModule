@@ -33,9 +33,8 @@ namespace ProjectConsultants.Controllers
             client.BaseAddress = new Uri(Helper.ServiceUrl);
             return client.GetAsync(requestedUrl).Result;
         }
+
        
-
-
 
         /// <summary>
         /// Gets or sets the logged in user.
@@ -61,8 +60,6 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
-
-
 
     }
 
