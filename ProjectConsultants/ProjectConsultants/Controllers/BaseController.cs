@@ -34,9 +34,6 @@ namespace ProjectConsultants.Controllers
             return client.GetAsync(requestedUrl).Result;
         }
 
-       
-
-
         /// <summary>
         /// Gets or sets the logged in user.
         /// </summary>
@@ -61,8 +58,6 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
-
-
 
     }
 

@@ -36,6 +36,7 @@ namespace ProjectConsultants.Api.Controllers
             }
             catch (Exception ex)
             {
+                var message = ex.ToString();
             }
 
             return response;

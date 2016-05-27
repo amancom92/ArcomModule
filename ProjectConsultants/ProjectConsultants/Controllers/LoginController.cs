@@ -1,4 +1,6 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Filters;
+using ProjectConsultants.UI.ViewModel;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -14,6 +16,7 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [SkipCustomSessionFilter]
         public ActionResult Login()
         {
             return View();
@@ -25,6 +28,7 @@ namespace ProjectConsultants.Controllers
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
         [HttpPost]
+        [SkipCustomSessionFilter]
         public async Task<ActionResult> Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
@@ -34,22 +38,33 @@ namespace ProjectConsultants.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     var responseEntity = await response.Content.ReadAsAsync<UserViewModel>();
-
-                    UserViewModel userViewModel = new UserViewModel
+                    if (responseEntity == null)
                     {
-                        FirstName = responseEntity.FirstName,
-                        LastName = responseEntity.LastName,
-                        UserId = responseEntity.UserId,
-                        Email = responseEntity.Email
-                    };
-                    //Storing user information in session
-                    LoggedInUser = userViewModel;
+                        return RedirectToAction("Error", "Error");
+                    }
+                    try
+                    {
+                        UserViewModel userViewModel = new UserViewModel
+                        {
+                            FirstName = responseEntity.FirstName,
+                            LastName = responseEntity.LastName,
+                            UserId = responseEntity.UserId,
+                            Email = responseEntity.Email
+                        };
+                        //Storing user information in session
+                        LoggedInUser = userViewModel;
+                    }
+                    catch (Exception ex)
+                    {
+                        var Message = ex.ToString();
+                    }
+
                     return RedirectToActionPermanent("Index", "Project");
                 }
 
                 //if (!response.IsSuccessStatusCode)
                 //{
-                //    throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
+                //    return RedirectToAction("Error", "Error");
                 //}
             }
             else
