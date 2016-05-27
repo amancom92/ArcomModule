@@ -1,4 +1,5 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Filters;
+using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,12 +11,14 @@ namespace ProjectConsultants.Controllers
     public class UserController : BaseController
     {
         // GET: Registration
+       
         public ActionResult Register()
         {
             return View();
         }
-
+     
         [HttpPost]
+        
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try

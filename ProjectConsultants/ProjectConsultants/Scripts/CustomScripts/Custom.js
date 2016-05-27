@@ -46,3 +46,13 @@ $(document).ready(function(){
         $(".projectSubItem").slideUp("slow");
      });
  });
+
+//sb3 page script
+$(document).ready(function () {
+
+    $(".related").click(function () {
+      
+        $(".content").html("<h2>Related Content Under Process</h2>");
+
+    });
+});
