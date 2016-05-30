@@ -4,26 +4,27 @@
 }
 @using System.Web.Optimization
 @model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
-<div class="body bodytop" id="refresh">
+<div class="body bodytop">
  
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
-            <button type="button" class="buttonSize showw" autofocus>General Information</button>
-            <button type="button" class="buttonSize hidee">Project Participants</button>
-            <button type="button" class="buttonSize hidee">Code Information</button>
-            <button type="button" class="buttonSize hidee">Design Information</button>
-            <button type="button" class="buttonSize hidee">Project Defaults</button>
-            <button type="button" class="buttonSize hidee">Project Tracking</button>
-            <button type="button" class="buttonSize hidee">Completion Progress</button>
+            <button type="button" id="btngi" class="buttonSize hideeng" autofocus>General Information</button>
+            <button type="button" id="btnpp" class="buttonSize hideenp">Project Participants</button>
+            <button type="button" id="btnci" class="buttonSize hidee">Code Information</button>
+            <button type="button" id="btndi" class="buttonSize hidee">Design Information</button>
+            <button type="button" id="btnpd" class="buttonSize hidee">Project Defaults</button>
+            <button type="button" id="btnpt" class="buttonSize hidee">Project Tracking</button>
+            <button type="button" id="btncp" class="buttonSize hidee">Completion Progress</button>
+            <button type="button" id="btnsf" class="buttonSize hidee">Section Formatting</button>
         </div>
 
         @*<div id="line"></div>*@
-        @using (Html.BeginForm("Index", "Project", FormMethod.Post,new { id = "submitInformationForm" }))
+        @using (Html.BeginForm("Index", "Project", FormMethod.Post, new { id = "submitInformationForm" }))
         {
             <div class="formWidth" id="generalInfo">
                 <div class="formHeading">
                     <h2 id="headingMargin">General Information</h2>
-               
+
                 </div>
                 <div class="formHeadingProject">
                     @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "MAQ Proj 2 May (******* Don't touch it *******).", id = "projectName" } })
@@ -126,8 +127,69 @@
             </div><!-- col-sm-9 -->
         }
         <div id="temprory"></div>
+
+ @*Project Participants*@
+
+        <div class="formWidth" id="participants">
+            <div class="formHeading">
+                <h2 id="headingMargin">Project Participants</h2>
+            </div>
+
+            <table class="table-bordered">
+               
+                <tr>
+
+                    <th>
+                        UserName(Email)
+                    </th>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        Project Administrator
+                    </th>
+                    <th>
+                        Specifier
+                    </th>
+                    <th>
+                        Reviewer
+                    </th>
+                </tr>
+                <tr>
+
+                    <th>
+                        UserName(Email)
+                    </th>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        Project Administrator
+                    </th>
+                    <th>
+                        Specifier
+                    </th>
+                    <th>
+                        Reviewer
+                    </th>
+                </tr>
+                    
+</table>
+        </div>
     </div><!-- row-->
-</div><!-- body -->
+        </div><!-- body -->
 
 @Scripts.Render("~/bundles/CustomScripts")
 

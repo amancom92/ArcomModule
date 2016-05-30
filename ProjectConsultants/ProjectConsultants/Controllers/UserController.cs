@@ -100,7 +100,7 @@ namespace ProjectConsultants.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var serviceUrl = string.Format("api/User/ChangePassword");
+                     var serviceUrl = string.Format("api/User/ChangePassword");
                     HttpResponseMessage response = await GetClient().PostAsJsonAsync(serviceUrl, changePasswordViewModel);
 
                     var responseResult = response.Content.ReadAsAsync<ChangePasswordViewModel>().Result;
@@ -113,7 +113,7 @@ namespace ProjectConsultants.Controllers
             }
             catch (Exception ex)
             {
-
+               
             }
 
             return View(changePasswordViewModel);

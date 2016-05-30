@@ -1,14 +1,39 @@
 ﻿// Temporary Script for Under Maintenance pages
 $(document).ready(function () {
-    $(".showw").click(function () {
-        $("#temprory").hide();
-        $("#generalInfo").show();
-    });
+    //$(".showw").click(function () {
+    //    $("#temprory").hide();
+    //    $("#generalInfo").show();
+    //});
     $(".hidee").click(function () {
         $("#temprory").show();
         $("#generalInfo").hide();
         $("#temprory").html("<h2>Under Maintenance</h2>");
-    });
+        $("#generalInfo").hide();
+        $("#participants").hide();
+    });  
+});
+$(document).ready(function () {
+$(".hideenp").click(function () {  
+    $("#btnci").hide();
+    $("#btncp").hide();
+    $("#btndi").hide();
+    $("#btnpt").hide();
+    $("#btnsf").show();
+    $("#generalInfo").hide();
+    $("#participants").show();
+    $("#temprory").hide();
+
+});
+$(".hideeng").click(function () {
+    $("#btnsf").hide();
+    $("#btnci").show();
+    $("#btncp").show();
+    $("#btndi").show();
+    $("#btnpt").show();
+    $("#generalInfo").show();
+    $("#temprory").hide();
+    $("#participants").hide();
+});
 });
 
 //$(document).ready(function () {

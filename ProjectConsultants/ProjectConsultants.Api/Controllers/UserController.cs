@@ -57,11 +57,21 @@ namespace ProjectConsultants.Api.Controllers
             try
             {
                 UserEntity userEntity = new UserEntity
-                {
+                { 
                     Email = changePasswordModel.Email,
                     Password = changePasswordModel.Password,
                     NewPassword = changePasswordModel.NewPassword
-                };
+
+
+                //AutoMapper.Mapper.CreateMap<UserEntity, ChangePasswordViewModel>();
+
+                //var changePasswordViewModel = AutoMapper.Mapper.Map<UserEntity, ChangePasswordViewModel>(userEntity);
+
+
+                //ChangePasswordViewModel userEntity = AutoMapper.Mapper.Map<ChangePasswordViewModel>(changePasswordModel)
+
+            };
+
 
                 var isSuccess = new UserManager().ChangePassword(userEntity);
                 changePasswordModel.IsSuccess = isSuccess;

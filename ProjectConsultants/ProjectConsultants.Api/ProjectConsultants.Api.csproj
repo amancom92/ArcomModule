@@ -168,6 +168,10 @@
       <Project>{6CFB4C75-E8B8-4E33-98F7-A8F4B5A687B2}</Project>
       <Name>ProjectConsultants.UI.ViewModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectConsultants\ProjectConsultants.UI.csproj">
+      <Project>{45D452E3-AE16-40C4-B9E3-146F96C148DE}</Project>
+      <Name>ProjectConsultants.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
