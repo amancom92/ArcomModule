@@ -28,7 +28,6 @@ $(document).ready(function () {
     });
 
     //Accordion jquery 
-
     $("#headerProject").off().click(function () {
         $(".projectSubItem").slideToggle("slow");
         $(".toolsSubItem").hide();
@@ -47,6 +46,11 @@ $(document).ready(function () {
         $(".projectSubItem").hide();
     });
 
+    //sb3 page script
+    $(".related").click(function () {
+        $(".content").html("<h2>Related Content Under Process</h2>");
+    });
+
 });
 
 
@@ -57,13 +61,5 @@ $(document).ready(function () {
 //    });
 //});
 
-//sb3 page script
-$(document).ready(function () {
 
-    $(".related").click(function () {
-      
-        $(".content").html("<h2>Related Content Under Process</h2>");
-
-    });
-});
 

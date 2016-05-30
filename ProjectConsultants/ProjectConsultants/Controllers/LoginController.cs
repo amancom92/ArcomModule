@@ -2,11 +2,9 @@
 using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
@@ -35,10 +33,11 @@ namespace ProjectConsultants.Controllers
         {
             if (ModelState.IsValid)
             {
-                var serviceUrl = "api/Loginn/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password;
+                var serviceUrl = "api/Login/AuthenticateLogin?UserName=" + loginViewModel.UserName + "&Password=" + loginViewModel.Password;
                 HttpResponseMessage response = GetServiceResponse(serviceUrl);
                 if (response.IsSuccessStatusCode)
                 {
+                
                     var responseResult = await response.Content.ReadAsAsync<UserViewModel>();
                     if (responseResult == null)
                     {
@@ -83,7 +82,6 @@ namespace ProjectConsultants.Controllers
             Session["UserProfile"] = null;
             Session.RemoveAll();
             Session.Abandon();
-            FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Login");
         }
 
