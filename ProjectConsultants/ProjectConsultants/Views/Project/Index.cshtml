@@ -1,11 +1,12 @@
-﻿@{
+﻿@using System.Web.Optimization
+@model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@using System.Web.Optimization
-@model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
+
 <div class="body bodytop" id="refresh">
- 
+
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
             <button type="button" class="buttonSize showw" autofocus>General Information</button>
@@ -18,12 +19,12 @@
         </div>
 
         @*<div id="line"></div>*@
-        @using (Html.BeginForm("Index", "Project", FormMethod.Post,new { id = "submitInformationForm" }))
+        @using (Html.BeginForm("Index", "Project", FormMethod.Post, new { id = "submitInformationForm" }))
         {
             <div class="formWidth" id="generalInfo">
                 <div class="formHeading">
                     <h2 id="headingMargin">General Information</h2>
-               
+
                 </div>
                 <div class="formHeadingProject">
                     @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-field-css", placeholder = "MAQ Proj 2 May (******* Don't touch it *******).", id = "projectName" } })

@@ -1,7 +1,6 @@
 ﻿@using System.Web.Optimization
 @using ProjectConsultants.UI.ViewModel;
 
-
 <!DOCTYPE html>
 
 @{
@@ -32,24 +31,24 @@
                         <a>Dashboard</a>
                     </li>
                     <li class="divider"></li>
-                    <li class="menuHeadingPadding" id="headerProject">
-                        <a>Projects</a>
+                    <li class="menuHeadingPadding">
+                        <a>Projects</a><a class="arrowPadding" id="headerProject">></a>
                     </li>
-                    <li class="dropdown-subitem projectSubItem">New Project</li>
+                    <li class="dropdown-subitem projectSubItem" name="Projects" >New Project</li>
                     <li class="dropdown-subitem projectSubItem ">Active projects</li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
-                        <a>Tools</a>
+                        <a>Tools</a><a class="arrowPadding" id="headerTools">></a>
                     </li>
-                    <li class="dropdown-subitem">Product Library</li>
-                    <li class="dropdown-subitem">MPI</li>
+                    <li class="dropdown-subitem toolsSubItem">Product Library</li>
+                    <li class="dropdown-subitem toolsSubItem">MPI</li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
-                        <a>Settings</a>
+                        <a>Settings</a><a class="arrowPadding" id="headerSettings">></a>
                     </li>
-                    <li class="dropdown-subitem">Task Notifications Frequency</li>
-                    <li class="dropdown-subitem">Manage Profile</li>
-                    <li class="dropdown-subitem">Manage Services</li>
+                    <li class="dropdown-subitem settingsSubItem">Task Notifications<br />Frequency</li>
+                    <li class="dropdown-subitem settingsSubItem">Manage Profile</li>
+                    <li class="dropdown-subitem settingsSubItem">Manage Services</li>
                     <li class="divider"></li>
                     @*<li class="menuHeadingPadding">
                             @Html.ActionLink("Change Password", "ChangePassword", "User")

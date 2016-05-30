@@ -49,7 +49,7 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
-
+        [NotMapped]
         public string NewPassword { get; set; }
 
         /// <summary>
@@ -89,11 +89,5 @@ namespace ProjectConsultants.Entity
         /// The updated on.
         /// </value>
         public DateTime? UpdatedOn { get; set; }
-        /// <summary>
-        /// Gets or sets the new password.
-        /// </summary>
-        /// <value>
-        /// The new password.
-        /// </value>              
     }
 }

@@ -1,10 +1,10 @@
-﻿using ProjectConsultants.Filters;
+﻿using ProjectConsultants.Common;
+using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
@@ -37,35 +37,37 @@ namespace ProjectConsultants.Controllers
                 HttpResponseMessage response = GetServiceResponse(serviceUrl);
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseEntity = await response.Content.ReadAsAsync<UserViewModel>();
-                    if (responseEntity == null)
+                
+                    var responseResult = await response.Content.ReadAsAsync<UserViewModel>();
+                    if (responseResult == null)
                     {
-                        return RedirectToAction("Error", "Error");
+                        ViewBag.Message = "The email and password you entered don't match.";
+                        return View();
                     }
                     try
                     {
-                        UserViewModel userViewModel = new UserViewModel
+                        var userViewModel = new UserSession
                         {
-                            FirstName = responseEntity.FirstName,
-                            LastName = responseEntity.LastName,
-                            UserId = responseEntity.UserId,
-                            Email = responseEntity.Email
+                            FirstName = responseResult.FirstName,
+                            LastName = responseResult.LastName,
+                            UserId = responseResult.UserId,
+                            Email = responseResult.Email
                         };
+
                         //Storing user information in session
-                        LoggedInUser = userViewModel;
+                        LoggedInUser = responseResult;
                     }
                     catch (Exception ex)
                     {
                         var Message = ex.ToString();
                     }
 
-                    return RedirectToActionPermanent("Index", "Project");
+                    return RedirectToAction("Index", "Project");
                 }
-
-                //if (!response.IsSuccessStatusCode)
-                //{
-                //    return RedirectToAction("Error", "Error");
-                //}
+                else
+                {
+                    return RedirectToActionPermanent("Error", "Error");
+                }
             }
             else
             {
@@ -80,9 +82,7 @@ namespace ProjectConsultants.Controllers
             Session["UserProfile"] = null;
             Session.RemoveAll();
             Session.Abandon();
-            FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Login");
-            //return View();
         }
 
     }
