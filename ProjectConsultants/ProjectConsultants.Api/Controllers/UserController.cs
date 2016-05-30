@@ -10,24 +10,29 @@ namespace ProjectConsultants.Api.Controllers
 {
     public class UserController : ApiController
     {
-
-       [HttpPost]
+        log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
+        /// <summary>
+        /// Registers the specified register.
+        /// </summary>
+        /// <param name="register">The register.</param>
+        /// <returns></returns>
+        [HttpPost]
         public HttpResponseMessage Register(RegisterViewModel register)
         {
             try
             {
+
+                UserEntity user = new UserEntity();
+                user.FirstName = register.FirstName;
+                user.LastName = register.LastName;
+                user.Email = register.Email;
+                user.Password = register.Password;
+                user.IsActive = true;
+                user.CreatedBy = Convert.ToInt32(register.UserId);
+                user.CreatedOn = DateTime.Now;
+                user.UpdatedOn = DateTime.Now;
                 if (ModelState.IsValid)
                 {
-                    UserEntity user = new UserEntity();
-                    user.FirstName = register.FirstName;
-                    user.LastName = register.LastName;
-                    user.Email = register.Email;
-                    user.Password = register.Password;
-                    user.IsActive = true;
-                    user.CreatedBy = Convert.ToInt32(register.UserId);
-                    user.CreatedOn = DateTime.Now;
-                    user.UpdatedOn = DateTime.Now;
-
                     var newuser = new UserManager().Add(user);
                     return Request.CreateResponse(newuser);
 
@@ -40,7 +45,8 @@ namespace ProjectConsultants.Api.Controllers
             catch (Exception ex)
             {
                 register.Message = ex.ToString();
-
+                log.Error(ex.ToString());
+                
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
@@ -58,6 +64,11 @@ namespace ProjectConsultants.Api.Controllers
                     return response = Request.CreateResponse(isEmail);
 
                 }
+                else
+                {
+                    ModelState.AddModelError("Error", "sorry!something went wrong");
+                }
+
             }
             catch (Exception ex)
             {
@@ -65,6 +76,10 @@ namespace ProjectConsultants.Api.Controllers
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
+
+
+
+
         /// <summary>
         /// Changes the password.
         /// </summary>

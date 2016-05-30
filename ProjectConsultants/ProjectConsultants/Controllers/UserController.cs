@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Filters;
+using ProjectConsultants.Logging;
 using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
@@ -10,17 +11,30 @@ namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
     {
+        //log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         // GET: Registration
-       
+
+        /// <summary>
+        /// Registers this instance.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Register()
         {
             return View();
         }
-     
+        //Inserting a new record
+        /// <summary>
+        /// Registers the specified register.
+        /// </summary>
+        /// <param name="register">The register.</param>
+        /// <returns></returns>
         [HttpPost]
-        
+
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
+            Log4NetLogger log = new Log4NetLogger();
+           
+          
             try
             {
                 if (ModelState.IsValid)
@@ -33,24 +47,24 @@ namespace ProjectConsultants.Controllers
                     {
                         return RedirectToAction("Index", "Project");
                     }
-               
-                }
-                else
-                {
-                    return RedirectToAction("Register", "User");
+
+                    else
+                    {
+                        return RedirectToAction("Register", "User");
+                    }
                 }
             }
             catch (Exception ex)
             {
                 register.Message = ex.ToString();
-
+                log.Error(ex.ToString());
             }
 
             return View(register);
         }
 
-        
-   
+
+
 
         /// <summary>
         /// Changes the password.
@@ -86,25 +100,31 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="email">The email.</param>
         /// <returns></returns>
+      //for email vaildation if it already exist in database
         [HttpGet]
+
         public JsonResult EmailDbValidation(string email)
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:64468/");
 
             HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
-                     
-       try
+
+            try
             {
-                bool  ifEmailExist = response!=null? true : false;
+                bool ifEmailExist = response != null ? true : false;
                 return Json(ifEmailExist, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json(false, JsonRequestBehavior.AllowGet);
+
             }
 
         }
+
+
+
     }
 }
 

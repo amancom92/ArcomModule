@@ -160,16 +160,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-
     <Content Include="Views\web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error.cshtml" />
-
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -196,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logging\Log4NetLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,11 +202,8 @@
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
-
     <Content Include="Views\User\ChangePassword.cshtml" />
-
     <Content Include="Views\Home\Index.cshtml" />
-
     <Content Include="Views\SB3\SB3.cshtml" />
   </ItemGroup>
   <ItemGroup>

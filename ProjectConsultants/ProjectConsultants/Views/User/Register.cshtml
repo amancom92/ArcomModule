@@ -65,8 +65,8 @@
         url = url + '?email=' + email;
         alert(email);
    
-        $.get(url, function (data) {
-            if (data) {
+        $.post(url, function (data) {
+            if (data=="true") {
                 $("#email").html("<span style='color:green'>Available</span>");
                
             }

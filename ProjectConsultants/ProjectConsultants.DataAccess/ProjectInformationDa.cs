@@ -35,10 +35,12 @@ namespace ProjectConsultants.DataAccess
             using (var context = new ArcomDbContext())
             {
                 var emailValidate = context.userInformation.FirstOrDefault(p => p.Email.Equals(email));
-                
-                return emailValidate!=null?true:false ;
+
+                return emailValidate != null ? true : false;
             }
         }
+
+
 
     }
 }
