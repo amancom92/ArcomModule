@@ -57,8 +57,13 @@ $(document).ready(function () {
 //    });
 //});
 
+//sb3 page script
+$(document).ready(function () {
 
+    $(".related").click(function () {
+      
+        $(".content").html("<h2>Related Content Under Process</h2>");
 
-
-
+    });
+});
 

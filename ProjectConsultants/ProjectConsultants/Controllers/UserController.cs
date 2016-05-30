@@ -1,4 +1,5 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Filters;
+using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -10,12 +11,14 @@ namespace ProjectConsultants.Controllers
     public class UserController : BaseController
     {
         // GET: Registration
+       
         public ActionResult Register()
         {
             return View();
         }
-
+     
         [HttpPost]
+        
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
@@ -30,15 +33,17 @@ namespace ProjectConsultants.Controllers
                     {
                         return RedirectToAction("Index", "Project");
                     }
+               
                 }
                 else
                 {
-                    var errorMessage = GetModelStateErrors(ModelState);
+                    return RedirectToAction("Register", "User");
                 }
             }
             catch (Exception ex)
             {
-                register.Message = "Internal Server Error.";
+                register.Message = ex.ToString();
+
             }
 
             return View(register);
@@ -76,6 +81,11 @@ namespace ProjectConsultants.Controllers
             return View(changePasswordViewModel);
         }
 
+        /// <summary>
+        /// Emails the database validation.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
         [HttpGet]
         public JsonResult EmailDbValidation(string email)
         {
