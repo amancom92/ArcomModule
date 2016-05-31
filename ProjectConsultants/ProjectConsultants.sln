@@ -20,8 +20,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.UI.ViewM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.Api", "ProjectConsultants.Api\ProjectConsultants.Api.csproj", "{F7CD7DF9-A815-48E1-86F8-737CF035F513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectConsultants.Application", "ProjectConsultants.Application\ProjectConsultants.Application.csproj", "{E41B8DBB-9508-483C-B837-DF67C2D3182B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,10 +54,6 @@ Global
 		{F7CD7DF9-A815-48E1-86F8-737CF035F513}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7CD7DF9-A815-48E1-86F8-737CF035F513}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7CD7DF9-A815-48E1-86F8-737CF035F513}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E41B8DBB-9508-483C-B837-DF67C2D3182B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E41B8DBB-9508-483C-B837-DF67C2D3182B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E41B8DBB-9508-483C-B837-DF67C2D3182B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E41B8DBB-9508-483C-B837-DF67C2D3182B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

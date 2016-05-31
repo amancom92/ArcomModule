@@ -62,3 +62,5 @@ ProjectConsultants/ProjectConsultants/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.cs
 ProjectConsultants/ProjectConsultants.Application/obj/
+ProjectConsultants/ProjectConsultants.Common/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ProjectConsultants/ProjectConsultants.Common/obj/
