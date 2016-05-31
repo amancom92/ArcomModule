@@ -1,4 +1,6 @@
-﻿using ProjectConsultants.UI.ViewModel;
+﻿using ProjectConsultants.Filters;
+using ProjectConsultants.Logging;
+using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,14 +14,31 @@ namespace ProjectConsultants.Controllers
         /// The log
         /// </summary>
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
+
         #region Registration
+
+        //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+        //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
         // GET: Registration
+
+        /// <summary>
+        /// Registers this instance.
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Register()
         {
             return View();
         }
-
+        //Inserting a new record
+        /// <summary>
+        /// Registers the specified register.
+        /// </summary>
+        /// <param name="register">The register.</param>
+        /// <returns></returns>
         [HttpPost]
+
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
@@ -27,26 +46,32 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64468/");
+                    client.BaseAddress = new Uri("http://localhost:64469/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
                     {
                         return RedirectToAction("Index", "Project");
                     }
+
+                    else
+                    {                      
+                        return RedirectToAction("Register", "User");
+                    }
                 }
                 else
                 {
-                    var errorMessage = GetModelStateErrors(ModelState);
+                    return RedirectToAction("Error", "Error");
                 }
             }
             catch (Exception ex)
             {
-                register.Message = "Internal Server Error.";
+                log.Error(ex.ToString(), ex);
             }
 
             return View(register);
         }
+
 
         /// <summary>
         /// Emails the database validation.
@@ -76,6 +101,7 @@ namespace ProjectConsultants.Controllers
         #endregion Registration
 
         #region Change Password
+
 
         /// <summary>
         /// Changes the password.
@@ -115,15 +141,46 @@ namespace ProjectConsultants.Controllers
                     }                   
                 }
             }
+
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
+
+            return View(changePasswordViewModel);
+        }
+
+        /// <summary>
+        /// Emails the database validation.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+      //for email vaildation if it already exist in database
+        [HttpGet]
+
+        public JsonResult EmailDbValidation(string email)
+        {
+            try
+            {
+                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
+                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
+                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+
+
             }
 
             return View(changePasswordViewModel);
         }
 
+
         #endregion Change Password
+
+
+
+
     }
 }
 

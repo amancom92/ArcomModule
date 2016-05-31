@@ -1,11 +1,19 @@
-﻿@{
+﻿@using System.Web.Optimization
+@model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @using System.Web.Optimization
 @model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
 <div class="body bodytop">
  
+
+
+<div class="body bodytop" id="refresh">
+
+
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
             <button type="button" id="btngi" class="buttonSize hideeng" autofocus>General Information</button>

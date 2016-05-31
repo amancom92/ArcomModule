@@ -7,8 +7,12 @@
 
 <html>
 <head>
+   
     <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
     <link href="~/Content/CSS/site.css" rel="stylesheet" />
+ 
     <title>SB3</title>
 </head>
 <body>
@@ -17,17 +21,52 @@
     </div>
     <div class="maincontent">
        <div class="content">
-           fdsafasf
+            
        </div>
+
         <div class="sidebar">
-            <ul>
-                <li><a href="#" class="rotate">Question and Answer</a></li>
-                <li><a href="#" class="rotate">Split Screen</a></li>
-                <li><a href="#" class="rotate">Related Content</a></li>
-                <li><a href="#" class="rotate">Tasks</a></li>
-                <li><a href="#" class="rotate">Supporting Docs</a></li>
-            </ul>
+            <a class="sidelist rotate ques" href="#">Question and Answer</a><br><br><br>
+            <a class="sidelist rotate abc splitscreen" href="#">Split Screen</a><br><br>
+            @*<a>@Html.ActionLink("Question and Answer", "", "", new { @class = "sidelist rotate" })</a><br><br><br>
+            <a>@Html.ActionLink("Split Screen", "", "", new { @class = "sidelist rotate abc" })</a><br><br>*@
+            <a class="sidelist rotate ab relate" href="#">Related Content</a><br>
+            @*<a>@Html.ActionLink("Tasks", "", "", new { @class = "sidelist rotate task" })</a><br>
+            <a>@Html.ActionLink("Supporting Docs", "", "", new { @class = "sidelist rotate ab" })</a>*@
+            <a class="sidelist rotate task tasks" href="#">Tasks</a><br>
+            <a class="sidelist rotate ab docs" href="#">Supporting Docs</a><br>
+            
         </div>    
     </div>
+  
 </body>
 </html>
+<script type="text/javascript">
+            $(".ques").click(function () {
+            $(".content").html("<h2>Question and Answer Link under Process</h2>");
+            $("div.sidebar > a").removeClass("autoselect");
+            $(".ques").addClass("autoselect");
+            });
+            $(".splitscreen").click(function () {
+                $("div.sidebar > a").removeClass("autoselect");
+                $(".content").html("<h2>Split Screen Link under Process</h2>");
+
+                $(".splitscreen").addClass("autoselect");
+            });
+            $(".relate").click(function () {
+                $("div.sidebar > a").removeClass("autoselect");
+                $(".content").html("<h2>Related Content Link under Process</h2>");
+                $(".relate").addClass("autoselect");
+            });
+            $(".tasks").click(function () {
+                $("div.sidebar > a").removeClass("autoselect");
+                $(".content").html("<h2>Tasks Link under Process</h2>");
+                $(".tasks").addClass("autoselect");
+            });
+            $(".docs").click(function () {
+                $("div.sidebar > a").removeClass("autoselect");
+                $(".content").html("<h2>Supporting Docs Link under Process</h2>");
+                $(".docs").addClass("autoselect");
+            });
+           
+</script>
+

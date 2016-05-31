@@ -1,9 +1,10 @@
 ﻿using ProjectConsultants.Common;
+using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
+using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace ProjectConsultants.Controllers
 {
@@ -15,6 +16,7 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [SkipCustomSessionFilter]
         public ActionResult Login()
         {
             return View();
@@ -26,6 +28,7 @@ namespace ProjectConsultants.Controllers
         /// <param name="loginViewModel">The login view model.</param>
         /// <returns></returns>
         [HttpPost]
+        [SkipCustomSessionFilter]
         public async Task<ActionResult> Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
@@ -34,25 +37,38 @@ namespace ProjectConsultants.Controllers
                 HttpResponseMessage response = GetServiceResponse(serviceUrl);
                 if (response.IsSuccessStatusCode)
                 {
+                
                     var responseResult = await response.Content.ReadAsAsync<UserViewModel>();
-
-                    var  userViewModel = new UserSession
+                    if (responseResult == null)
                     {
-                        FirstName = responseResult.FirstName,
-                        LastName = responseResult.LastName,
-                        UserId = responseResult.UserId,
-                        Email = responseResult.Email
-                    };
+                        ViewBag.Message = "The email and password you entered don't match.";
+                        return View();
+                    }
+                    try
+                    {
+                        var userViewModel = new UserSession
+                        {
+                            FirstName = responseResult.FirstName,
+                            LastName = responseResult.LastName,
+                            UserId = responseResult.UserId,
+                            Email = responseResult.Email
+                        };
 
-                    //Storing user information in session
-                    LoggedInUser = responseResult;
-                    return RedirectToActionPermanent("Index", "Project");
+                        //Storing user information in session
+                        LoggedInUser = responseResult;
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        var Message = ex.ToString();
+                    }
+
+                    return RedirectToAction("Index", "Project");
                 }
-
-                //if (!response.IsSuccessStatusCode)
-                //{
-                //    throw new Exception((int)response.StatusCode + "-" + response.StatusCode.ToString());
-                //}
+                else
+                {
+                    return RedirectToActionPermanent("Error", "Error");
+                }
             }
             else
             {
@@ -67,9 +83,7 @@ namespace ProjectConsultants.Controllers
             Session["UserProfile"] = null;
             Session.RemoveAll();
             Session.Abandon();
-            FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Login");
-            //return View();
         }
 
     }

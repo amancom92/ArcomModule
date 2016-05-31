@@ -49,12 +49,14 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
+
         /// <summary>
         /// Gets or sets the new password.
         /// </summary>
         /// <value>
         /// The new password.
         /// </value>
+
         [NotMapped]
         public string NewPassword { get; set; }
 
@@ -72,7 +74,6 @@ namespace ProjectConsultants.Entity
         /// The created on.
         /// </value>
         [Required]
-
         public DateTime CreatedOn { get; set; }
         /// <summary>
         /// Gets or sets the created by.
@@ -96,11 +97,5 @@ namespace ProjectConsultants.Entity
         /// The updated on.
         /// </value>
         public DateTime? UpdatedOn { get; set; }
-        /// <summary>
-        /// Gets or sets the new password.
-        /// </summary>
-        /// <value>
-        /// The new password.
-        /// </value>              
     }
 }

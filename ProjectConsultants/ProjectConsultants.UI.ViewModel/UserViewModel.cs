@@ -1,4 +1,6 @@
-﻿namespace ProjectConsultants.UI.ViewModel
+﻿using System;
+
+namespace ProjectConsultants.UI.ViewModel
 {
     public class UserViewModel
     {
@@ -31,5 +33,6 @@
         /// </value>
         public string LastName { get; set; }
         public string Password { get; set; }
+        public DateTime? LastLoginDate { get; set; }
     }
 }
