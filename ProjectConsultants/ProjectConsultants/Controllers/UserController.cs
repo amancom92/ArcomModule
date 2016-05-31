@@ -11,7 +11,7 @@ namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
     {
-        //log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
+        log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         // GET: Registration
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace ProjectConsultants.Controllers
 
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
-            Log4NetLogger log = new Log4NetLogger();
+            //Log4NetLogger log = new Log4NetLogger();
            
           
             try
@@ -40,7 +40,7 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64468/");
+                    client.BaseAddress = new Uri("http://localhost:64469/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
