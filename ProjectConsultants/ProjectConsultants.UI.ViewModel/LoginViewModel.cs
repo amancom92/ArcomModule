@@ -24,10 +24,10 @@ namespace ProjectConsultants.UI.ViewModel
         [Required]
         [DataType(DataType.Password)]
         [StringLength(20,ErrorMessage ="Password length must be between 4 to 20",MinimumLength =4)]
-       // [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$",ErrorMessage = "Password expresion that requires one lower case letter, one upper case letter, one digit, 4-8 length, and no spaces.")]
+        //[RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$",ErrorMessage = "Password expresion that requires one lower case letter, one upper case letter, one digit, 4-8 length, and no spaces.")]
         public string Password { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string LastName { get; set; }      
 
     }
 }

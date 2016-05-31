@@ -61,3 +61,4 @@ ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/ArcomApp.pubxml
 ProjectConsultants/ProjectConsultants/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.cs
+ProjectConsultants/ProjectConsultants.Application/obj/

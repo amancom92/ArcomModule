@@ -81,7 +81,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The updated by.
         /// </value>
-        public int? UpdatedBy { get; set; }
+        public int UpdatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated on.
         /// </summary>
@@ -89,5 +89,8 @@ namespace ProjectConsultants.Entity
         /// The updated on.
         /// </value>
         public DateTime? UpdatedOn { get; set; }
+        public DateTime? LastAccessTime { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityQuestionAnswer { get; set; }
     }
 }

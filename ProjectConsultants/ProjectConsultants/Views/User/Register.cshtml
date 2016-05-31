@@ -6,25 +6,21 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/CSS/site.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-1.9.1.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @Styles.Render("~/bundles/UserDefinedCss")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")   
     <title>Registration</title>
 </head>
 <body>
-    <div class="header">
-        <img class="img_register" src="C:\Users\13084\Desktop\arcom-one.png" />
+    <div class="header">    
+        <img class="img_register" src="~/Content/Images/logo.png" />
     </div>
     <hr class="hr_css" />
     <div>
         <h3 class="heading"> Register</h3>
     </div>
-    @using (Html.BeginForm())
-    {
-      
-       
-    
+    @using (Html.BeginForm("Register","User", FormMethod.Post))
+    {          
         <div>
             <div class="textField">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-field-css mainreg ", placeholder = "First Name*" } })
@@ -48,6 +44,13 @@
                 @Html.ValidationMessageFor(model => model.ConfirmPassword, null, new { @class = "ValidationMessage" })
             </div>
             <div class="textField">
+                @Html.DropDownListFor(m => m.SecurityQuestionId, Model.SecurityQuestionList, "Security Question", new { @class = "form-field-css"})
+            </div>
+            <div class="textField">
+                @Html.EditorFor(model => model.SecurityQuestionAnswer, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Answer*" } })
+                @Html.ValidationMessageFor(model => model.SecurityQuestionAnswer, null, new { @class = "ValidationMessage" })
+            </div>
+            <div class="textField">
                 <input class="signup" type="submit" value="sign up" />
             </div>
         </div>
@@ -56,24 +59,3 @@
 
 
 </html>
-
-@*<script type="text/javascript">
-    $('#emailvalidate').blur(function () {
-        debugger;
-        var url = "/User/EmailDbValidation";
-        var email = $('#emailvalidate').val();
-        url = url + '?email=' + email;
-        alert(email);
-   
-        $.post(url, function (data) {
-            if (data=="true") {
-                $("#email").html("<span style='color:green'>Available</span>");
-               
-            }
-            else {
-                $("#email").html("<span style='color:red'>Not Available</span>");
-              
-            }
-        });
-    })
-</script>*@

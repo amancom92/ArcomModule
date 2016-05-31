@@ -1,7 +1,7 @@
 ﻿using ProjectConsultants.Filters;
-using ProjectConsultants.Logging;
 using ProjectConsultants.UI.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -18,9 +18,22 @@ namespace ProjectConsultants.Controllers
         /// Registers this instance.
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [SkipCustomSessionFilter]
         public ActionResult Register()
         {
-            return View();
+            var registerViewModel = new RegisterViewModel();
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
+            HttpResponseMessage response = client.GetAsync("api/Common/GetSecurityQuestionList").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
+                registerViewModel.SecurityQuestionList = responseList;
+            }
+            else
+                registerViewModel.SecurityQuestionList = new List<SelectListItem>();
+            return View(registerViewModel);
         }
         //Inserting a new record
         /// <summary>
@@ -29,7 +42,7 @@ namespace ProjectConsultants.Controllers
         /// <param name="register">The register.</param>
         /// <returns></returns>
         [HttpPost]
-
+        [SkipCustomSessionFilter]
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             //Log4NetLogger log = new Log4NetLogger();
@@ -40,7 +53,7 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64469/");
+                    client.BaseAddress = new Uri("http://localhost:64468/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
@@ -56,15 +69,12 @@ namespace ProjectConsultants.Controllers
             }
             catch (Exception ex)
             {
-                register.Message = ex.ToString();
-                log.Error(ex.ToString());
+              
+                log.Error(ex.ToString(),ex);
             }
 
             return View(register);
         }
-
-
-
 
         /// <summary>
         /// Changes the password.
@@ -123,7 +133,16 @@ namespace ProjectConsultants.Controllers
 
         }
 
-
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPassword(RegisterViewModel forgotPassword)
+        {
+            return View(forgotPassword);
+        }
 
     }
 }

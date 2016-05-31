@@ -1,5 +1,6 @@
 ﻿using ProjectConsultants.Action;
 using ProjectConsultants.Entity;
+using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net;
@@ -17,11 +18,11 @@ namespace ProjectConsultants.Api.Controllers
         /// <param name="register">The register.</param>
         /// <returns></returns>
         [HttpPost]
+     
         public HttpResponseMessage Register(RegisterViewModel register)
         {
             try
             {
-
                 UserEntity user = new UserEntity();
                 user.FirstName = register.FirstName;
                 user.LastName = register.LastName;
@@ -31,6 +32,8 @@ namespace ProjectConsultants.Api.Controllers
                 user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
+                user.SecurityQuestionAnswer = register.SecurityQuestionAnswer;
+                user.SecurityQuestion = Convert.ToString(register.SecurityQuestionId);
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);

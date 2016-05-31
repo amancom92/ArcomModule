@@ -28,7 +28,7 @@
 
                 <ul class="dropdown-menu hidden">
                     <li class="menuHeadingPadding">
-                        <a>Dashboard</a>
+                        <a>@Html.ActionLink("Dashboard", "ChangePassword", "User")Dashboard</a>
                     </li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
@@ -50,9 +50,9 @@
                     <li class="dropdown-subitem settingsSubItem">Manage Profile</li>
                     <li class="dropdown-subitem settingsSubItem">Manage Services</li>
                     <li class="divider"></li>
-                    @*<li class="menuHeadingPadding">
+                    <li class="menuHeadingPadding">
                             @Html.ActionLink("Change Password", "ChangePassword", "User")
-                        </li>*@
+                        </li>
                     <li class="menuHeadingPadding">
                         @Html.ActionLink("Log Out", "SignOut", "Login")
                     </li>
@@ -73,12 +73,14 @@
         </ul>
     </div>
     <div id="headerBlock">
-        @if (loggedInUser != null)
-        {
-            <text>
-                Welcome @loggedInUser.FirstName
-            </text>
-        }
+        @*<div id="welcomeText">*@
+            @if (loggedInUser != null)
+            {
+                <text>
+                    Welcome @loggedInUser.FirstName
+                </text>
+            }
+        @*</div>*@
     </div>
     <div>
         @RenderBody()

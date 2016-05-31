@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Entity;
+using System;
 using System.Linq;
 
 namespace ProjectConsultants.DataAccess
@@ -14,7 +15,12 @@ namespace ProjectConsultants.DataAccess
         {
             using (var context = new ArcomDbContext())
             {
-                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email.Trim(), System.StringComparison.CurrentCultureIgnoreCase) && p.Password == login.Password.Trim());
+                var loginDetail = context.userInformation.FirstOrDefault(p => p.Email.Equals(login.Email.Trim(), StringComparison.CurrentCultureIgnoreCase) && p.Password == login.Password.Trim());
+                if (loginDetail != null)
+                {
+                    loginDetail.LastAccessTime = DateTime.Now;
+                    context.SaveChanges();
+                }
                 return loginDetail;
             }
         }

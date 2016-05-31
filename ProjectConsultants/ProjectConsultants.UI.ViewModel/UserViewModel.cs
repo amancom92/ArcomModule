@@ -33,6 +33,6 @@ namespace ProjectConsultants.UI.ViewModel
         /// </value>
         public string LastName { get; set; }
         public string Password { get; set; }
-        public DateTime? LastLoginDate { get; set; }
+      
     }
 }
