@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Action;
+using ProjectConsultants.Api.App_Start;
 using ProjectConsultants.Entity;
 using ProjectConsultants.UI.ViewModel;
 using System;
@@ -56,26 +57,10 @@ namespace ProjectConsultants.Api.Controllers
         {
             try
             {
-                UserEntity userEntity = new UserEntity
-                { 
-                    Email = changePasswordModel.Email,
-                    Password = changePasswordModel.Password,
-                    NewPassword = changePasswordModel.NewPassword
-
-
-                //AutoMapper.Mapper.CreateMap<UserEntity, ChangePasswordViewModel>();
-
-                //var changePasswordViewModel = AutoMapper.Mapper.Map<UserEntity, ChangePasswordViewModel>(userEntity);
-
-
-                //ChangePasswordViewModel userEntity = AutoMapper.Mapper.Map<ChangePasswordViewModel>(changePasswordModel)
-
-            };
-
-
+                UserEntity userEntity = MapperConfig.ConvertChangePasswordModelToEntity(changePasswordModel);
                 var isSuccess = new UserManager().ChangePassword(userEntity);
-                changePasswordModel.IsSuccess = isSuccess;
 
+                changePasswordModel.IsSuccess = isSuccess;
                 if (isSuccess)
                 {
                     ResponseStatusCode = HttpStatusCode.OK;

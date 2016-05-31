@@ -8,6 +8,10 @@ namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
     {
+        /// <summary>
+        /// The log
+        /// </summary>
+        log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         #region Registration
         // GET: Registration
         public ActionResult Register()
@@ -100,7 +104,7 @@ namespace ProjectConsultants.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                     var serviceUrl = string.Format("api/User/ChangePassword");
+                    var serviceUrl = string.Format("api/User/ChangePassword");
                     HttpResponseMessage response = await GetClient().PostAsJsonAsync(serviceUrl, changePasswordViewModel);
 
                     var responseResult = response.Content.ReadAsAsync<ChangePasswordViewModel>().Result;
@@ -113,7 +117,7 @@ namespace ProjectConsultants.Controllers
             }
             catch (Exception ex)
             {
-               
+                log.Error(ex.ToString());
             }
 
             return View(changePasswordViewModel);

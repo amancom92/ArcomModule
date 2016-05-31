@@ -15,6 +15,7 @@ namespace ProjectConsultants
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            log4net.Config.XmlConfigurator.Configure();
         }
       
     }

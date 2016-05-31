@@ -8,7 +8,6 @@ namespace ProjectConsultants.Api
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            MapperConfig.RegisterMaps();
         }
     }
 }

@@ -1,20 +1,15 @@
-﻿using ProjectConsultants.Entity;
+﻿using AutoMapper;
+using ProjectConsultants.Entity;
 using ProjectConsultants.UI.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ProjectConsultants.Api.App_Start
 {
     public static class MapperConfig
     {
-        public static void RegisterMaps()
+        public static UserEntity ConvertChangePasswordModelToEntity(ChangePasswordViewModel changePasswordViewModel)
         {
-            AutoMapper.Mapper.Initialize(config =>
-            {
-                config.CreateMap<UserEntity, ChangePasswordViewModel>();
-            });
-        }     
+            Mapper.CreateMap<ChangePasswordViewModel, UserEntity>();
+            return Mapper.Map<UserEntity>(changePasswordViewModel);            
+        }
     }
 }
