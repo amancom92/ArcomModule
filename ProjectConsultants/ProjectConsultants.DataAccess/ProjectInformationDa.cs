@@ -18,29 +18,6 @@ namespace ProjectConsultants.DataAccess
                 context.SaveChanges();
                 return projectDetail;
             }
-        }
-
-        public UserEntity Register(UserEntity user)
-        {
-            using (var context = new ArcomDbContext())
-            {
-                var userdetails = context.userInformation.Add(user);
-                context.SaveChanges();
-                return userdetails;
-            }
-        }
-
-        public bool ValidateEmail(string email)
-        {
-            using (var context = new ArcomDbContext())
-            {
-                var emailValidate = context.userInformation.FirstOrDefault(p => p.Email.Equals(email));
-
-                return emailValidate != null ? true : false;
-            }
-        }
-
-
-
+        }     
     }
 }
