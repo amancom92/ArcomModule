@@ -52,7 +52,7 @@ namespace ProjectConsultants.Controllers
                     }
 
                     else
-                    {
+                    {                      
                         return RedirectToAction("Register", "User");
                     }
                 }
