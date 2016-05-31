@@ -11,7 +11,13 @@ namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
     {
+        /// <summary>
+        /// The log
+        /// </summary>
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
+        //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+        //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         // GET: Registration
 
         /// <summary>
@@ -32,9 +38,6 @@ namespace ProjectConsultants.Controllers
 
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
-            //Log4NetLogger log = new Log4NetLogger();
-           
-          
             try
             {
                 if (ModelState.IsValid)
@@ -53,11 +56,14 @@ namespace ProjectConsultants.Controllers
                         return RedirectToAction("Register", "User");
                     }
                 }
+                else
+                {
+                    return RedirectToAction("Error", "Error");
+                }
             }
             catch (Exception ex)
             {
-                register.Message = ex.ToString();
-                log.Error(ex.ToString());
+                log.Error(ex.ToString(), ex);
             }
 
             return View(register);
@@ -105,15 +111,11 @@ namespace ProjectConsultants.Controllers
 
         public JsonResult EmailDbValidation(string email)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:64468/");
-
-            HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
-
             try
             {
-                bool ifEmailExist = response != null ? true : false;
-                return Json(ifEmailExist, JsonRequestBehavior.AllowGet);
+                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
+                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
+                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {

@@ -21,7 +21,6 @@ namespace ProjectConsultants.Api.Controllers
         {
             try
             {
-
                 UserEntity user = new UserEntity();
                 user.FirstName = register.FirstName;
                 user.LastName = register.LastName;
@@ -46,7 +45,7 @@ namespace ProjectConsultants.Api.Controllers
             {
                 register.Message = ex.ToString();
                 log.Error(ex.ToString());
-                
+
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
@@ -57,12 +56,10 @@ namespace ProjectConsultants.Api.Controllers
             try
             {
                 var response = new HttpResponseMessage();
-
                 var isEmail = new UserManager().EmailValidate(email);
                 if (isEmail)
                 {
                     return response = Request.CreateResponse(isEmail);
-
                 }
                 else
                 {

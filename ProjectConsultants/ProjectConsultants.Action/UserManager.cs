@@ -16,7 +16,7 @@ namespace ProjectConsultants.Action
             var userEntity = new UserEntity();
             try
             {
-                userEntity = new ProjectInformationDa().Register(user);
+                userEntity = new UserDa().Register(user);
             }
             catch(Exception ex)
             {
@@ -31,7 +31,7 @@ namespace ProjectConsultants.Action
             try
             {
 
-                var useremail = new ProjectInformationDa().ValidateEmail(email);
+                var useremail = new UserDa().ValidateEmail(email);
                 return useremail;
             }
             catch (Exception ex)
