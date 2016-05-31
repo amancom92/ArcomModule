@@ -73,12 +73,14 @@
         </ul>
     </div>
     <div id="headerBlock">
-        @if (loggedInUser != null)
-        {
-            <text>
-                Welcome @loggedInUser.FirstName
-            </text>
-        }
+        <div id="welcomeText">
+            @if (loggedInUser != null)
+            {
+                <text>
+                    Welcome @loggedInUser.FirstName
+                </text>
+            }
+        </div>
     </div>
     <div>
         @RenderBody()

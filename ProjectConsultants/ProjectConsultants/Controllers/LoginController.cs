@@ -56,6 +56,7 @@ namespace ProjectConsultants.Controllers
 
                         //Storing user information in session
                         LoggedInUser = responseResult;
+                       
                     }
                     catch (Exception ex)
                     {

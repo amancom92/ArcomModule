@@ -48,6 +48,10 @@ li.navlist a.active {
     margin-right: 5%;
 }
 
+#welcomeText {
+    margin-left: 6%;
+}
+
 /* Log Out CSS*/
 .dropdown-menu {
     position: absolute;
@@ -123,6 +127,7 @@ li.navlist a.active {
     float: right;
     cursor: pointer;
 }
-.projectSubItem,.settingsSubItem ,.toolsSubItem{
-    display:none;
+
+.projectSubItem, .settingsSubItem, .toolsSubItem {
+    display: none;
 }
