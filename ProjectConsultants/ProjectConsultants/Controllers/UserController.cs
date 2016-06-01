@@ -43,7 +43,7 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64469/");
+                    client.BaseAddress = new Uri("http://localhost:64468/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
