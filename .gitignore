@@ -34,6 +34,9 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants
 
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ProjectConsultants/ProjectConsultants.Action/bin/
+ProjectConsultants/ProjectConsultants.BusinessLogic/obj/
+ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csproj.FileListAbsolute.txt
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.pdb
 ProjectConsultants/ProjectConsultants.Action/bin/Release/
@@ -62,3 +65,4 @@ ProjectConsultants/ProjectConsultants/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.cs
 ProjectConsultants/ProjectConsultants.Application/obj/
+ProjectConsultants/ProjectConsultants.Common/obj/
