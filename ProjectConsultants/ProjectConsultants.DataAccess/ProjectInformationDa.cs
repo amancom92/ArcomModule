@@ -1,4 +1,5 @@
 ﻿using ProjectConsultants.Entity;
+using System.Linq;
 
 namespace ProjectConsultants.DataAccess
 {
@@ -17,17 +18,6 @@ namespace ProjectConsultants.DataAccess
                 context.SaveChanges();
                 return projectDetail;
             }
-        }
-
-        public UserEntity Register(UserEntity user)
-        {
-            using (var context = new ArcomDbContext())
-            {
-                var userdetails = context.userInformation.Add(user);
-                context.SaveChanges();
-                return userdetails;
-            }
-        }
-
+        }     
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ProjectConsultants.DataAccess;
 using ProjectConsultants.Entity;
+using System;
 
 namespace ProjectConsultants.Action
 {
@@ -15,12 +16,28 @@ namespace ProjectConsultants.Action
             var userEntity = new UserEntity();
             try
             {
-                userEntity = new ProjectInformationDa().Register(user);
+                userEntity = new UserDa().Register(user);
             }
-            catch
+            catch(Exception ex)
             {
+                throw ex;
             } 
             return userEntity;
+        }
+
+
+        public bool EmailValidate(string email)
+        {
+            try
+            {
+
+                var useremail = new UserDa().ValidateEmail(email);
+                return useremail;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -35,8 +52,9 @@ namespace ProjectConsultants.Action
             {
                 isSuccess = new UserDa().ChangePassword(userDetails);
             }
-            catch
+            catch (Exception ex)
             {
+                throw;
             }
 
             return isSuccess;

@@ -1,4 +1,6 @@
-﻿namespace ProjectConsultants.Common
+﻿using System;
+
+namespace ProjectConsultants.Common
 {
     /// <summary>
     /// UserProfile ViewModel
@@ -33,5 +35,8 @@
         /// The email.
         /// </value>
         public string Email { get; set; }
+
+        public DateTime? LastLoginDate { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using ProjectConsultants.Filters;
+using System.Web.Http;
 
 namespace ProjectConsultants.Api
 {
@@ -16,6 +17,8 @@ namespace ProjectConsultants.Api
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Filters.Add(new CustomApiExceptionFilter());
+
             GlobalConfiguration.Configuration.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
         }
     }

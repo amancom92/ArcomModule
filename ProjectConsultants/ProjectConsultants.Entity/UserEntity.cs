@@ -14,7 +14,8 @@ namespace ProjectConsultants.Entity
         /// The user identifier.
         /// </value>
         [Key]
-        public int UserId { get; set; }
+
+        public int UserId { get; set; }        
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -22,6 +23,7 @@ namespace ProjectConsultants.Entity
         /// The first name.
         /// </value>
         [Required]
+
         public string FirstName { get; set; }
         /// <summary>
         /// Gets or sets the last name.
@@ -47,13 +49,15 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
+        [NotMapped]
+        public string NewPassword { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether this instance is active.
         /// </summary>
         /// <value>
         ///   <c>true</c> if this instance is active; otherwise, <c>false</c>.
         /// </value>
-        [NotMapped]
         public bool IsActive { get; set; }
         /// <summary>
         /// Gets or sets the created on.
@@ -61,7 +65,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The created on.
         /// </value>
-        [NotMapped]
+        [Required]
         public DateTime CreatedOn { get; set; }
         /// <summary>
         /// Gets or sets the created by.
@@ -69,7 +73,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The created by.
         /// </value>
-        [NotMapped]
+        [Required]
         public int CreatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated by.
@@ -77,23 +81,13 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The updated by.
         /// </value>
-        [NotMapped]
-        public int UpdatedBy { get; set; }
+        public int? UpdatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated on.
         /// </summary>
         /// <value>
         /// The updated on.
         /// </value>
-        [NotMapped]
-        public DateTime UpdatedOn { get; set; }
-        /// <summary>
-        /// Gets or sets the new password.
-        /// </summary>
-        /// <value>
-        /// The new password.
-        /// </value>
-        [NotMapped]
-        public string NewPassword { get; set; }
+        public DateTime? UpdatedOn { get; set; }
     }
 }

@@ -34,13 +34,15 @@ namespace ProjectConsultants.Controllers
             return client.GetAsync(requestedUrl).Result;
         }
 
+       
+
         /// <summary>
         /// Gets or sets the logged in user.
         /// </summary>
         /// <value>
         /// The logged in user.
         /// </value>
-  
+
         protected UserViewModel LoggedInUser
         {
             get
@@ -58,8 +60,6 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
-
-
 
     }
 
