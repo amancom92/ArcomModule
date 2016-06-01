@@ -38,9 +38,9 @@ namespace ProjectConsultants.Api.Controllers
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
 
+
                 user.SecurityQuestionAnswer = register.SecurityQuestionAnswer;
                 user.SecurityQuestion = Convert.ToString(register.SecurityQuestionId);
-
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);
@@ -65,10 +65,6 @@ namespace ProjectConsultants.Api.Controllers
         [HttpGet]
         public HttpResponseMessage IsEmailValidate(string email)
         {
-
-           
-
-
             try
             {
                 var response = new HttpResponseMessage();
@@ -85,7 +81,7 @@ namespace ProjectConsultants.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                log.Error(ex.ToString());
 
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);

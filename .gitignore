@@ -29,7 +29,8 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/TemporaryGenerated
 *.suo
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
-
+ProjectConsultants/.vs/config/applicationhost.config
+ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProjectConsultants/ProjectConsultants.Action/bin/
@@ -49,7 +50,6 @@ ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Release/TemporaryGenerat
 ProjectConsultants/ProjectConsultants.UI.ViewModel/ProjectConsultants.UI.ViewModel.csproj.user
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj
 ProjectConsultants/ProjectConsultants/ProjectConsultants.UI.csproj.user
-
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.pdb
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
 ProjectConsultants/ProjectConsultants/Web.config
@@ -64,6 +64,9 @@ ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.c
 ProjectConsultants/ProjectConsultants.Application/obj/
 ProjectConsultants/ProjectConsultants.Common/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProjectConsultants/ProjectConsultants.Common/obj/
+ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
 ProjectConsultants/ProjectConsultants/Content/Images/arcom-one-small.png
 ProjectConsultants/ProjectConsultants/LogErorrs/loA.D.20160531.txt
+ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
+
