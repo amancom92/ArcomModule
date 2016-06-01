@@ -16,11 +16,7 @@ namespace ProjectConsultants.Controllers
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
 
         #region Registration
-
-        //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-        //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-
+        
         // GET: Registration
 
         /// <summary>
@@ -51,9 +47,9 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="register">The register.</param>
         /// <returns></returns>
-        //[SkipCustomSessionFilter]
+        
         [HttpPost]
-        [SkipCustomSessionFilter]
+        //[SkipCustomSessionFilter]
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
@@ -70,7 +66,7 @@ namespace ProjectConsultants.Controllers
                     }
 
                     else
-                    {                      
+                    {
                         return RedirectToAction("Register", "User");
                     }
                 }
@@ -167,21 +163,21 @@ namespace ProjectConsultants.Controllers
             catch (Exception ex)
             {
                 return Json(false, JsonRequestBehavior.AllowGet);
-
-
             }
-
-           
+   
         }
 		#endregion EmailVaildate
 
 
         [HttpGet]
+        [SkipCustomSessionFilter]
         public ActionResult ForgotPassword()
         {
-            return View();
+            var forgotPassword = new RegisterViewModel();  
+            return View(forgotPassword);
         }
         [HttpPost]
+        [SkipCustomSessionFilter]
         public ActionResult ForgotPassword(RegisterViewModel forgotPassword)
         {
             return View(forgotPassword);

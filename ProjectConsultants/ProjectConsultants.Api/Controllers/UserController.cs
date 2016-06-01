@@ -1,8 +1,6 @@
 ﻿using ProjectConsultants.Action;
 using ProjectConsultants.Api.App_Start;
-using ProjectConsultants.Controllers;
 using ProjectConsultants.Entity;
-using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Net;
@@ -11,9 +9,9 @@ using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
 {
-    
 
-       public class UserController : BaseController
+
+    public class UserController : BaseController
     {
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         /// <summary>
@@ -40,7 +38,7 @@ namespace ProjectConsultants.Api.Controllers
 
 
                 user.SecurityQuestionAnswer = register.SecurityQuestionAnswer;
-                user.SecurityQuestion = Convert.ToString(register.SecurityQuestionId);
+                user.SecurityQuestion = register.SecurityQuestionId;
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);

@@ -97,8 +97,26 @@ namespace ProjectConsultants.Entity
         /// The updated on.
         /// </value>
         public DateTime? UpdatedOn { get; set; }
+        /// <summary>
+        /// Gets or sets the last access time.
+        /// </summary>
+        /// <value>
+        /// The last access time.
+        /// </value>
         public DateTime? LastAccessTime { get; set; }
-        public string SecurityQuestion { get; set; }
+        /// <summary>
+        /// Gets or sets the security question.
+        /// </summary>
+        /// <value>
+        /// The security question.
+        /// </value>
+        public int SecurityQuestion { get; set; }
+        /// <summary>
+        /// Gets or sets the security question answer.
+        /// </summary>
+        /// <value>
+        /// The security question answer.
+        /// </value>
         public string SecurityQuestionAnswer { get; set; }
     }
 }

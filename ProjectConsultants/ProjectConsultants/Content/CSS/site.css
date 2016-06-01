@@ -302,11 +302,6 @@
    
 }
 
-
-
-
-
-
 .sidelist {
      margin-top:65px;
      border-radius:8px; 
@@ -337,7 +332,9 @@
     color:dodgerblue;
     border-bottom-color:white;
 }
-
+#participants{
+    display:none;
+}
 /*Forgot Password Css*/
 
 #forgotPasswordHeader {

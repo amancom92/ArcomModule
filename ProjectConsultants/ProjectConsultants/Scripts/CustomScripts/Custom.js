@@ -21,8 +21,8 @@ $(document).ready(function () {
         $("#generalInfo").hide();
         $("#participants").hide();
     });  
-});
-$(document).ready(function () {
+
+
 $(".hideenp").click(function () {  
     $("#btnci").hide();
     $("#btncp").hide();
@@ -44,8 +44,6 @@ $(".hideeng").click(function () {
     $("#temprory").hide();
     $("#participants").hide();
 });
-
-    });
 
     // menu hide and show
     $('.menuDropdown').off().on().click(function () {
@@ -89,13 +87,6 @@ $(".hideeng").click(function () {
 
 });
 
-
-//$(document).ready(function () {
-//    $('li.navlist').click(function () {
-//        $('li.navlist a').removeClass("active");
-//        $(this).addClass("active");
-//    });
-//});
 
 
 

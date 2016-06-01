@@ -1,6 +1,6 @@
 ﻿namespace ProjectConsultants.Common
 {
-    public class MessageHelper
+    public class Logger
     {
     }
 }
