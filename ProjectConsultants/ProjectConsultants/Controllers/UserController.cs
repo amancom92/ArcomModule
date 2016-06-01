@@ -27,6 +27,7 @@ namespace ProjectConsultants.Controllers
         /// Registers this instance.
         /// </summary>
         /// <returns></returns>
+        //[SkipCustomSessionFilter]
         public ActionResult Register()
         {
             return View();
@@ -37,6 +38,7 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="register">The register.</param>
         /// <returns></returns>
+        //[SkipCustomSessionFilter]
         [HttpPost]
 
         public async Task<ActionResult> Register(RegisterViewModel register)
@@ -127,13 +129,15 @@ namespace ProjectConsultants.Controllers
                 return View(changePasswordViewModel);
             
         }
+        #endregion Change Password
 
+        #region EmailVaildate
         /// <summary>
         /// Emails the database validation.
         /// </summary>
         /// <param name="email">The email.</param>
         /// <returns></returns>
-      //for email vaildation if it already exist in database
+        //for email vaildation if it already exist in database
         [HttpGet]
 
         public JsonResult EmailDbValidation(string email)
@@ -154,8 +158,8 @@ namespace ProjectConsultants.Controllers
            
         }
 
+        #endregion EmailVaildate
 
-        #endregion Change Password
 
 
 
