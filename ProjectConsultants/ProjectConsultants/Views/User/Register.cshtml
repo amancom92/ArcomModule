@@ -19,7 +19,7 @@
     <div>
         <h3 class="heading"> Register</h3>
     </div>
-    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    @using (Html.BeginForm())
     {
         <div>
             <div class="textField">
@@ -50,12 +50,12 @@
                 @Html.EditorFor(model => model.SecurityQuestionAnswer, new { htmlAttributes = new { @class = "form-field-css", placeholder = "Answer*" } })
                 @Html.ValidationMessageFor(model => model.SecurityQuestionAnswer, null, new { @class = "ValidationMessage" })
             </div>
-            
+            <div class="textField">
+                <input class="signup" type="submit" value="sign up" />
+            </div>
         </div>
     }
-    <div class="textField">
-        <input class="signup" type="button" value="sign up" />
-    </div>
+    
 </body>
 
 

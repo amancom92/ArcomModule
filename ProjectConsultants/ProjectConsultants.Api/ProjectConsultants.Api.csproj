@@ -161,6 +161,10 @@
       <Project>{38e5e6e0-9808-43ed-aaa7-2368e4eb4b51}</Project>
       <Name>ProjectConsultants.Action</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectConsultants.DataAccess\ProjectConsultants.DataAccess.csproj">
+      <Project>{FE33EB0C-2C6B-4D88-BDEF-DAFC5B14F302}</Project>
+      <Name>ProjectConsultants.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.Entity\ProjectConsultants.Entity.csproj">
       <Project>{6b2b3a9d-d107-44ac-916d-26fe0bf6f88d}</Project>
       <Name>ProjectConsultants.Entity</Name>

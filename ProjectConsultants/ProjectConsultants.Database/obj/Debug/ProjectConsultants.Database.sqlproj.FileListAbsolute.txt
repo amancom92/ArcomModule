@@ -1,9 +1,5 @@
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dacpac
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dll
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.pdb
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\Model.xml
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\refactor.xml
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\postdeploy.sql
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\predeploy.sql
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.dll
 E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.pdb

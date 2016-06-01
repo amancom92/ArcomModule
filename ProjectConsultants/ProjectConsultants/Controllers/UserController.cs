@@ -16,7 +16,7 @@ namespace ProjectConsultants.Controllers
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
 
         #region Registration
-        
+
         // GET: Registration
 
         /// <summary>
@@ -29,9 +29,10 @@ namespace ProjectConsultants.Controllers
         public ActionResult Register()
         {
             var registerViewModel = new RegisterViewModel();
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:64468/");
-            HttpResponseMessage response = client.GetAsync("api/Common/GetSecurityQuestionList").Result;
+
+            var serviceUrl = "api/Common/GetSecurityQuestionList";
+            HttpResponseMessage response = GetServiceResponse(serviceUrl);
+
             if (response.IsSuccessStatusCode)
             {
                 var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
@@ -47,9 +48,8 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="register">The register.</param>
         /// <returns></returns>
-        
+
         [HttpPost]
-        //[SkipCustomSessionFilter]
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
@@ -78,8 +78,8 @@ namespace ProjectConsultants.Controllers
             catch (Exception ex)
             {
 
-              
-                log.Error(ex.ToString(),ex);
+
+                log.Error(ex.ToString(), ex);
 
             }
 
@@ -138,8 +138,8 @@ namespace ProjectConsultants.Controllers
                 log.Error(ex.ToString());
             }
 
-                return View(changePasswordViewModel);
-            
+            return View(changePasswordViewModel);
+
         }
         #endregion Change Password
 
@@ -164,24 +164,36 @@ namespace ProjectConsultants.Controllers
             {
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
-   
+
         }
-		#endregion EmailVaildate
+        #endregion EmailVaildate
 
 
         [HttpGet]
         [SkipCustomSessionFilter]
         public ActionResult ForgotPassword()
         {
-            var forgotPassword = new RegisterViewModel();  
+            var forgotPassword = new RegisterViewModel();
+
+            var serviceUrl = "api/Common/GetSecurityQuestionList";
+            HttpResponseMessage response = GetServiceResponse(serviceUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
+                forgotPassword.SecurityQuestionList = responseList;
+            }
+            else
+                forgotPassword.SecurityQuestionList = new List<SelectListItem>();
             return View(forgotPassword);
         }
         [HttpPost]
         [SkipCustomSessionFilter]
         public ActionResult ForgotPassword(RegisterViewModel forgotPassword)
         {
+
             return View(forgotPassword);
-        }        
+        }
 
     }
 }
