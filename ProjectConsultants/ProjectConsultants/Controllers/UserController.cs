@@ -72,31 +72,8 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
-
-        /// <summary>
-        /// Emails the database validation.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns></returns>
-        [HttpGet]
-        public JsonResult EmailDbValidation(string email)
-        {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:64468/");
-
-            HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
-
-            try
-            {
-                bool ifEmailExist = response != null ? true : false;
-                return Json(ifEmailExist, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(false, JsonRequestBehavior.AllowGet);
-            }
-
-        }
+        
+        
 
         #endregion Registration
 
@@ -138,15 +115,17 @@ namespace ProjectConsultants.Controllers
                     {
                         changePasswordViewModel.Message = responseResult.Message;
                         changePasswordViewModel.IsSuccess = response.IsSuccessStatusCode;
-                    }                   
+                    }
                 }
             }
 
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
+            }
 
-            return View(changePasswordViewModel);
+                return View(changePasswordViewModel);
+            
         }
 
         /// <summary>
@@ -172,7 +151,7 @@ namespace ProjectConsultants.Controllers
 
             }
 
-            return View(changePasswordViewModel);
+           
         }
 
 

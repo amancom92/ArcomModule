@@ -30,8 +30,7 @@ namespace ProjectConsultants.Action
         {
 
 
-            var useremail = new ProjectInformationDa().ValidateEmail(email);
-            return useremail;
+           
 
 
             try

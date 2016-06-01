@@ -1,5 +1,6 @@
 ﻿using ProjectConsultants.Action;
 using ProjectConsultants.Api.App_Start;
+using ProjectConsultants.Controllers;
 using ProjectConsultants.Entity;
 using ProjectConsultants.UI.ViewModel;
 using System;
@@ -9,9 +10,10 @@ using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
 {
-    public class UserController : BaseController
-    {
+    
 
+       public class UserController : BaseController
+    {
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         /// <summary>
         /// Registers the specified register.
@@ -35,8 +37,7 @@ namespace ProjectConsultants.Api.Controllers
                 user.UpdatedOn = DateTime.Now;
 
 
-                var newuser = new UserManager().Add(user);
-                return Request.CreateResponse(newuser);
+                
 
                 if (ModelState.IsValid)
                 {
@@ -63,12 +64,7 @@ namespace ProjectConsultants.Api.Controllers
         public HttpResponseMessage IsEmailValidate(string email)
         {
 
-            var response = new HttpResponseMessage();
-
-            var isEmail = new UserManager().EmailValidate(email);
-            if (isEmail)
-            {
-                return response = Request.CreateResponse(isEmail);
+           
 
 
             try
