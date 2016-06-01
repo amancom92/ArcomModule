@@ -1,15 +1,50 @@
 ﻿
 $(document).ready(function () {
+
+    //$(".showw").click(function () {
+    //    $("#temprory").hide();
+    //    $("#generalInfo").show();
+    //});
+
     //hide and show for Under maintenance pages
     $(".showw").click(function () {
         $("#temprory").hide();
         $("#generalInfo").show();
     });
 
+
     $(".hidee").click(function () {
         $("#temprory").show();
         $("#generalInfo").hide();
         $("#temprory").html("<h2>Under Maintenance</h2>");
+
+        $("#generalInfo").hide();
+        $("#participants").hide();
+    });  
+});
+$(document).ready(function () {
+$(".hideenp").click(function () {  
+    $("#btnci").hide();
+    $("#btncp").hide();
+    $("#btndi").hide();
+    $("#btnpt").hide();
+    $("#btnsf").show();
+    $("#generalInfo").hide();
+    $("#participants").show();
+    $("#temprory").hide();
+
+});
+$(".hideeng").click(function () {
+    $("#btnsf").hide();
+    $("#btnci").show();
+    $("#btncp").show();
+    $("#btndi").show();
+    $("#btnpt").show();
+    $("#generalInfo").show();
+    $("#temprory").hide();
+    $("#participants").hide();
+});
+
     });
 
     // menu hide and show
@@ -50,6 +85,7 @@ $(document).ready(function () {
     $(".related").click(function () {
         $(".content").html("<h2>Related Content Under Process</h2>");
     });
+
 
 });
 

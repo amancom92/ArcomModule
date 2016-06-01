@@ -27,13 +27,14 @@ ProjectConsultants/ProjectConsultants/obj/
 ProjectConsultants/ClassLibrary1/obj/
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
 *.suo
-<<<<<<< HEAD
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csprojResolveAssemblyReference.cache
-=======
 
 ProjectConsultants/.vs/config/applicationhost.config
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ProjectConsultants/ProjectConsultants.Action/bin/
+ProjectConsultants/ProjectConsultants.BusinessLogic/obj/
+ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.csproj.FileListAbsolute.txt
 ProjectConsultants/ProjectConsultants.BusinessLogic/obj/Debug/ProjectConsultants.BusinessLogic.pdb
 ProjectConsultants/ProjectConsultants.Action/bin/Release/
@@ -55,7 +56,6 @@ ProjectConsultants/ProjectConsultants/Web.config
 ProjectConsultants/.vs/
 ProjectConsultants/ProjectConsultants/App_Data/ASPNETDB.MDF
 ProjectConsultants/ProjectConsultants/App_Data/aspnetdb_log.ldf
->>>>>>> c3d5464b5bb0f1cebd702a0d795fd2e7e9baab6f
 ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/ArcomApp.pubxml.user
 ProjectConsultants/ProjectConsultants/Properties/PublishProfiles/ArcomApp.pubxml
 ProjectConsultants/ProjectConsultants/Controllers/RegistrationController.cs
@@ -65,3 +65,5 @@ ProjectConsultants/ProjectConsultants.Application/obj/
 ProjectConsultants/ProjectConsultants.Common/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProjectConsultants/ProjectConsultants.Common/obj/
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
+ProjectConsultants/ProjectConsultants/Content/Images/arcom-one-small.png
+ProjectConsultants/ProjectConsultants/LogErorrs/loA.D.20160531.txt

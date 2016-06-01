@@ -5,6 +5,7 @@ namespace ProjectConsultants.Filters
 {
     public class CustomSessionFilter : ActionFilterAttribute
     {
+
         public override void OnActionExecuting(ActionExecutingContext filterContext)
 
         {
@@ -27,6 +28,7 @@ namespace ProjectConsultants.Filters
                   { "action", "Login" }
                     });
             }
+
 
         }
     }

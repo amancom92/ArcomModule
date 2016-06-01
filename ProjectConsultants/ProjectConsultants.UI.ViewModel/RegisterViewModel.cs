@@ -20,7 +20,7 @@ namespace ProjectConsultants.UI.ViewModel
         /// <value>
         /// The first name.
         /// </value>
-        [Required]
+        [Required]     
         public string FirstName { get; set; }
         /// <summary>
         /// Gets or sets the last name.

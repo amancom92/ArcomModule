@@ -301,6 +301,12 @@
     -webkit-transform:rotate(90.0deg);  
    
 }
+
+
+
+
+
+
 .sidelist {
      margin-top:65px;
      border-radius:8px; 
@@ -331,6 +337,7 @@
     color:dodgerblue;
     border-bottom-color:white;
 }
+
 /*Forgot Password Css*/
 
 #forgotPasswordHeader {
@@ -364,3 +371,4 @@
 #forgotpasswordTitle {
     text-align: center;
 }
+

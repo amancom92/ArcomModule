@@ -1,4 +1,6 @@
 ﻿using ProjectConsultants.Action;
+using ProjectConsultants.Api.App_Start;
+using ProjectConsultants.Controllers;
 using ProjectConsultants.Entity;
 using ProjectConsultants.Filters;
 using ProjectConsultants.UI.ViewModel;
@@ -9,7 +11,9 @@ using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
 {
-    public class UserController : ApiController
+    
+
+       public class UserController : BaseController
     {
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         /// <summary>
@@ -17,6 +21,7 @@ namespace ProjectConsultants.Api.Controllers
         /// </summary>
         /// <param name="register">The register.</param>
         /// <returns></returns>
+
         [HttpPost]
      
         public HttpResponseMessage Register(RegisterViewModel register)
@@ -32,12 +37,15 @@ namespace ProjectConsultants.Api.Controllers
                 user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
                 user.UpdatedOn = DateTime.Now;
+
                 user.SecurityQuestionAnswer = register.SecurityQuestionAnswer;
                 user.SecurityQuestion = Convert.ToString(register.SecurityQuestionId);
+
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);
                     return Request.CreateResponse(newuser);
+
 
                 }
                 else
@@ -49,7 +57,7 @@ namespace ProjectConsultants.Api.Controllers
             {
                 register.Message = ex.ToString();
                 log.Error(ex.ToString());
-                
+
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
@@ -57,15 +65,17 @@ namespace ProjectConsultants.Api.Controllers
         [HttpGet]
         public HttpResponseMessage IsEmailValidate(string email)
         {
+
+           
+
+
             try
             {
                 var response = new HttpResponseMessage();
-
                 var isEmail = new UserManager().EmailValidate(email);
                 if (isEmail)
                 {
                     return response = Request.CreateResponse(isEmail);
-
                 }
                 else
                 {
@@ -76,6 +86,7 @@ namespace ProjectConsultants.Api.Controllers
             catch (Exception ex)
             {
                 throw ex;
+
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
@@ -83,28 +94,39 @@ namespace ProjectConsultants.Api.Controllers
 
 
 
+
+
+
         /// <summary>
         /// Changes the password.
         /// </summary>
-        /// <param name="UserName">Name of the user.</param>
-        /// <param name="Password">The password.</param>
-        /// <param name="NewPassword">The new password.</param>
+        /// <param name="changePasswordModel">The change password model.</param>
         /// <returns></returns>
-        [HttpGet]
-        public HttpResponseMessage ChangePassword(string UserName, string Password, string NewPassword)
+        [HttpPost]
+        public HttpResponseMessage ChangePassword(ChangePasswordViewModel changePasswordModel)
         {
+            try
+            {
+                UserEntity userEntity = MapperConfig.ConvertChangePasswordModelToEntity(changePasswordModel);
+                var isSuccess = new UserManager().ChangePassword(userEntity);
 
-            UserEntity userEntity = new UserEntity();
-            userEntity.Email = UserName;
-            userEntity.Password = Password;
-            userEntity.NewPassword = NewPassword;
+                changePasswordModel.IsSuccess = isSuccess;
+                if (isSuccess)
+                {
+                    ResponseStatusCode = HttpStatusCode.OK;
+                }
+                else
+                {
+                    ResponseStatusCode = HttpStatusCode.InternalServerError;
+                }
 
-            var passwordExist = new UserManager().ChangePassword(userEntity);
-
-            return Request.CreateResponse(passwordExist);
+                return Request.CreateResponse(ResponseStatusCode, changePasswordModel);
+            }
+            catch (Exception ex)
+            {
+                ResponseStatusCode = HttpStatusCode.InternalServerError;
+                return Request.CreateResponse(ResponseStatusCode);
+            }
         }
-
-
-
     }
 }
