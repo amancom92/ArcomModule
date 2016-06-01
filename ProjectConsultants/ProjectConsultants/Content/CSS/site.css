@@ -331,3 +331,36 @@
     color:dodgerblue;
     border-bottom-color:white;
 }
+/*Forgot Password Css*/
+
+#forgotPasswordHeader {
+    background-color: #F7F7F7;
+    height: 80px;
+    width: 100%;
+    position: relative;
+    top: 45px;
+    border-top: 1px solid #E8E8E8;
+}
+#forgotPasswordTitle{
+    color: #9F9F9F;
+    font-size: 15px;
+    position: relative;
+    top: 25px;
+    margin-left: 4.5%;
+}
+#forgotPasswordBorder {
+    border: 1px solid #DFDFDF;
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 80px;
+    padding-left: 80px;
+}
+#forgotpasswordHeading {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+#forgotpasswordTitle {
+    text-align: center;
+}

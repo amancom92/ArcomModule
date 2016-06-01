@@ -64,3 +64,4 @@ ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.c
 ProjectConsultants/ProjectConsultants.Application/obj/
 ProjectConsultants/ProjectConsultants.Common/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProjectConsultants/ProjectConsultants.Common/obj/
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
