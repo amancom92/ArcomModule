@@ -74,3 +74,6 @@ ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
 
 
+ProjectConsultants/ProjectConsultants.Common/Properties/AssemblyInfo.cs
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user

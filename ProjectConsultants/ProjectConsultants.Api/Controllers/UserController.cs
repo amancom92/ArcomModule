@@ -39,8 +39,6 @@ namespace ProjectConsultants.Api.Controllers
                 {
                     var newuser = new UserManager().Add(user);
                     return Request.CreateResponse(newuser);
-
-
                 }
                 else
                 {
