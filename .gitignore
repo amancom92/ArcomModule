@@ -63,3 +63,4 @@ ProjectConsultants/ProjectConsultants.Api/Controllers/RegistrationController.cs
 ProjectConsultants/ProjectConsultants.Api/Controllers/ChangePasswordController.cs
 ProjectConsultants/ProjectConsultants.Application/obj/
 ProjectConsultants/ProjectConsultants.Common/obj/
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
