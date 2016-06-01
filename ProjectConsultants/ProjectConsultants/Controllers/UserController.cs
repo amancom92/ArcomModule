@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-
 namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
@@ -15,8 +14,12 @@ namespace ProjectConsultants.Controllers
         /// The log
         /// </summary>
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
+
+        #region Registration
+
         //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
         //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 
         // GET: Registration
 
@@ -43,7 +46,7 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64469/");
+                    client.BaseAddress = new Uri("http://localhost:64468/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
@@ -69,7 +72,12 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
+        
+        
 
+        #endregion Registration
+
+        #region Change Password
 
 
         /// <summary>
@@ -79,26 +87,45 @@ namespace ProjectConsultants.Controllers
         [HttpGet]
         public ActionResult ChangePassword()
         {
+            if (LoggedInUser == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
+
             return View();
         }
+
         /// <summary>
         /// Changes the password.
         /// </summary>
         /// <param name="changePasswordViewModel">The change password view model.</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                HttpResponseMessage response = GetServiceResponse("api/User/ChangePassword?UserName=" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&NewPassword=" + changePasswordViewModel.NewPassword);
-                if (response.IsSuccessStatusCode)
+                if (ModelState.IsValid)
                 {
+                    var serviceUrl = string.Format("api/User/ChangePassword");
+                    HttpResponseMessage response = await GetClient().PostAsJsonAsync(serviceUrl, changePasswordViewModel);
 
-                    return RedirectToActionPermanent("Index", "Project");
+                    var responseResult = response.Content.ReadAsAsync<ChangePasswordViewModel>().Result;
+                    if (responseResult != null)
+                    {
+                        changePasswordViewModel.Message = responseResult.Message;
+                        changePasswordViewModel.IsSuccess = response.IsSuccessStatusCode;
+                    }
                 }
             }
-            return View(changePasswordViewModel);
+
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
+
+                return View(changePasswordViewModel);
+            
         }
 
         /// <summary>
@@ -121,9 +148,15 @@ namespace ProjectConsultants.Controllers
             {
                 return Json(false, JsonRequestBehavior.AllowGet);
 
+
             }
 
+           
         }
+
+
+        #endregion Change Password
+
 
 
 
