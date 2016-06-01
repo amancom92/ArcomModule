@@ -2,7 +2,7 @@
 
 namespace ProjectConsultants.UI.ViewModel
 {
-    public class ChangePasswordViewModel
+    public class ChangePasswordViewModel: BaseViewModel
     {
         public int Id { get; set; }
 
