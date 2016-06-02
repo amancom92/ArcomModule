@@ -74,6 +74,13 @@ ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
 
 
+<<<<<<< HEAD
+ProjectConsultants/ProjectConsultants.Common/bin/
+ProjectConsultants/ProjectConsultants.Database/bin/
+ProjectConsultants/ProjectConsultants.Database/obj/
+ProjectConsultants/ProjectConsultants/LogErorrs/Log20160602.txt
+=======
 ProjectConsultants/ProjectConsultants.Common/Properties/AssemblyInfo.cs
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user
+>>>>>>> 054ca3fc7856a994f94f6f5742dcbc84e0030250
