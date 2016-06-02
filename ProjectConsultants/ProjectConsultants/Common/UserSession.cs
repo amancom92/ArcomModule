@@ -36,7 +36,7 @@ namespace ProjectConsultants.Common
         /// </value>
         public string Email { get; set; }
 
-        public DateTime? LastLoginDate { get; set; }
+       
 
     }
 }

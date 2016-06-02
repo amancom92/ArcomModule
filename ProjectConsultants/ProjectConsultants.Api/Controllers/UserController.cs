@@ -1,6 +1,5 @@
 ﻿using ProjectConsultants.Action;
 using ProjectConsultants.Api.App_Start;
-using ProjectConsultants.Controllers;
 using ProjectConsultants.Entity;
 using ProjectConsultants.UI.ViewModel;
 using System;
@@ -9,8 +8,10 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
-{    
-       public class UserController : BaseController
+{
+
+
+    public class UserController : BaseController
     {
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
         /// <summary>
@@ -20,6 +21,7 @@ namespace ProjectConsultants.Api.Controllers
         /// <returns></returns>
 
         [HttpPost]
+     
         public HttpResponseMessage Register(RegisterViewModel register)
         {
             try
@@ -32,7 +34,11 @@ namespace ProjectConsultants.Api.Controllers
                 user.IsActive = true;
                 user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
-                user.UpdatedOn = DateTime.Now;               
+                user.UpdatedOn = DateTime.Now;
+
+
+                user.SecurityQuestionAnswer = register.SecurityQuestionAnswer;
+                user.SecurityQuestion = register.SecurityQuestionId;
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);
@@ -54,7 +60,7 @@ namespace ProjectConsultants.Api.Controllers
 
         [HttpGet]
         public HttpResponseMessage IsEmailValidate(string email)
-        {         
+        {
             try
             {
                 var response = new HttpResponseMessage();
@@ -67,13 +73,22 @@ namespace ProjectConsultants.Api.Controllers
                 {
                     ModelState.AddModelError("Error", "sorry!something went wrong");
                 }
+
             }
             catch (Exception ex)
             {
-                throw ex;
+                log.Error(ex.ToString());
+
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
+
+
+
+
+
+
+
         /// <summary>
         /// Changes the password.
         /// </summary>

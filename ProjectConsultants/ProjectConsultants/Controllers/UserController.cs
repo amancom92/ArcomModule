@@ -1,7 +1,7 @@
 ﻿using ProjectConsultants.Filters;
-using ProjectConsultants.Logging;
 using ProjectConsultants.UI.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -16,16 +16,41 @@ namespace ProjectConsultants.Controllers
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
 
         #region Registration
-            
+
         // GET: Registration
 
         /// <summary>
         /// Registers this instance.
         /// </summary>
         /// <returns></returns>
+
+        [HttpGet]
+        [SkipCustomSessionFilter]
         public ActionResult Register()
         {
-            return View();
+            var registerViewModel = new RegisterViewModel();
+
+            var serviceUrl = "api/Common/GetSecurityQuestionList";
+            HttpResponseMessage response = GetServiceResponse(serviceUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
+
+                registerViewModel.SecurityQuestionList = new List<SelectListItem>();
+                ////foreach (var item in responseList)
+                ////{
+                ////    var selectList = new SelectListItem();
+                ////    selectList.Text = responseList;
+                ////    selectList.Value = responseList;
+                ////    registerViewModel.SecurityQuestionList.Add(selectList);
+
+                ////}
+               // registerViewModel.SecurityQuestionList = responseList;
+            }
+            else
+                registerViewModel.SecurityQuestionList = new List<SelectListItem>();
+            return View(registerViewModel);
         }
         //Inserting a new record
         /// <summary>
@@ -33,8 +58,8 @@ namespace ProjectConsultants.Controllers
         /// </summary>
         /// <param name="register">The register.</param>
         /// <returns></returns>
-        [HttpPost]
 
+        [HttpPost]
         public async Task<ActionResult> Register(RegisterViewModel register)
         {
             try
@@ -42,7 +67,7 @@ namespace ProjectConsultants.Controllers
                 if (ModelState.IsValid)
                 {
                     HttpClient client = new HttpClient();
-                    client.BaseAddress = new Uri("http://localhost:64469/");
+                    client.BaseAddress = new Uri("http://localhost:64468/");
                     HttpResponseMessage response = await client.PostAsJsonAsync("api/User/Register", register);
 
                     if (response.IsSuccessStatusCode)
@@ -51,7 +76,7 @@ namespace ProjectConsultants.Controllers
                     }
 
                     else
-                    {                      
+                    {
                         return RedirectToAction("Register", "User");
                     }
                 }
@@ -62,37 +87,23 @@ namespace ProjectConsultants.Controllers
             }
             catch (Exception ex)
             {
+
+
                 log.Error(ex.ToString(), ex);
+
             }
 
             return View(register);
         }
 
-        /// <summary>
-        /// Emails the database validation.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns></returns>
-        //for email vaildation if it already exist in database
-        [HttpGet]
 
-        public JsonResult EmailDbValidation(string email)
-        {
-            try
-            {
-                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
-                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
-                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(false, JsonRequestBehavior.AllowGet);
 
-            }
-        }
         #endregion Registration
 
         #region Change Password
+
+
+
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -107,6 +118,7 @@ namespace ProjectConsultants.Controllers
 
             return View();
         }
+
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -130,14 +142,69 @@ namespace ProjectConsultants.Controllers
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
             }
 
-                return View(changePasswordViewModel);            
+            return View(changePasswordViewModel);
+
         }
-        #endregion Change Password  
+        #endregion Change Password
+
+        #region EmailVaildate
+        /// <summary>
+        /// Emails the database validation.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+        //for email vaildation if it already exist in database
+        [HttpGet]
+
+        public JsonResult EmailDbValidation(string email)
+        {
+            try
+            {
+                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
+                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
+                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        #endregion EmailVaildate
+
+
+        [HttpGet]
+        [SkipCustomSessionFilter]
+        //public ActionResult ForgotPassword()
+        //{
+        //    var forgotPassword = new RegisterViewModel();
+
+        //    var serviceUrl = "api/Common/GetSecurityQuestionList";
+        //    HttpResponseMessage response = GetServiceResponse(serviceUrl);
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
+        //        forgotPassword.SecurityQuestionList = responseList;
+        //    }
+        //    else
+        //        forgotPassword.SecurityQuestionList = new List<SelectListItem>();
+        //    return View(forgotPassword);
+        //}
+        [HttpPost]
+       /* [SkipCustomSessionFilter]*/
+        public ActionResult ForgotPassword(RegisterViewModel forgotPassword)
+        {
+
+            return View(forgotPassword);
+        }
+
     }
 }
 

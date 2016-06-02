@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace ProjectConsultants.Controllers
 {
+   
 
     public class LoginController : BaseController
     {
+        log4net.ILog log = log4net.LogManager.GetLogger(typeof(LoginController));
         /// <summary>
         /// Logins this instance.
         /// </summary>
@@ -60,14 +62,17 @@ namespace ProjectConsultants.Controllers
                     }
                     catch (Exception ex)
                     {
-                        var Message = ex.ToString();
+                       var Message = ex.ToString();
+                      
                     }
 
                     return RedirectToAction("Index", "Project");
                 }
                 else
                 {
+                    log.Error("error");
                     return RedirectToActionPermanent("Error", "Error");
+                   
                 }
             }
             else

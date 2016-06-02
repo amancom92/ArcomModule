@@ -27,7 +27,7 @@
 
                 <ul class="dropdown-menu hidden">
                     <li class="menuHeadingPadding">
-                        <a>Dashboard</a>
+                        @Html.ActionLink("Dashboard", "Index", "Project")
                     </li>
                     <li class="divider"></li>
                     <li class="menuHeadingPadding">
@@ -72,6 +72,7 @@
         </ul>
     </div>
     <div id="headerBlock">
+
         <div id="welcomeText">
             @if (loggedInUser != null)
             {
@@ -79,6 +80,7 @@
                     Welcome @loggedInUser.FirstName           
                 </text>
             }
+
         </div>
     </div>
     <div>
