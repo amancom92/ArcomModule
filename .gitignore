@@ -81,3 +81,4 @@ ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlpr
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user
 
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160602.txt
+*.pdb

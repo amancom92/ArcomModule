@@ -1,5 +1,0 @@
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dacpac
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dll
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.pdb
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.dll
-E:\Projects\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.pdb
