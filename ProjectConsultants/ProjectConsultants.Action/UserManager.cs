@@ -25,14 +25,8 @@ namespace ProjectConsultants.Action
             return userEntity;
         }
 
-
         public bool EmailValidate(string email)
-        {
-
-
-           
-
-
+        {       
             try
             {
 
@@ -45,7 +39,6 @@ namespace ProjectConsultants.Action
             }
 
         }
-
         /// <summary>
         /// Changes the password.
         /// </summary>

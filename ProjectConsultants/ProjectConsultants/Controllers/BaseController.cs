@@ -73,8 +73,5 @@ namespace ProjectConsultants.Controllers
                 Session["UserProfile"] = value;
             }
         }
-
-
-
     }
 }

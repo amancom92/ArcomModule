@@ -84,3 +84,4 @@ ProjectConsultants/ProjectConsultants.Common/Properties/AssemblyInfo.cs
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user
 >>>>>>> 054ca3fc7856a994f94f6f5742dcbc84e0030250
+ProjectConsultants/ProjectConsultants.Action/ProjectConsultants.Action.csproj.user

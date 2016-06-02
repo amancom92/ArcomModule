@@ -1,0 +1,51 @@
+﻿@using System.Web.Optimization
+@using ProjectConsultants.UI.ViewModel;
+
+@{
+    //ViewBag.Title = "Participants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var loggedInUser = Session["UserProfile"] as UserViewModel ?? new UserViewModel();
+}
+<div class="body bodytop">
+
+
+
+    <div class="body bodytop" id="refresh">
+
+
+        <div class="pageInnerWidth">
+            <div class="buttonWidth" id="btnalignment">
+                @Html.ActionLink("General Information", "Index", "Project", new { @class = "buttonSize" })
+                @Html.ActionLink("ProjectParticipants", "Participants", "Project", new { @class = "buttonSize" })                                
+                <button type="button" id="btnpd" class="buttonSize hidee">Project Defaults</button>                            
+                <button type="button" id="btnsf" class="buttonSize hidee">Section Formatting</button>
+            </div>
+
+
+            <div class="formWidth" id="participants">
+                <div class="formHeading">
+                    <h2 id="headingMargin">Project Participants</h2>
+                    <div>
+                        <table id="jqGrid"></table>
+                        <div id="jqControls"></div>
+                         @loggedInUser.Email
+                         @loggedInUser.FirstName
+                         @loggedInUser.LastName                                             
+                    </div> 
+                </div>
+            </div>
+            <div id="temprory"></div>
+        </div>        
+    </div>
+</div>
+@Scripts.Render("~/bundles/CustomScripts")
+@*@section scripts
+{
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.10.4.js"></script>
+<script src="~/Scripts/i18n/grid.locale-en.js"></script>
+<script src="~/Scripts/jquery.jqGrid.min.js"></script> 
+     }*@
