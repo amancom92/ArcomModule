@@ -74,3 +74,7 @@ ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
 
 
+ProjectConsultants/ProjectConsultants.Common/bin/
+ProjectConsultants/ProjectConsultants.Database/bin/
+ProjectConsultants/ProjectConsultants.Database/obj/
+ProjectConsultants/ProjectConsultants/LogErorrs/Log20160602.txt
