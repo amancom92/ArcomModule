@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ProjectConsultants.Entity
 {
     [Table("[SecurityQuestions]")]
-    public class SecurityQuestionsEntity
+    public class SelectListItem
     {
         /// <summary>
         /// Gets or sets the question identifier.

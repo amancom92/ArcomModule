@@ -35,8 +35,18 @@ namespace ProjectConsultants.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
-                registerViewModel.SecurityQuestionList = responseList;
+                var responseList = response.Content.ReadAsAsync<List<SelectListItem>>().Result;
+
+                registerViewModel.SecurityQuestionList = new List<SelectListItem>();
+                ////foreach (var item in responseList)
+                ////{
+                ////    var selectList = new SelectListItem();
+                ////    selectList.Text = responseList;
+                ////    selectList.Value = responseList;
+                ////    registerViewModel.SecurityQuestionList.Add(selectList);
+
+                ////}
+               // registerViewModel.SecurityQuestionList = responseList;
             }
             else
                 registerViewModel.SecurityQuestionList = new List<SelectListItem>();
@@ -171,24 +181,24 @@ namespace ProjectConsultants.Controllers
 
         [HttpGet]
         [SkipCustomSessionFilter]
-        public ActionResult ForgotPassword()
-        {
-            var forgotPassword = new RegisterViewModel();
+        //public ActionResult ForgotPassword()
+        //{
+        //    var forgotPassword = new RegisterViewModel();
 
-            var serviceUrl = "api/Common/GetSecurityQuestionList";
-            HttpResponseMessage response = GetServiceResponse(serviceUrl);
+        //    var serviceUrl = "api/Common/GetSecurityQuestionList";
+        //    HttpResponseMessage response = GetServiceResponse(serviceUrl);
 
-            if (response.IsSuccessStatusCode)
-            {
-                var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
-                forgotPassword.SecurityQuestionList = responseList;
-            }
-            else
-                forgotPassword.SecurityQuestionList = new List<SelectListItem>();
-            return View(forgotPassword);
-        }
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var responseList = response.Content.ReadAsAsync<IEnumerable<SelectListItem>>().Result;
+        //        forgotPassword.SecurityQuestionList = responseList;
+        //    }
+        //    else
+        //        forgotPassword.SecurityQuestionList = new List<SelectListItem>();
+        //    return View(forgotPassword);
+        //}
         [HttpPost]
-        [SkipCustomSessionFilter]
+       /* [SkipCustomSessionFilter]*/
         public ActionResult ForgotPassword(RegisterViewModel forgotPassword)
         {
 

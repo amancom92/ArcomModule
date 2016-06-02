@@ -22,7 +22,7 @@ namespace ProjectConsultants.DataAccess
         public DbSet<ProjectInformationEntity> projectInformation { get; set; }
         public DbSet<UserEntity> userInformation { get; set; }
 
-        public DbSet<SecurityQuestionsEntity> securityQuestions { get; set; }
+        public DbSet<SelectListItem> securityQuestions { get; set; }
 
     }
 }

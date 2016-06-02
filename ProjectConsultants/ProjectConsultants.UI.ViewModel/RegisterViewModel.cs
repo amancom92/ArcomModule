@@ -56,7 +56,7 @@ namespace ProjectConsultants.UI.ViewModel
         //[RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$",ErrorMessage = "Password expresion that requires one lower case letter, one upper case letter, one digit, 4-8 length, and no spaces.")]
         public string SecurityQuestionAnswer { get; set; }
         public int SecurityQuestionId { get; set; }
-        public IEnumerable<SelectListItem> SecurityQuestionList { get; set; }
+        public List<SelectListItem> SecurityQuestionList { get; set; }
 
     }
 }
