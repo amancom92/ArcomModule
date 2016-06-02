@@ -89,7 +89,7 @@ namespace ProjectConsultants.Entity
         /// <value>
         /// The updated by.
         /// </value>
-        public int? UpdatedBy { get; set; }
+        public int UpdatedBy { get; set; }
         /// <summary>
         /// Gets or sets the updated on.
         /// </summary>
@@ -97,5 +97,26 @@ namespace ProjectConsultants.Entity
         /// The updated on.
         /// </value>
         public DateTime? UpdatedOn { get; set; }
+        /// <summary>
+        /// Gets or sets the last access time.
+        /// </summary>
+        /// <value>
+        /// The last access time.
+        /// </value>
+        public DateTime? LastAccessTime { get; set; }
+        /// <summary>
+        /// Gets or sets the security question.
+        /// </summary>
+        /// <value>
+        /// The security question.
+        /// </value>
+        public int SecurityQuestion { get; set; }
+        /// <summary>
+        /// Gets or sets the security question answer.
+        /// </summary>
+        /// <value>
+        /// The security question answer.
+        /// </value>
+        public string SecurityQuestionAnswer { get; set; }
     }
 }

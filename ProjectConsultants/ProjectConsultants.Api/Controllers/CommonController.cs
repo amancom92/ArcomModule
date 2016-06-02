@@ -60,6 +60,13 @@ namespace ProjectConsultants.Api.Controllers
             var outputList = commonManager.GetCountryList();
             return Request.CreateResponse(outputList);
         }
+        
+        public HttpResponseMessage GetSecurityQuestionList()
+        {
+            var securityQuestionsManager = new SecurityQuestionsManager();
+            var outputList = securityQuestionsManager.GetSecurityQuestionList();
+            return Request.CreateResponse(outputList);
+        }
 
         /// <summary>
         /// Gets the states by country identifier.

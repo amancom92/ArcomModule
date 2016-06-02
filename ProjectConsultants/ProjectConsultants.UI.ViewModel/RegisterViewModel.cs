@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 namespace ProjectConsultants.UI.ViewModel
 {
     public class RegisterViewModel : BaseViewModel
     {
+        [Key]
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
@@ -49,7 +51,12 @@ namespace ProjectConsultants.UI.ViewModel
         public string Password { get; set; }
         [DataType(DataType.Password)]
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "password and confirm password are not same")]
-        public string ConfirmPassword { get; set; }
-      
+        public string ConfirmPassword { get; set; } 
+        [Required]
+        //[RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{4,8}$",ErrorMessage = "Password expresion that requires one lower case letter, one upper case letter, one digit, 4-8 length, and no spaces.")]
+        public string SecurityQuestionAnswer { get; set; }
+        public int SecurityQuestionId { get; set; }
+        public List<SelectListItem> SecurityQuestionList { get; set; }
+
     }
 }
