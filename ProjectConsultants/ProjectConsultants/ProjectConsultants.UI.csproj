@@ -267,6 +267,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="log4net.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="log4net.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\Publish_Client.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Content\Images\logo.png" />
@@ -283,8 +289,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
+
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+
     <Content Include="Views\web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Error.cshtml" />
@@ -329,6 +340,9 @@
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+
+    <Content Include="Views\Home\Index.cshtml" />
+
     <Content Include="Views\SB3\SB3.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -344,7 +358,11 @@
       <Name>ProjectConsultants.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.Entity\ProjectConsultants.Entity.csproj">
+
       <Project>{6b2b3a9d-d107-44ac-916d-26fe0bf6f88d}</Project>
+
+      <Project>{6B2B3A9D-D107-44AC-916D-26FE0BF6F88D}</Project>
+
       <Name>ProjectConsultants.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
