@@ -5,17 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+<div class="body bodytop">
+ 
+
+
 <div class="body bodytop" id="refresh">
+
 
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
-            <button type="button" class="buttonSize showw" autofocus>General Information</button>
-            <button type="button" class="buttonSize hidee">Project Participants</button>
-            <button type="button" class="buttonSize hidee">Code Information</button>
-            <button type="button" class="buttonSize hidee">Design Information</button>
-            <button type="button" class="buttonSize hidee">Project Defaults</button>
-            <button type="button" class="buttonSize hidee">Project Tracking</button>
-            <button type="button" class="buttonSize hidee">Completion Progress</button>
+           
+            @Html.ActionLink("General Information", "Index", "Project", new { @class = "buttonSize" })
+            @Html.ActionLink("Project Participants", "Participants", "Project",new {@class= "buttonSize" })            
+            <button type="button" id="btnci" class="buttonSize hidee">Code Information</button>
+            <button type="button" id="btndi" class="buttonSize hidee">Design Information</button>
+            <button type="button" id="btnpd" class="buttonSize hidee">Project Defaults</button>
+            <button type="button" id="btnpt" class="buttonSize hidee">Project Tracking</button>
+            <button type="button" id="btncp" class="buttonSize hidee">Completion Progress</button>           
         </div>
 
         @*<div id="line"></div>*@
@@ -127,8 +134,9 @@
             </div><!-- col-sm-9 -->
         }
         <div id="temprory"></div>
+        </div>
     </div><!-- row-->
-</div><!-- body -->
+        </div><!-- body -->
 
 @Scripts.Render("~/bundles/CustomScripts")
 

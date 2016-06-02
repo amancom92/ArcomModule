@@ -15,7 +15,11 @@ namespace ProjectConsultants
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
+            log4net.Config.XmlConfigurator.Configure();
+
+
             log4net.Config.XmlConfigurator.Configure(new FileInfo("~/log4net.config"));
+
         }
       
 

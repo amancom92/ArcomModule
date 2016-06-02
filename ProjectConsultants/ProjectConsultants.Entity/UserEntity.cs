@@ -15,7 +15,7 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Key]
 
-        public int UserId { get; set; }        
+        public int UserId { get; set; }
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
@@ -49,6 +49,14 @@ namespace ProjectConsultants.Entity
         /// </value>
         [Required]
         public string Password { get; set; }
+
+        /// <summary>
+        /// Gets or sets the new password.
+        /// </summary>
+        /// <value>
+        /// The new password.
+        /// </value>
+
         [NotMapped]
         public string NewPassword { get; set; }
 

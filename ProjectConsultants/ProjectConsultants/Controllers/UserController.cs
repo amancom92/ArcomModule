@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-
 namespace ProjectConsultants.Controllers
 {
     public class UserController : BaseController
@@ -15,9 +14,9 @@ namespace ProjectConsultants.Controllers
         /// The log
         /// </summary>
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
-        //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-        //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        #region Registration
+            
         // GET: Registration
 
         /// <summary>
@@ -69,44 +68,12 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
-
-
-
-        /// <summary>
-        /// Changes the password.
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public ActionResult ChangePassword()
-        {
-            return View();
-        }
-        /// <summary>
-        /// Changes the password.
-        /// </summary>
-        /// <param name="changePasswordViewModel">The change password view model.</param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                HttpResponseMessage response = GetServiceResponse("api/User/ChangePassword?UserName=" + changePasswordViewModel.Email + "&Password=" + changePasswordViewModel.Password + "&NewPassword=" + changePasswordViewModel.NewPassword);
-                if (response.IsSuccessStatusCode)
-                {
-
-                    return RedirectToActionPermanent("Index", "Project");
-                }
-            }
-            return View(changePasswordViewModel);
-        }
-
         /// <summary>
         /// Emails the database validation.
         /// </summary>
         /// <param name="email">The email.</param>
         /// <returns></returns>
-      //for email vaildation if it already exist in database
+        //for email vaildation if it already exist in database
         [HttpGet]
 
         public JsonResult EmailDbValidation(string email)
@@ -122,11 +89,55 @@ namespace ProjectConsultants.Controllers
                 return Json(false, JsonRequestBehavior.AllowGet);
 
             }
-
         }
+        #endregion Registration
 
+        #region Change Password
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult ChangePassword()
+        {
+            if (LoggedInUser == null)
+            {
+                return RedirectToActionPermanent("Login", "Login");
+            }
 
+            return View();
+        }
+        /// <summary>
+        /// Changes the password.
+        /// </summary>
+        /// <param name="changePasswordViewModel">The change password view model.</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var serviceUrl = string.Format("api/User/ChangePassword");
+                    HttpResponseMessage response = await GetClient().PostAsJsonAsync(serviceUrl, changePasswordViewModel);
 
+                    var responseResult = response.Content.ReadAsAsync<ChangePasswordViewModel>().Result;
+                    if (responseResult != null)
+                    {
+                        changePasswordViewModel.Message = responseResult.Message;
+                        changePasswordViewModel.IsSuccess = response.IsSuccessStatusCode;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
+
+                return View(changePasswordViewModel);            
+        }
+        #endregion Change Password  
     }
 }
 

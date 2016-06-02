@@ -18,7 +18,6 @@ namespace ProjectConsultants.DataAccess
                 return loginDetail;
             }
         }
-
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -29,13 +28,13 @@ namespace ProjectConsultants.DataAccess
             using (var context = new ArcomDbContext())
             {
                 var loginDetail = context.userInformation.FirstOrDefault(log => log.Email == login.Email && log.Password == login.Password);
-
                 if (loginDetail != null)
                 {
                     loginDetail.Password = login.NewPassword.Trim();
                     context.SaveChanges();
                     return true;
                 }
+
                 return false;
             }
         }
@@ -54,7 +53,6 @@ namespace ProjectConsultants.DataAccess
                 return userdetails;
             }
         }
-
         /// <summary>
         /// Validates the email.
         /// </summary>
@@ -68,6 +66,5 @@ namespace ProjectConsultants.DataAccess
                 return emailValidate != null ? false : true;
             }
         }
-
     }
 }

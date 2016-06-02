@@ -2,6 +2,7 @@
 using ProjectConsultants.UI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Mvc;
@@ -211,6 +212,44 @@ namespace ProjectConsultants.Controllers
             }
             return Json(new SelectList(ownerStates, "Value", "Text"));
         }
+        //public JsonResult Participants(string sidx, string sort, int page, int rows)
+        //{       
+        //    sort = (sort == null) ? "" : sort;
+        //    int pageIndex = Convert.ToInt32(page) - 1;
+        //    int pageSize = rows;
 
-    }
+        //    var ParticipantList = db.userInformation.Select(
+        //            t => new
+        //            {
+        //                t.Email,
+        //                t.FirstName,
+        //                t.LastName,
+
+        //            });
+        //    int totalRecords = ParticipantList.Count();
+        //    var totalPages = (int)Math.Ceiling((float)totalRecords / (float)rows);
+        //    if (sort.ToUpper() == "DESC")
+        //    {
+        //        ParticipantList = ParticipantList.OrderByDescending(t => t.FirstName);
+        //        ParticipantList = ParticipantList.Skip(pageIndex * pageSize).Take(pageSize);
+        //    }
+        //    else
+        //    {
+        //        ParticipantList = ParticipantList.OrderBy(t => t.FirstName);
+        //        ParticipantList = ParticipantList.Skip(pageIndex * pageSize).Take(pageSize);
+        //    }
+        //    var jsonData = new
+        //    {
+        //        total = totalPages,
+        //        page,
+        //        records = totalRecords,
+        //        rows = ParticipantList
+        //    };
+        //    return Json(jsonData, JsonRequestBehavior.AllowGet);
+        //}
+        public ActionResult Participants()
+            {
+            return View();
+            }
+    }  
 }

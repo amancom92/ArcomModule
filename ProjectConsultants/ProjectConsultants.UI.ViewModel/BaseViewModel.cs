@@ -8,7 +8,7 @@
         /// <value>
         /// The is success.
         /// </value>
-        public string IsSuccess { get; set; }
+        public bool IsSuccess { get; set; }
 
         /// <summary>
         /// Gets or sets the message.
