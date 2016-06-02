@@ -14,9 +14,21 @@ namespace ProjectConsultants.Controllers
     {
         // GET: SB3
 
-        public ActionResult SB3()
+        public async Task<ActionResult> SB3()
         {
-            return View();
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://localhost:64468/");
+            HttpResponseMessage responseMessage = await client.GetAsync("api/Examination/GetQuestions");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var responseData = responseMessage.Content.ReadAsStringAsync().Result;
+
+                var questions = JsonConvert.DeserializeObject<List<Questions>>(responseData);
+
+                return View();
+            }
+            return View("SB3", "SB3");
         }
     }
 }

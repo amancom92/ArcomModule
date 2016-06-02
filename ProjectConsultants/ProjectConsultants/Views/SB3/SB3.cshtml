@@ -1,4 +1,4 @@
-﻿
+﻿@model ProjectConsultants.Entity.Questions
 @{
     Layout = null;
 }
@@ -21,7 +21,7 @@
     </div>
     <div class="maincontent">
        <div class="content">
-         <h3 style="margin-top:20px">Mode--</h3><a href="#">List View</a>  <a href="#">Single </a>
+           <input type="button" id="mode" value="Mode" /> <a href="#" hidden>ListView</a><a href="#" hidden> Single</a>     
        </div>
 
         <div class="sidebar">
@@ -51,6 +51,9 @@
 
                 $(".splitscreen").addClass("autoselect");
             });
+            $("#mode").click(function () {
+                $(".content > a").show();
+            })
             $(".relate").click(function () {
                 $("div.sidebar > a").removeClass("autoselect");
                 $(".content").html("<h2>Related Content Link under Process</h2>");
