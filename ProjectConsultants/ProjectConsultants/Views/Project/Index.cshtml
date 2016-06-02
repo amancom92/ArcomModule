@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using System.Web.Optimization
-@model ProjectConsultants.UI.ViewModel.ProjectInformationViewModel
 <div class="body bodytop">
  
 
@@ -16,14 +14,14 @@
 
     <div class="pageInnerWidth">
         <div class="buttonWidth" id="btnalignment">
-            <button type="button" id="btngi" class="buttonSize hideeng" autofocus>General Information</button>
-            <button type="button" id="btnpp" class="buttonSize hideenp">Project Participants</button>
+           
+            @Html.ActionLink("General Information", "Index", "Project", new { @class = "buttonSize" })
+            @Html.ActionLink("Project Participants", "Participants", "Project",new {@class= "buttonSize" })            
             <button type="button" id="btnci" class="buttonSize hidee">Code Information</button>
             <button type="button" id="btndi" class="buttonSize hidee">Design Information</button>
             <button type="button" id="btnpd" class="buttonSize hidee">Project Defaults</button>
             <button type="button" id="btnpt" class="buttonSize hidee">Project Tracking</button>
-            <button type="button" id="btncp" class="buttonSize hidee">Completion Progress</button>
-            <button type="button" id="btnsf" class="buttonSize hidee">Section Formatting</button>
+            <button type="button" id="btncp" class="buttonSize hidee">Completion Progress</button>           
         </div>
 
         @*<div id="line"></div>*@
@@ -135,66 +133,6 @@
             </div><!-- col-sm-9 -->
         }
         <div id="temprory"></div>
-
- @*Project Participants*@
-
-        <div class="formWidth" id="participants">
-            <div class="formHeading">
-                <h2 id="headingMargin">Project Participants</h2>
-            </div>
-
-            <table class="table-bordered">
-               
-                <tr>
-
-                    <th>
-                        UserName(Email)
-                    </th>
-                    <th>
-                        FirstName
-                    </th>
-                    <th>
-                        LastName
-                    </th>
-                    <th>
-                        LastName
-                    </th>
-                    <th>
-                        Project Administrator
-                    </th>
-                    <th>
-                        Specifier
-                    </th>
-                    <th>
-                        Reviewer
-                    </th>
-                </tr>
-                <tr>
-
-                    <th>
-                        UserName(Email)
-                    </th>
-                    <th>
-                        FirstName
-                    </th>
-                    <th>
-                        LastName
-                    </th>
-                    <th>
-                        LastName
-                    </th>
-                    <th>
-                        Project Administrator
-                    </th>
-                    <th>
-                        Specifier
-                    </th>
-                    <th>
-                        Reviewer
-                    </th>
-                </tr>
-                    
-</table>
         </div>
     </div><!-- row-->
         </div><!-- body -->

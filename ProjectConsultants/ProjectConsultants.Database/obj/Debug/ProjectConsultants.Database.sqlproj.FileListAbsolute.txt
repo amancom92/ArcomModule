@@ -1,0 +1,5 @@
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dacpac
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.dll
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.Database\bin\Debug\ProjectConsultants.Database.pdb
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.dll
+C:\Users\13090\Documents\ArcomModule\ProjectConsultants\ProjectConsultants.Database\obj\Debug\ProjectConsultants.Database.pdb

@@ -9,9 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace ProjectConsultants.Api.Controllers
-{
-    
-
+{    
        public class UserController : BaseController
     {
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
@@ -34,17 +32,11 @@ namespace ProjectConsultants.Api.Controllers
                 user.IsActive = true;
                 user.CreatedBy = Convert.ToInt32(register.UserId);
                 user.CreatedOn = DateTime.Now;
-                user.UpdatedOn = DateTime.Now;
-
-
-                
-
+                user.UpdatedOn = DateTime.Now;               
                 if (ModelState.IsValid)
                 {
                     var newuser = new UserManager().Add(user);
                     return Request.CreateResponse(newuser);
-
-
                 }
                 else
                 {
@@ -62,11 +54,7 @@ namespace ProjectConsultants.Api.Controllers
 
         [HttpGet]
         public HttpResponseMessage IsEmailValidate(string email)
-        {
-
-           
-
-
+        {         
             try
             {
                 var response = new HttpResponseMessage();
@@ -79,22 +67,13 @@ namespace ProjectConsultants.Api.Controllers
                 {
                     ModelState.AddModelError("Error", "sorry!something went wrong");
                 }
-
             }
             catch (Exception ex)
             {
                 throw ex;
-
             }
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
-
-
-
-
-
-
-
         /// <summary>
         /// Changes the password.
         /// </summary>

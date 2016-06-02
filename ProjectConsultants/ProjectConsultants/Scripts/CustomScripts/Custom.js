@@ -13,16 +13,13 @@ $(document).ready(function () {
     });
 
 
-    $(".hidee").click(function () {
-        $("#temprory").show();
+    $(".hidee").click(function () {       
         $("#generalInfo").hide();
-        $("#temprory").html("<h2>Under Maintenance</h2>");
-
-        $("#generalInfo").hide();
+        $("#temprory").html("<h2>Under Maintenance</h2>");       
         $("#participants").hide();
     });  
-});
-$(document).ready(function () {
+
+
 $(".hideenp").click(function () {  
     $("#btnci").hide();
     $("#btncp").hide();
@@ -45,7 +42,7 @@ $(".hideeng").click(function () {
     $("#participants").hide();
 });
 
-    });
+   
 
     // menu hide and show
     $('.menuDropdown').off().on().click(function () {
@@ -87,15 +84,38 @@ $(".hideeng").click(function () {
     });
 
 
+// Project Participants 
+
+    $("#jqGrid").jqGrid({
+        url: "/Project/Participants",       
+        mtype: 'Get',
+        colNames: ['UserName(Email)', 'First Name', 'Last Name', 'Project Administrator', 'Specifier', 'Reviewer'],
+        colModel: [            
+                 { name: "Email", label: "Email" },
+                 { name: "FirstName", label: "FirstName" },
+                 { name: "LastName", lable: "LastName" },
+                 { name: "Active", label: "Specifier", formatter: "checkbox", width: "40px" },
+            ],
+           
+        pager: jQuery('#jqControls'),
+        rowNum: 10,
+        rowList: [10, 20, 30, 40, 50],
+        height: '100%',
+        viewrecords: true,
+        emptyrecords: 'No records are available to display.',
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total",
+            records: "records",
+            repeatitems: false,
+            Id: "0"
+        },
+        autowidth: true,
+        multiselect: false
+    });
 });
 
-
-//$(document).ready(function () {
-//    $('li.navlist').click(function () {
-//        $('li.navlist a').removeClass("active");
-//        $(this).addClass("active");
-//    });
-//});
 
 
 

@@ -16,11 +16,7 @@ namespace ProjectConsultants.Controllers
         log4net.ILog log = log4net.LogManager.GetLogger(typeof(UserController));
 
         #region Registration
-
-        //    private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-        //(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
-
+            
         // GET: Registration
 
         /// <summary>
@@ -72,14 +68,31 @@ namespace ProjectConsultants.Controllers
             return View(register);
         }
 
-        
-        
+        /// <summary>
+        /// Emails the database validation.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+        //for email vaildation if it already exist in database
+        [HttpGet]
 
+        public JsonResult EmailDbValidation(string email)
+        {
+            try
+            {
+                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
+                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
+                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+
+            }
+        }
         #endregion Registration
 
         #region Change Password
-
-
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -94,7 +107,6 @@ namespace ProjectConsultants.Controllers
 
             return View();
         }
-
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -118,48 +130,14 @@ namespace ProjectConsultants.Controllers
                     }
                 }
             }
-
             catch (Exception ex)
             {
                 log.Error(ex.ToString());
             }
 
-                return View(changePasswordViewModel);
-            
+                return View(changePasswordViewModel);            
         }
-
-        /// <summary>
-        /// Emails the database validation.
-        /// </summary>
-        /// <param name="email">The email.</param>
-        /// <returns></returns>
-      //for email vaildation if it already exist in database
-        [HttpGet]
-
-        public JsonResult EmailDbValidation(string email)
-        {
-            try
-            {
-                HttpResponseMessage response = GetServiceResponse("api/User/IsEmailValidate?email=" + email);
-                var isEmailExists = response.Content.ReadAsAsync<bool>().Result;
-                return Json(isEmailExists, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(false, JsonRequestBehavior.AllowGet);
-
-
-            }
-
-           
-        }
-
-
-        #endregion Change Password
-
-
-
-
+        #endregion Change Password  
     }
 }
 

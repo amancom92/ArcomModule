@@ -18,7 +18,6 @@ namespace ProjectConsultants.DataAccess
                 return loginDetail;
             }
         }
-
         /// <summary>
         /// Changes the password.
         /// </summary>
@@ -54,7 +53,6 @@ namespace ProjectConsultants.DataAccess
                 return userdetails;
             }
         }
-
         /// <summary>
         /// Validates the email.
         /// </summary>
@@ -68,6 +66,5 @@ namespace ProjectConsultants.DataAccess
                 return emailValidate != null ? false : true;
             }
         }
-
     }
 }
