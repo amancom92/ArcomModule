@@ -67,3 +67,7 @@ ProjectConsultants/ProjectConsultants.Common/obj/
 ProjectConsultants/ProjectConsultants.Common/bin/
 ProjectConsultants/ProjectConsultants/LogErorrs/
 ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.dbmdl
+ProjectConsultants/ProjectConsultants.Action/ProjectConsultants.Action.csproj.user
+ProjectConsultants/ProjectConsultants.Common/Properties/AssemblyInfo.cs
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user
