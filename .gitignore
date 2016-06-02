@@ -70,7 +70,14 @@ ProjectConsultants/ProjectConsultants/Content/Images/arcom-one-small.png
 ProjectConsultants/ProjectConsultants/LogErorrs/loA.D.20160531.txt
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160601.txt
 
+
 ProjectConsultants/ProjectConsultants.Database/obj/
 ProjectConsultants/ProjectConsultants.Database/bin/
 ProjectConsultants/ProjectConsultants.Common/bin/Debug/ProjectConsultants.Common.dll
+
+
+ProjectConsultants/ProjectConsultants.Common/Properties/AssemblyInfo.cs
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj
+ProjectConsultants/ProjectConsultants.Database/ProjectConsultants.Database.sqlproj.user
+
 ProjectConsultants/ProjectConsultants/LogErorrs/Log20160602.txt

@@ -4,12 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+
     <ProjectGuid>{CAE9CE33-28A1-43C8-8B9C-764BCD745515}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectConsultants.Common</RootNamespace>
     <AssemblyName>ProjectConsultants.Common</AssemblyName>
+
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Logger.cs" />
     <Compile Include="MessageHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

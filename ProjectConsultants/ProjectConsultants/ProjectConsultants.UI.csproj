@@ -150,10 +150,15 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
+
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="logger.config" />
+
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\menu-icon.PNG" />
+    
     <None Include="Properties\PublishProfiles\Publish_Client.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Content\Images\logo.png" />
@@ -170,7 +175,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+
     <Content Include="Views\Home\Index.cshtml" />
+
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
@@ -216,6 +223,7 @@
     <Content Include="Views\Project\Temp.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
+
     <Content Include="Views\SB3\SB3.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +237,10 @@
     <ProjectReference Include="..\ProjectConsultants.DataAccess\ProjectConsultants.DataAccess.csproj">
       <Project>{FE33EB0C-2C6B-4D88-BDEF-DAFC5B14F302}</Project>
       <Name>ProjectConsultants.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectConsultants.Entity\ProjectConsultants.Entity.csproj">
+      <Project>{6B2B3A9D-D107-44AC-916D-26FE0BF6F88D}</Project>
+      <Name>ProjectConsultants.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectConsultants.UI.ViewModel\ProjectConsultants.UI.ViewModel.csproj">
       <Project>{6cfb4c75-e8b8-4e33-98f7-a8f4b5a687b2}</Project>
